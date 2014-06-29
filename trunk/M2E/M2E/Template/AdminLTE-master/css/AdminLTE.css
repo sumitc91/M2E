@@ -211,8 +211,17 @@ img {
   background-color: #39cccc !important;
 }
 .bg-olive {
-  background-color: #3d9970 !important;
+  background-color: #0571a6 !important;
 }
+
+
+.bg-olive:hover {
+    background: -moz-linear-gradient(center top , #73aec9 0px, #73aec9 1px, #338ab0 1px, #0571a6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-color: #045a8b;
+    color: #fff !important;
+}
+
+
 .bg-lime {
   background-color: #01ff70 !important;
 }
@@ -2278,7 +2287,7 @@ Component: timeline
   border-top-right-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  background: #3d9970;
+  background: #367fa9;
   box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.2);
   padding: 20px 10px;
   text-align: center;
@@ -2289,7 +2298,7 @@ Component: timeline
 .form-box .body,
 .form-box .footer {
   padding: 10px 20px;
-  background: #fff;
+  background: #e9e9e9;
   color: #444;
 }
 .form-box .body > .form-group,

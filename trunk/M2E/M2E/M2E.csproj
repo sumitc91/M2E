@@ -129,9 +129,13 @@
     <Content Include="App\js\jquery.min.js" />
     <Content Include="App\js\nprogress.js" />
     <Content Include="App\Pages\BeforeLogin\Controller\beforeLoginApp.js" />
+    <Content Include="App\Pages\BeforeLogin\Controller\common\CookieService.js" />
+    <Content Include="App\Pages\BeforeLogin\Controller\common\CookieServiceAfterLogin.js" />
+    <Content Include="App\Pages\BeforeLogin\Controller\common\CookieServiceClientView.js" />
     <Content Include="App\Pages\BeforeLogin\Index\Index.html" />
     <Content Include="App\Pages\BeforeLogin\Login\Login.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpClient\SignUpClient.html" />
+    <Content Include="App\Pages\BeforeLogin\SignUpClient\signUpClientController.js" />
     <Content Include="App\Pages\BeforeLogin\SignUpUser\SignUpUser.html" />
     <Content Include="Global.asax" />
     <Content Include="Template\AdminLTE-master\css\AdminLTE.css" />

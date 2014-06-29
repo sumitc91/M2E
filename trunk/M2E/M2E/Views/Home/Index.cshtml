@@ -9,7 +9,7 @@
         <title>AdminLTE | Dashboard</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
-        <link href="../../Template/AdminLTE-master/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../Template/AdminLTE-master/css/bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- font Awesome -->
         <link href="../../Template/AdminLTE-master/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <!-- Ionicons -->
@@ -26,6 +26,9 @@
         <script src='../../App/js/nprogress.js'></script>
         <script src="../../App/js/jquery.blockUI.js"></script>
         <script src="../../App/js/jquery.cookie.js"></script>
+        
+        <script src="../../App/Pages/BeforeLogin/SignUpClient/signUpClientController.js" type="text/javascript"></script>
+        <script src="../../App/Pages/BeforeLogin/Controller/common/CookieService.js" type="text/javascript"></script>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,8 +42,34 @@
         <header class="header">
             
             <!-- Header Navbar: style can be found in header.less -->
-            <nav role="navigation" class="navbar navbar-static-top" style="margin-left: 0;">
-                <!-- Sidebar toggle button-->                                
+            <nav role="navigation" class="navbar navbar-static-top-header" style="margin-left: 0;">
+                <!-- Sidebar toggle button-->
+                
+                
+            <div class="container">
+            <div class="navbar-header">
+@*                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>*@
+                <a class="navbar-brand-logo googleAnalytics" href="#" ga-category="BeforeLogin" ga-event="CompanyLogo" ga-label="Click"><img src="../../Template/AdminLTE-master/img/zestorkLogo.gif" alt="Logo" width="125" height="39" /></a>
+            </div>
+            <div class="navbar-collapse in">
+                
+                <div class="navbar-form navbar-right googleAnalytics" ga-category="BeforeLogin" ga-event="Login" ga-label="web" method="post" action="/Account/Login/web">
+
+                    <a class="googleAnalytics" href="#" ga-category="BeforeLogin" ga-event="What is M2E" ga-label="LinkClick"><span style="color: #b7b7b7; line-height: -1px; font-size: 16px; font-weight: bold;">What is Made2Earn?</span></a>
+                    <a class="googleAnalytics" href="#/login" ga-category="BeforeLogin" ga-event="Sign In Link Clicked" ga-label="LinkClick"><span style="color: #b7b7b7; margin-left: 20px; line-height: -1px; font-size: 16px; font-weight: bold;">Sign In</span></a>
+
+                </div>
+            </div>
+
+
+        </div>
+                
+                
+                                                
             </nav>
         </header>
         <div class="wrapper row-offcanvas row-offcanvas-left" style="min-height: 317px;" ng-view>

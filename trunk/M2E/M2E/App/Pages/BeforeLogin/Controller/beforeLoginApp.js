@@ -4,10 +4,10 @@ var BeforeLoginApp = angular.module('BeforeLoginApp', ['ngCookies']);
 BeforeLoginApp.config(function ($routeProvider) {
 
     $routeProvider.when("/", { templateUrl: "../../App/Pages/BeforeLogin/Index/Index.html" }).
-                   when("/signup/user/:ref", { templateUrl: "../../Resource/templates/beforeLogin/contentView/signupuser.html" }).
-                   when("/signup/client/:ref", { templateUrl: "../../Resource/templates/beforeLogin/contentView/signupclient.html" }).
-                   when("/signup/user", { templateUrl: "../../Resource/templates/beforeLogin/contentView/signupuser.html" }).
-                   when("/signup/client", { templateUrl: "../../Resource/templates/beforeLogin/contentView/signupclient.html" }).
+                   when("/signup/user/:ref", { templateUrl: "../../App/Pages/BeforeLogin/SignUpUser/SignUpUser.html" }).
+                   when("/signup/client/:ref", { templateUrl: "../../App/Pages/BeforeLogin/SignUpClient/SignUpClient.html" }).
+                   when("/signup/user", { templateUrl: "../../App/Pages/BeforeLogin/SignUpUser/SignUpUser.html" }).
+                   when("/signup/client", { templateUrl: "../../App/Pages/BeforeLogin/SignUpClient/SignUpClient.html" }).
                    when("/login", { templateUrl: "../../App/Pages/BeforeLogin/Login/Login.html" }).
                    when("/login/:code", { templateUrl: "../../Resource/templates/beforeLogin/contentView/ajax/signInTemplate.html" }).
                    when("/facebookLogin/:userType", { templateUrl: "../../Resource/templates/beforeLogin/contentView/facebookLogin.html" }).
@@ -37,3 +37,22 @@ BeforeLoginApp.run(function ($rootScope, $location) { //Insert in the function d
 });
 
 
+function loadjscssfile(filename, filetype) {
+    var fileref = "";
+    if (filetype == "js") { //if filename is a external JavaScript file
+        fileref = document.createElement('script');
+        fileref.setAttribute("type", "text/javascript");
+        fileref.setAttribute("src", filename);
+    }
+    else if (filetype == "css") { //if filename is an external CSS file
+        fileref = document.createElement("link");
+        fileref.setAttribute("rel", "stylesheet");
+        fileref.setAttribute("type", "text/css");
+        fileref.setAttribute("href", filename);
+    }
+    if (typeof fileref != "undefined")
+        document.getElementsByTagName("head")[0].appendChild(fileref);
+}
+
+//loadjscssfile("../../App/Pages/BeforeLogin/SignUpClient/signUpClientController.js", "js"); //dynamically load and add this .js file
+//loadjscssfile("../../App/Pages/BeforeLogin/Controller/common/CookieService.js", "js"); 
