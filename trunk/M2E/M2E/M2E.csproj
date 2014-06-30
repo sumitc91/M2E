@@ -342,6 +342,7 @@
     <Content Include="Template\AdminLTE-master\img\user-bg.png" />
     <Content Include="Template\AdminLTE-master\img\user.jpg" />
     <Content Include="Template\AdminLTE-master\img\user2.jpg" />
+    <Content Include="Template\AdminLTE-master\img\zestorkLogo.gif" />
     <Content Include="Template\AdminLTE-master\index.html" />
     <Content Include="Template\AdminLTE-master\js\AdminLTE\app.js" />
     <Content Include="Template\AdminLTE-master\js\AdminLTE\dashboard.js" />
