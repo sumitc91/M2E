@@ -122,10 +122,15 @@
     <Content Include="App\js\jquery.cookie.js" />
     <Content Include="App\js\jquery.min.js" />
     <Content Include="App\Pages\BeforeLogin\Controller\beforeLoginApp.js" />
+    <Content Include="App\Pages\BeforeLogin\Controller\common\CookieService.js" />
+    <Content Include="App\Pages\BeforeLogin\Controller\common\CookieServiceAfterLogin.js" />
+    <Content Include="App\Pages\BeforeLogin\Controller\common\CookieServiceClientView.js" />
+    <Content Include="App\Pages\BeforeLogin\Index\index.js" />
     <Content Include="App\Pages\BeforeLogin\Index\Index.html" />
     <Content Include="App\Pages\BeforeLogin\Login\Login.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpClient\SignUpClient.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpUser\SignUpUser.html" />
+    <Content Include="App\Property\m2eProperties.js" />
     <Content Include="Global.asax" />
     <Content Include="Template\AdminLTE-master\.gitignore" />
     <Content Include="Template\AdminLTE-master\css\AdminLTE.css" />
@@ -675,7 +680,6 @@
   <ItemGroup>
     <Folder Include="App\css\" />
     <Folder Include="App\Pages\AfterLogin\" />
-    <Folder Include="App\Pages\BeforeLogin\Controller\common\" />
     <Folder Include="App\third-Party\" />
     <Folder Include="App_Data\" />
     <Folder Include="DAO\" />
