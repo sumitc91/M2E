@@ -126,6 +126,7 @@
     <Content Include="App\Pages\BeforeLogin\Controller\common\CookieService.js" />
     <Content Include="App\Pages\BeforeLogin\Controller\common\CookieServiceAfterLogin.js" />
     <Content Include="App\Pages\BeforeLogin\Controller\common\CookieServiceClientView.js" />
+    <Content Include="App\Pages\BeforeLogin\FAQ\FAQ.html" />
     <Content Include="App\Pages\BeforeLogin\Index\index.js" />
     <Content Include="App\Pages\BeforeLogin\Index\Index.html" />
     <Content Include="App\Pages\BeforeLogin\Login\Login.html" />
