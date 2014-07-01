@@ -321,6 +321,7 @@
     <Content Include="Template\AdminLTE-master\img\bootstrap-colorpicker\hue-horizontal.png" />
     <Content Include="Template\AdminLTE-master\img\bootstrap-colorpicker\hue.png" />
     <Content Include="Template\AdminLTE-master\img\bootstrap-colorpicker\saturation.png" />
+    <Content Include="Template\AdminLTE-master\img\ClientPresentation2.gif" />
     <Content Include="Template\AdminLTE-master\img\credit\american-express.png" />
     <Content Include="Template\AdminLTE-master\img\credit\cirrus.png" />
     <Content Include="Template\AdminLTE-master\img\credit\mastercard.png" />
@@ -337,6 +338,7 @@
     <Content Include="Template\AdminLTE-master\img\user-bg.png" />
     <Content Include="Template\AdminLTE-master\img\user.jpg" />
     <Content Include="Template\AdminLTE-master\img\user2.jpg" />
+    <Content Include="Template\AdminLTE-master\img\UserPresentation2.gif" />
     <Content Include="Template\AdminLTE-master\img\zestorkLogo.gif" />
     <Content Include="Template\AdminLTE-master\index.html" />
     <Content Include="Template\AdminLTE-master\js\AdminLTE\app.js" />
