@@ -1,0 +1,1 @@
+var logoImage = "../../Template/AdminLTE-master/img/m2eV3.png";
