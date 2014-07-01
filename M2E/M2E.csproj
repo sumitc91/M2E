@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1F61D4A5-B5A6-4F61-B28B-EC23753608BF}</ProjectGuid>
+    <ProjectGuid>{155E1871-D59C-45E8-92D5-586D7E21F764}</ProjectGuid>
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -15,12 +15,6 @@
     <AssemblyName>M2E</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,79 +35,72 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes">
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http">
-      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Net.Http.Formatting">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Net.Http.WebRequest">
-      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
-    <Reference Include="System.Web.Helpers">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Http">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Mvc">
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Razor">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Web.Routing" />
-    <Reference Include="System.Web.WebPages">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor">
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -126,7 +113,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="App\css\nprogress.css" />
     <Content Include="App\js\angular-cookies.js" />
     <Content Include="App\js\angular-cookies.min.js" />
     <Content Include="App\js\angular.js" />
@@ -135,17 +121,13 @@
     <Content Include="App\js\jquery.blockUI.js" />
     <Content Include="App\js\jquery.cookie.js" />
     <Content Include="App\js\jquery.min.js" />
-    <Content Include="App\js\nprogress.js" />
     <Content Include="App\Pages\BeforeLogin\Controller\beforeLoginApp.js" />
-    <Content Include="App\Pages\BeforeLogin\Controller\common\CookieService.js" />
-    <Content Include="App\Pages\BeforeLogin\Controller\common\CookieServiceAfterLogin.js" />
-    <Content Include="App\Pages\BeforeLogin\Controller\common\CookieServiceClientView.js" />
     <Content Include="App\Pages\BeforeLogin\Index\Index.html" />
     <Content Include="App\Pages\BeforeLogin\Login\Login.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpClient\SignUpClient.html" />
-    <Content Include="App\Pages\BeforeLogin\SignUpClient\signUpClientController.js" />
     <Content Include="App\Pages\BeforeLogin\SignUpUser\SignUpUser.html" />
     <Content Include="Global.asax" />
+    <Content Include="Template\AdminLTE-master\.gitignore" />
     <Content Include="Template\AdminLTE-master\css\AdminLTE.css" />
     <Content Include="Template\AdminLTE-master\css\bootstrap-slider\slider.css" />
     <Content Include="Template\AdminLTE-master\css\bootstrap-wysihtml5\bootstrap3-wysihtml5.css" />
@@ -319,9 +301,6 @@
     <Content Include="Template\AdminLTE-master\css\timepicker\bootstrap-timepicker.css" />
     <Content Include="Template\AdminLTE-master\css\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Template\AdminLTE-master\empty.html" />
-    <Content Include="Template\AdminLTE-master\fonts\fontawesome-webfont.svg" />
-    <Content Include="Template\AdminLTE-master\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Template\AdminLTE-master\fonts\ionicons.svg" />
     <Content Include="Template\AdminLTE-master\img\ajax-loader.gif" />
     <Content Include="Template\AdminLTE-master\img\ajax-loader1.gif" />
     <Content Include="Template\AdminLTE-master\img\avatar.png" />
@@ -694,7 +673,9 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\css\" />
     <Folder Include="App\Pages\AfterLogin\" />
+    <Folder Include="App\Pages\BeforeLogin\Controller\common\" />
     <Folder Include="App\third-Party\" />
     <Folder Include="App_Data\" />
     <Folder Include="DAO\" />
@@ -702,68 +683,62 @@
     <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Template\AdminLTE-master\.gitignore" />
-    <Content Include="Template\AdminLTE-master\ajax\dashboard-boxrefresh-demo.php" />
-    <Content Include="Template\AdminLTE-master\css\.DS_Store" />
-    <Content Include="Template\AdminLTE-master\css\iCheck\.DS_Store" />
-    <Content Include="Template\AdminLTE-master\fonts\fontawesome-webfont.eot" />
-    <Content Include="Template\AdminLTE-master\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Template\AdminLTE-master\fonts\fontawesome-webfont.woff" />
-    <Content Include="Template\AdminLTE-master\fonts\FontAwesome.otf" />
-    <Content Include="Template\AdminLTE-master\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Template\AdminLTE-master\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Template\AdminLTE-master\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Template\AdminLTE-master\fonts\ionicons.eot" />
-    <Content Include="Template\AdminLTE-master\fonts\ionicons.ttf" />
-    <Content Include="Template\AdminLTE-master\fonts\ionicons.woff" />
-    <Content Include="Template\AdminLTE-master\img\.DS_Store" />
-    <Content Include="Template\AdminLTE-master\js\.DS_Store" />
-    <Content Include="Template\AdminLTE-master\js\plugins\ckeditor\CHANGES.md" />
-    <Content Include="Template\AdminLTE-master\js\plugins\ckeditor\LICENSE.md" />
-    <Content Include="Template\AdminLTE-master\js\plugins\ckeditor\plugins\scayt\LICENSE.md" />
-    <Content Include="Template\AdminLTE-master\js\plugins\ckeditor\plugins\scayt\README.md" />
-    <Content Include="Template\AdminLTE-master\js\plugins\ckeditor\plugins\wsc\LICENSE.md" />
-    <Content Include="Template\AdminLTE-master\js\plugins\ckeditor\plugins\wsc\README.md" />
-    <Content Include="Template\AdminLTE-master\js\plugins\ckeditor\README.md" />
-    <Content Include="Template\AdminLTE-master\js\plugins\ckeditor\skins\moono\readme.md" />
-    <Content Include="Template\AdminLTE-master\js\plugins\input-mask\phone-codes\phone-be.json" />
-    <Content Include="Template\AdminLTE-master\js\plugins\input-mask\phone-codes\phone-codes.json" />
-    <Content Include="Template\AdminLTE-master\js\plugins\jqueryKnob\.DS_Store" />
-    <Content Include="Template\AdminLTE-master\js\plugins\jvectormap\.DS_Store" />
-    <Content Include="Template\AdminLTE-master\js\plugins\slimScroll\slimScroll.jquery.json" />
-    <Content Include="Template\AdminLTE-master\less\404_500_errors.less" />
-    <Content Include="Template\AdminLTE-master\less\AdminLTE.less" />
-    <Content Include="Template\AdminLTE-master\less\alerts.less" />
-    <Content Include="Template\AdminLTE-master\less\bootstrap-social.less" />
-    <Content Include="Template\AdminLTE-master\less\boxes.less" />
-    <Content Include="Template\AdminLTE-master\less\buttons.less" />
-    <Content Include="Template\AdminLTE-master\less\callout.less" />
-    <Content Include="Template\AdminLTE-master\less\core.less" />
-    <Content Include="Template\AdminLTE-master\less\dropdown.less" />
-    <Content Include="Template\AdminLTE-master\less\forms.less" />
-    <Content Include="Template\AdminLTE-master\less\header.less" />
-    <Content Include="Template\AdminLTE-master\less\iCheck.less" />
-    <Content Include="Template\AdminLTE-master\less\invoice.less" />
-    <Content Include="Template\AdminLTE-master\less\lockscreen.less" />
-    <Content Include="Template\AdminLTE-master\less\login_and_register.less" />
-    <Content Include="Template\AdminLTE-master\less\mailbox.less" />
-    <Content Include="Template\AdminLTE-master\less\mixins.less" />
-    <Content Include="Template\AdminLTE-master\less\navs.less" />
-    <Content Include="Template\AdminLTE-master\less\pace.less" />
-    <Content Include="Template\AdminLTE-master\less\progress-bars.less" />
-    <Content Include="Template\AdminLTE-master\less\sidebar.less" />
-    <Content Include="Template\AdminLTE-master\less\skins.less" />
-    <Content Include="Template\AdminLTE-master\less\small-box.less" />
-    <Content Include="Template\AdminLTE-master\less\timeline.less" />
-    <Content Include="Template\AdminLTE-master\less\vars.less" />
-    <Content Include="Template\AdminLTE-master\LICENSE" />
-    <Content Include="Template\AdminLTE-master\README.md" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Template\AdminLTE-master\ajax\dashboard-boxrefresh-demo.php" />
+    <None Include="Template\AdminLTE-master\fonts\fontawesome-webfont.eot" />
+    <None Include="Template\AdminLTE-master\fonts\fontawesome-webfont.svg" />
+    <None Include="Template\AdminLTE-master\fonts\fontawesome-webfont.ttf" />
+    <None Include="Template\AdminLTE-master\fonts\fontawesome-webfont.woff" />
+    <None Include="Template\AdminLTE-master\fonts\FontAwesome.otf" />
+    <None Include="Template\AdminLTE-master\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Template\AdminLTE-master\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="Template\AdminLTE-master\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Template\AdminLTE-master\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Template\AdminLTE-master\fonts\ionicons.eot" />
+    <None Include="Template\AdminLTE-master\fonts\ionicons.svg" />
+    <None Include="Template\AdminLTE-master\fonts\ionicons.ttf" />
+    <None Include="Template\AdminLTE-master\fonts\ionicons.woff" />
+    <None Include="Template\AdminLTE-master\js\plugins\ckeditor\CHANGES.md" />
+    <None Include="Template\AdminLTE-master\js\plugins\ckeditor\LICENSE.md" />
+    <None Include="Template\AdminLTE-master\js\plugins\ckeditor\plugins\scayt\LICENSE.md" />
+    <None Include="Template\AdminLTE-master\js\plugins\ckeditor\plugins\scayt\README.md" />
+    <None Include="Template\AdminLTE-master\js\plugins\ckeditor\plugins\wsc\LICENSE.md" />
+    <None Include="Template\AdminLTE-master\js\plugins\ckeditor\plugins\wsc\README.md" />
+    <None Include="Template\AdminLTE-master\js\plugins\ckeditor\README.md" />
+    <None Include="Template\AdminLTE-master\js\plugins\ckeditor\skins\moono\readme.md" />
+    <None Include="Template\AdminLTE-master\js\plugins\input-mask\phone-codes\phone-be.json" />
+    <None Include="Template\AdminLTE-master\js\plugins\input-mask\phone-codes\phone-codes.json" />
+    <None Include="Template\AdminLTE-master\js\plugins\slimScroll\slimScroll.jquery.json" />
+    <None Include="Template\AdminLTE-master\less\404_500_errors.less" />
+    <None Include="Template\AdminLTE-master\less\AdminLTE.less" />
+    <None Include="Template\AdminLTE-master\less\alerts.less" />
+    <None Include="Template\AdminLTE-master\less\bootstrap-social.less" />
+    <None Include="Template\AdminLTE-master\less\boxes.less" />
+    <None Include="Template\AdminLTE-master\less\buttons.less" />
+    <None Include="Template\AdminLTE-master\less\callout.less" />
+    <None Include="Template\AdminLTE-master\less\core.less" />
+    <None Include="Template\AdminLTE-master\less\dropdown.less" />
+    <None Include="Template\AdminLTE-master\less\forms.less" />
+    <None Include="Template\AdminLTE-master\less\header.less" />
+    <None Include="Template\AdminLTE-master\less\iCheck.less" />
+    <None Include="Template\AdminLTE-master\less\invoice.less" />
+    <None Include="Template\AdminLTE-master\less\lockscreen.less" />
+    <None Include="Template\AdminLTE-master\less\login_and_register.less" />
+    <None Include="Template\AdminLTE-master\less\mailbox.less" />
+    <None Include="Template\AdminLTE-master\less\mixins.less" />
+    <None Include="Template\AdminLTE-master\less\navs.less" />
+    <None Include="Template\AdminLTE-master\less\pace.less" />
+    <None Include="Template\AdminLTE-master\less\progress-bars.less" />
+    <None Include="Template\AdminLTE-master\less\sidebar.less" />
+    <None Include="Template\AdminLTE-master\less\skins.less" />
+    <None Include="Template\AdminLTE-master\less\small-box.less" />
+    <None Include="Template\AdminLTE-master\less\timeline.less" />
+    <None Include="Template\AdminLTE-master\less\vars.less" />
+    <None Include="Template\AdminLTE-master\LICENSE" />
+    <None Include="Template\AdminLTE-master\README.md" />
+    <None Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -779,11 +754,12 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>4273</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:48085/</IISUrl>
+          <IISUrl>
+          </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
