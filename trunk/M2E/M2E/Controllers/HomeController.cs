@@ -18,11 +18,14 @@ namespace M2E.Controllers
         //
         // GET: /Home/
 
-        private ILogger logger = new Logger(Convert.ToString(MethodBase.GetCurrentMethod().DeclaringType), Convert.ToBoolean(ConfigurationManager.AppSettings["GALogging"]));
+        private ILogger logger = new Logger(Convert.ToString(MethodBase.GetCurrentMethod().DeclaringType));
 
         public ActionResult Index()
         {
-            logger.Info("index page");                        
+            var watch = Stopwatch.StartNew();
+            logger.Info("Home Controller index page");
+            watch.Stop();
+            logger.Info(Convert.ToString(watch.ElapsedMilliseconds) + " - time");       
             return View();
         }
 
