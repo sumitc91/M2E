@@ -27,9 +27,7 @@ BeforeLoginApp.config(function ($routeProvider) {
 
 BeforeLoginApp.run(function ($rootScope, $location) { //Insert in the function definition the dependencies you need.
     
-    $rootScope.$on("$locationChangeStart",function(event, next, current){
-        //Do your things        
-        //var path = $location.path();
+    $rootScope.$on("$locationChangeStart",function(event, next, current){        ;
         gaWeb("BeforeLogin-Page Visited", "Page Visited", next);
         var path = next.split('#');        
         gaPageView(path,'title');            
