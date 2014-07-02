@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GaDotNet.Common, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\GaDotNet.Common.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\log4net.dll</HintPath>
@@ -112,6 +116,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -147,10 +152,12 @@
     <Content Include="App\Pages\BeforeLogin\Login\Login.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpClient\SignUpClient.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpUser\SignUpUser.html" />
+    <Content Include="App\Pages\ClientAfterLogin\Index\index.css" />
     <Content Include="App\Pages\ClientAfterLogin\Index\Index.html" />
     <Content Include="App\Pages\ClientAfterLogin\Index\index.js" />
     <Content Include="App\Property\m2eProperties.js" />
     <Content Include="dll\ASPSnippets.LinkedInAPI.dll" />
+    <Content Include="dll\GaDotNet.Common.dll" />
     <Content Include="dll\log4net.dll" />
     <Content Include="Global.asax" />
     <Content Include="Template\AdminLTE-master\.gitignore" />

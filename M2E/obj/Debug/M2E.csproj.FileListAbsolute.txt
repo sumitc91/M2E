@@ -89,3 +89,4 @@ E:\pcongo_svn\pcongo\trunk\M2E\M2E\obj\Debug\M2E.csprojResolveAssemblyReference.
 E:\pcongo_svn\pcongo\trunk\M2E\M2E\obj\Debug\M2E.dll
 E:\pcongo_svn\pcongo\trunk\M2E\M2E\obj\Debug\M2E.pdb
 F:\pcongo_SVN\trunk\M2E\M2E\bin\log4net.dll
+F:\pcongo_SVN\trunk\M2E\M2E\bin\GaDotNet.Common.dll
