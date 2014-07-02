@@ -15,6 +15,11 @@
     <AssemblyName>M2E</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -306,6 +311,7 @@
     <Content Include="Template\AdminLTE-master\css\jQueryUI\jquery-ui-1.10.3.custom.css" />
     <Content Include="Template\AdminLTE-master\css\jQueryUI\jquery-ui-1.10.3.custom.min.css" />
     <Content Include="Template\AdminLTE-master\css\jvectormap\jquery-jvectormap-1.2.2.css" />
+    <Content Include="Template\AdminLTE-master\css\m2e_footer.css" />
     <Content Include="Template\AdminLTE-master\css\morris\morris.css" />
     <Content Include="Template\AdminLTE-master\css\timepicker\bootstrap-timepicker.css" />
     <Content Include="Template\AdminLTE-master\css\timepicker\bootstrap-timepicker.min.css" />
