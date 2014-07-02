@@ -112,6 +112,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -132,11 +133,12 @@
     <Content Include="App\js\jquery.blockUI.js" />
     <Content Include="App\js\jquery.cookie.js" />
     <Content Include="App\js\jquery.min.js" />
+    <Content Include="App\Pages\ClientAfterLogin\Controller\clientAfterLoginApp.js" />
+    <Content Include="App\Pages\ClientAfterLogin\Controller\common\CookieServiceClientView.js" />
     <Content Include="App\Pages\BeforeLogin\AboutUs\AboutUs.html" />
     <Content Include="App\Pages\BeforeLogin\Controller\beforeLoginApp.js" />
     <Content Include="App\Pages\BeforeLogin\Controller\common\CookieService.js" />
     <Content Include="App\Pages\BeforeLogin\Controller\common\CookieServiceAfterLogin.js" />
-    <Content Include="App\Pages\BeforeLogin\Controller\common\CookieServiceClientView.js" />
     <Content Include="App\Pages\BeforeLogin\FAQ\FAQ.css" />
     <Content Include="App\Pages\BeforeLogin\FAQ\FAQ.html" />
     <Content Include="App\Pages\BeforeLogin\FAQ\FAQ.js" />
@@ -145,6 +147,8 @@
     <Content Include="App\Pages\BeforeLogin\Login\Login.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpClient\SignUpClient.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpUser\SignUpUser.html" />
+    <Content Include="App\Pages\ClientAfterLogin\Index\Index.html" />
+    <Content Include="App\Pages\ClientAfterLogin\Index\index.js" />
     <Content Include="App\Property\m2eProperties.js" />
     <Content Include="dll\ASPSnippets.LinkedInAPI.dll" />
     <Content Include="dll\log4net.dll" />
@@ -699,7 +703,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App\css\" />
-    <Folder Include="App\Pages\AfterLogin\" />
     <Folder Include="App\third-Party\" />
     <Folder Include="App_Data\" />
     <Folder Include="DAO\" />
@@ -762,6 +765,7 @@
     <None Include="Template\AdminLTE-master\less\vars.less" />
     <None Include="Template\AdminLTE-master\LICENSE" />
     <None Include="Template\AdminLTE-master\README.md" />
+    <None Include="Views\Client\Index.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>

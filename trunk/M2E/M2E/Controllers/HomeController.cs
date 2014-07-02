@@ -17,7 +17,7 @@ namespace M2E.Controllers
 
         public ActionResult Index()
         {
-            logger.Info("index page");
+            //logger.Info("index page");
             return View();
         }
 
