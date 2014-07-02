@@ -88,3 +88,4 @@ E:\pcongo_svn\pcongo\trunk\M2E\M2E\bin\System.Web.WebPages.Razor.xml
 E:\pcongo_svn\pcongo\trunk\M2E\M2E\obj\Debug\M2E.csprojResolveAssemblyReference.cache
 E:\pcongo_svn\pcongo\trunk\M2E\M2E\obj\Debug\M2E.dll
 E:\pcongo_svn\pcongo\trunk\M2E\M2E\obj\Debug\M2E.pdb
+F:\pcongo_SVN\trunk\M2E\M2E\bin\log4net.dll
