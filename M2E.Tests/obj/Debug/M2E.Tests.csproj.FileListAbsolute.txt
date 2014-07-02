@@ -61,6 +61,6 @@ F:\pcongo_SVN\trunk\M2E\M2E.Tests\bin\Debug\System.Web.Razor.xml
 F:\pcongo_SVN\trunk\M2E\M2E.Tests\bin\Debug\System.Web.WebPages.xml
 F:\pcongo_SVN\trunk\M2E\M2E.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 F:\pcongo_SVN\trunk\M2E\M2E.Tests\bin\Debug\System.Web.WebPages.Razor.xml
-F:\pcongo_SVN\trunk\M2E\M2E.Tests\obj\Debug\ResolveAssemblyReference.cache
 F:\pcongo_SVN\trunk\M2E\M2E.Tests\obj\Debug\M2E.Tests.dll
 F:\pcongo_SVN\trunk\M2E\M2E.Tests\obj\Debug\M2E.Tests.pdb
+F:\PcOnGo_SVN\trunk\M2E\M2E.Tests\obj\Debug\M2E.Tests.csprojResolveAssemblyReference.cache
