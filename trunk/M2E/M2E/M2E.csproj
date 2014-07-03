@@ -152,6 +152,9 @@
     <Content Include="App\Pages\BeforeLogin\Login\Login.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpClient\SignUpClient.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpUser\SignUpUser.html" />
+    <Content Include="App\Pages\ClientAfterLogin\EditPage\editPage.css" />
+    <Content Include="App\Pages\ClientAfterLogin\EditPage\EditPage.html" />
+    <Content Include="App\Pages\ClientAfterLogin\EditPage\editPage.js" />
     <Content Include="App\Pages\ClientAfterLogin\Index\index.css" />
     <Content Include="App\Pages\ClientAfterLogin\Index\Index.html" />
     <Content Include="App\Pages\ClientAfterLogin\Index\index.js" />

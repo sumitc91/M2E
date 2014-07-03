@@ -1,5 +1,6 @@
 var logoImage = "../../Template/AdminLTE-master/img/m2eV3.png";
 var googleAnalyticsAppID = "UA-51967607-1";
+
 var mobileDevice = detectmob();
 var ipadDevice = detectipad();
 var isAndroidDevice = detectAndroid();
