@@ -22,18 +22,18 @@ namespace M2E.Common.Logger
         {
             this._currentClassName = currentClassName;
             GALoggin = Convert.ToBoolean(ConfigurationManager.AppSettings["GALogging"]);
-            if (!GALoggin)
-            {
-                logger = LogManager.GetLogger(_currentClassName);
-                BasicConfigurator.Configure();
-                log4net.Config.XmlConfigurator.Configure();                
-            }            
+            
+            logger = LogManager.GetLogger(_currentClassName);
+            BasicConfigurator.Configure();
+            log4net.Config.XmlConfigurator.Configure();
+              
+                       
         }
 
         public void Info(string message)
         {
-            if (GALoggin)
-            {
+            if (GALoggin && Convert.ToBoolean(ConfigurationManager.AppSettings["GAInfoLogging"]))
+            {                
                 trackGoogleEvents("Logger-Info", "Info", message);               
             }
             else
@@ -79,8 +79,16 @@ namespace M2E.Common.Logger
         }
 
         private void trackGoogleEvents(string Category, string Action, string Label)
-        {            
-            asyncTrackGoogleEvents(Category, Action, Label); // to make it async call if required..
+        {
+            try
+            {
+                asyncTrackGoogleEvents(Category, Action, Label); // to make it async call if required..
+            }
+            catch (Exception ex)
+            {
+                logger.Fatal("Google Analytics Event Tracking Exception", ex);
+            }
+            
         }
         private void asyncTrackGoogleEvents(string Category, string Action, string Label)
         {
