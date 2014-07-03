@@ -22,10 +22,10 @@ namespace M2E.Controllers
 
         public ActionResult Index()
         {
-            var watch = Stopwatch.StartNew();
-            logger.Info("Home Controller index page");
-            watch.Stop();
-            logger.Info(Convert.ToString(watch.ElapsedMilliseconds) + " - time");       
+            //var watch = Stopwatch.StartNew();
+            //logger.Info("Home Controller index page");
+            //watch.Stop();
+            //logger.Info(Convert.ToString(watch.ElapsedMilliseconds) + " - time");       
             return View();
         }
 
