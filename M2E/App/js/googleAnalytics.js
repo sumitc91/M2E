@@ -8,7 +8,7 @@
         a.src = g;
         m.parentNode.insertBefore(a, m);
     })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-51967607-1', 'auto', { 'cookieDomain': 'none' });
+    ga('create', googleAnalyticsAppID, 'auto', { 'cookieDomain': 'none' });
     ga('require', 'linkid', 'linkid.js');
 })();
 
