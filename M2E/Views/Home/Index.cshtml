@@ -16,8 +16,7 @@
         <link href="../../Template/AdminLTE-master/css/ionicons.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         <link href="../../Template/AdminLTE-master/css/AdminLTE.css" rel="stylesheet" type="text/css" />
-        <!-- Footer style -->
-        <link href="../../Template/AdminLTE-master/css/m2e_footer.css" rel="stylesheet" type="text/css" />
+        <!-- Footer style -->        
         
         <script src="../../App/Property/m2eProperties.js" type="text/javascript"></script>
 
@@ -60,26 +59,27 @@
             </nav>
         </header>
         <div class="wrapper row-offcanvas row-offcanvas-left" style="min-height: 317px;" ng-view>           
-        </div>
+        </div>       
         
-       <div id="ft">
-        <!-- footer -->
-        <div id="ydn-footer">
-          <div class="ydn-footer-row2wrap">
-            <div class="ydn-footer-row2">
-                <ul class="ydn-contact">
-                    <li class="ydn-divider-none"><a href="">Contact us</a></li>
-                    <li class="ydn-divider-left"><a href="">Suggestions</a></li>
-                    <li class="ydn-divider-left"><a href="" id="ydn-bug-report">Report a bug</a></li>
-                    <li class="ydn-divider-left"><a href="">Privacy</a></li>
-                    <li class="ydn-divider-left"><a href="">Terms</a></li>  
-                </ul>
-  
+     <div id="footer">
+         <div class="container">
+             <div class="text-muted credit">
+                 <div style="float: left; margin-left: 0px;font-size: 16px">
+                     <span>©2014  {{beforeLoginFooterCopyRightInfo.companyName}}<a href="{{beforeLoginFooterCopyRightInfo.designedByUrl}}" class="googleAnalytics" ga-category="BeforeLogin" ga-event="DesignedByBottonLink" ga-label="Click">{{beforeLoginFooterCopyRightInfo.designedByText}}</a>.
+                         <span style="margin-left: 10px; padding-left: 10px;"><a href="">Contact us</a></span>
+                         <span style="margin-left: 4px; padding-left: 10px;">|</span>
+                         <span style="margin-left: 4px; padding-left: 10px;"><a href="">FAQ</a></span>
+                         <span style="margin-left: 4px; padding-left: 10px;">|</span>
+                         <span style="margin-left: 4px; padding-left: 10px;"><a id="ydn-bug-report" href="">Report a bug</a></span>
+                         <span style="margin-left: 4px; padding-left: 10px;">|</span>
+                         <span style="margin-left: 4px; padding-left: 10px;"><a href="">Terms & Privacy</a></span>
+                         <span style="margin-left: 4px; padding-left: 10px;">|</span>
+                        <span style="margin-left: 4px; padding-left: 10px;"><a href="">Feedback & Suggestions</a></span> 
+                     </span> 
+                 </div>
+             </div>
          </div>
-        </div>
-        <!-- end footer -->
-        </div>
-       </div>
+    </div>
         <!-- Bootstrap -->
         <script src="../../Template/AdminLTE-master/js/bootstrap.min.js" type="text/javascript"></script>
         <!-- AdminLTE App -->

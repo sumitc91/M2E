@@ -3412,3 +3412,37 @@ fieldset[disabled] .btn-vk.active {
   color: #587ea3;
   background-color: #ffffff;
 }
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+
+/* Set the fixed height of the footer here */
+#footer {
+  /*height: 60px;
+  background-color: #f5f5f5;*/
+    background: -moz-linear-gradient(center top , #f4f4f4 0px, #fbfbfb 100%) repeat scroll 0 0 #f4f4f4;
+    border-top: 1px solid #cbcbcb;
+    margin-top: 6px;
+    padding: 9px -1px;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+#wrap > .container {
+  padding: 60px 15px 0;
+}
+.container .credit {
+  margin: 20px 0;
+    padding-left: 15px;
+  padding-right: 15px;
+
+}
+
+#footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
