@@ -130,10 +130,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App\img\loading\load1.gif" />
     <Content Include="App\js\angular-cookies.js" />
     <Content Include="App\js\angular-cookies.min.js" />
     <Content Include="App\js\angular.js" />
     <Content Include="App\js\angular.min.js" />
+    <Content Include="App\js\toastMessage.js" />
     <Content Include="App\js\googleAnalytics.js" />
     <Content Include="App\js\jquery.blockUI.js" />
     <Content Include="App\js\jquery.cookie.js" />
@@ -160,6 +162,16 @@
     <Content Include="App\Pages\ClientAfterLogin\Index\Index.html" />
     <Content Include="App\Pages\ClientAfterLogin\Index\index.js" />
     <Content Include="App\Property\m2eProperties.js" />
+    <Content Include="App\third-Party\loadOver\loading.png" />
+    <Content Include="App\third-Party\loadOver\loadover.css" />
+    <Content Include="App\third-Party\loadOver\loadover.js" />
+    <Content Include="App\third-Party\toastmessage\css\jquery.toastmessage.css" />
+    <Content Include="App\third-Party\toastmessage\images\close.gif" />
+    <Content Include="App\third-Party\toastmessage\images\error.png" />
+    <Content Include="App\third-Party\toastmessage\images\notice.png" />
+    <Content Include="App\third-Party\toastmessage\images\success.png" />
+    <Content Include="App\third-Party\toastmessage\images\warning.png" />
+    <Content Include="App\third-Party\toastmessage\js\jquery.toastmessage.js" />
     <Content Include="dll\ASPSnippets.LinkedInAPI.dll" />
     <Content Include="dll\GaDotNet.Common.dll" />
     <Content Include="dll\log4net.dll" />
@@ -167,6 +179,7 @@
     <Content Include="Template\AdminLTE-master\.gitignore" />
     <Content Include="Template\AdminLTE-master\css\AdminLTE.css" />
     <Content Include="Template\AdminLTE-master\css\bootstrap-slider\slider.css" />
+    <Content Include="Template\AdminLTE-master\css\bootstrap-switch.css" />
     <Content Include="Template\AdminLTE-master\css\bootstrap-wysihtml5\bootstrap3-wysihtml5.css" />
     <Content Include="Template\AdminLTE-master\css\bootstrap-wysihtml5\bootstrap3-wysihtml5.min.css" />
     <Content Include="Template\AdminLTE-master\css\bootstrap.css" />
@@ -377,6 +390,7 @@
     <Content Include="Template\AdminLTE-master\js\AdminLTE\app.js" />
     <Content Include="Template\AdminLTE-master\js\AdminLTE\dashboard.js" />
     <Content Include="Template\AdminLTE-master\js\AdminLTE\demo.js" />
+    <Content Include="Template\AdminLTE-master\js\bootstrap-switch.js" />
     <Content Include="Template\AdminLTE-master\js\bootstrap.js" />
     <Content Include="Template\AdminLTE-master\js\bootstrap.min.js" />
     <Content Include="Template\AdminLTE-master\js\jquery-ui-1.10.3.js" />
@@ -703,6 +717,7 @@
     <Content Include="Template\AdminLTE-master\pages\UI\sliders.html" />
     <Content Include="Template\AdminLTE-master\pages\UI\timeline.html" />
     <Content Include="Template\AdminLTE-master\pages\widgets.html" />
+    <Content Include="Template\AdminLTE-master\UINotificationSamples.htm" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -714,7 +729,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App\css\" />
-    <Folder Include="App\third-Party\" />
     <Folder Include="App_Data\" />
     <Folder Include="DAO\" />
     <Folder Include="Models\" />
@@ -795,7 +809,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>4273</DevelopmentServerPort>
+          <DevelopmentServerPort>5342</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
