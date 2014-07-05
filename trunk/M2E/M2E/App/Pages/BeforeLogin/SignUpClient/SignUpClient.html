@@ -1,21 +1,24 @@
 ﻿<div class="form-box" id="login-box" ng-controller="signUpClientController">
-    <div class="header">Register New Membership {{type}}</div>
+    <div class="header">Register New Membership</div>
     <form action="../../index.html" method="post">
         <div class="body bg-gray">
             <div class="form-group">
-                <input type="text" name="name" class="form-control" placeholder="Full name">
+                <input type="text" name="name" class="form-control" placeholder="Firstname">
+            </div>
+            <div class="form-group">
+                <input type="text" name="name" class="form-control" placeholder="Lastname">
             </div>
             <div class="form-group">
                 <input type="text" name="userid" class="form-control" placeholder="Email ID">
-            </div>
-            <div class="form-group">
-                <input type="checkbox" name="remember_me">  Want to Register as a Company?
-            </div>
+            </div>            
             <div class="form-group">
                 <input type="password" name="password" class="form-control" placeholder="Password">
             </div>
             <div class="form-group">
                 <input type="password" name="password2" class="form-control" placeholder="Retype password">
+            </div>
+            <div class="form-group">
+                Want to Register as a Company?<div style="float:right"><input type="checkbox" name="sliding_remember_me_checkbox"></div>
             </div>
         </div>
         <div class="footer">                    
