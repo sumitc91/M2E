@@ -3,25 +3,25 @@
     <form action="../../index.html" method="post">
         <div class="body bg-gray">
             <div class="form-group">
-                <input type="text" name="name" class="form-control" placeholder="Firstname">
+                <input type="text" name="name" class="form-control" ng-model="ClientFormData.FirstName" placeholder="Firstname">
             </div>
             <div class="form-group">
-                <input type="text" name="name" class="form-control" placeholder="Lastname">
+                <input type="text" name="name" class="form-control" ng-model="ClientFormData.LastName" placeholder="Lastname">
             </div>
             <div class="form-group">
-                <input type="text" name="userid" class="form-control" placeholder="Email ID">
+                <input type="text" name="userid" class="form-control" ng-model="ClientFormData.EmailId" placeholder="Email ID">
             </div>            
             <div class="form-group">
-                <input type="password" name="password" class="form-control" placeholder="Password">
+                <input type="password" name="password" class="form-control" ng-model="ClientFormData.Password" placeholder="Password">
             </div>
             <div class="form-group">
-                <input type="password" name="password2" class="form-control" placeholder="Retype password">
+                <input type="password" name="password2" class="form-control" ng-model="ClientFormData.ConfirmPassword" placeholder="Retype password">
             </div>
             <div class="form-group">
                 Want to Register as a Company? <div style="float:right"><input type="checkbox" name="sliding_client_company_checkbox"  data-size="small" data-on-text="yes" data-off-text="no"></div>
             </div>
             <div class="form-group" id="client_signup_company_textBox_id">
-                <input type="text" name="userid" class="form-control" placeholder="Company Name">
+                <input type="text" name="userid" class="form-control" ng-model="ClientFormData.CompanyName" placeholder="Company Name">
             </div>
         </div>
         <div class="footer">                    
