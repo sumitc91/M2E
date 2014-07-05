@@ -18,21 +18,17 @@
         <link href="../../Template/AdminLTE-master/css/AdminLTE.css" rel="stylesheet" type="text/css" />
         <!-- Bootstrap switch -->        
         <link href="../../Template/AdminLTE-master/css/bootstrap-switch.css" rel="stylesheet">
-        <!-- toast message -->        
-        <link href="../../App/third-Party/toastmessage/css/jquery.toastmessage.css" rel="stylesheet">
-        <!-- loadover -->        
-        <link href="../../App/third-Party/loadOver/loadover.css" rel="stylesheet">
-        
+        <!-- Footer style -->
+        <link href="../../Template/AdminLTE-master/css/m2e_footer.css" rel="stylesheet" type="text/css" />
+
         <script src="../../App/Property/m2eProperties.js" type="text/javascript"></script>
 
         <script src="../../App/js/jquery.min.js"></script>
         <script src="../../App/js/angular.min.js" type="text/javascript"></script>
         <script src="../../App/Pages/BeforeLogin/Controller/beforeLoginApp.js" type="text/javascript"></script>
         <script src="../../App/js/angular-cookies.js" type="text/javascript"></script>        
-        <script src="../../App/js/googleAnalytics.js" type="text/javascript"></script>
-        <script src="../../App/third-Party/toastmessage/js/jquery.toastmessage.js" type="text/javascript"></script>
-        <script src="../../App/js/toastMessage.js" type="text/javascript"></script>
-        <script src="../../App/third-Party/loadOver/loadover.js" type="text/javascript"></script>            
+        <script src="../../App/js/googleAnalytics.js" type="text/javascript"></script>        
+        <script src="../../App/js/jquery.blockUI.js"></script>
         <script src="../../App/js/jquery.cookie.js"></script>
         		
         <script src="../../App/Pages/BeforeLogin/index/index.js" type="text/javascript"></script>
@@ -47,7 +43,7 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
     </head>
-    <body class="skin-blue" ng-controller="beforeLoginIndex" id="BodyId">
+    <body class="skin-blue" ng-controller="beforeLoginIndex">
         <!-- header logo: style can be found in header.less -->
         <header class="header">            
             <!-- Header Navbar: style can be found in header.less -->
@@ -68,26 +64,23 @@
         </header>
         <div class="wrapper row-offcanvas row-offcanvas-left" style="min-height: 317px;" ng-view>           
         </div>       
-        
-     <div id="footer">
-         <div class="container">
-             <div class="text-muted credit">
-                 <div style="float: left; margin-left: 0px;font-size: 16px">
-                     <span>©2014  {{beforeLoginFooterCopyRightInfo.companyName}}
-                         <span style="margin-left: 10px; padding-left: 10px;"><a href="" class="googleAnalytics" ga-category="BeforeLogin" ga-event="ContactUsBottonLink" ga-label="Click">Contact us</a></span>
-                         <span style="margin-left: 4px; padding-left: 10px;">|</span>
-                         <span style="margin-left: 4px; padding-left: 10px;"><a href="#/faq" class="googleAnalytics" ga-category="BeforeLogin" ga-event="FAQBottonLink" ga-label="Click">FAQ</a></span>
-                         <span style="margin-left: 4px; padding-left: 10px;">|</span>
-                         <span style="margin-left: 4px; padding-left: 10px;"><a href="" class="googleAnalytics" ga-category="BeforeLogin" ga-event="ReportBugBottonLink" ga-label="Click">Report a bug</a></span>
-                         <span style="margin-left: 4px; padding-left: 10px;">|</span>
-                         <span style="margin-left: 4px; padding-left: 10px;"><a href="" class="googleAnalytics" ga-category="BeforeLogin" ga-event="Terms&PrivacyBottonLink" ga-label="Click">Terms & Privacy</a></span>
-                         <span style="margin-left: 4px; padding-left: 10px;">|</span>
-                        <span style="margin-left: 4px; padding-left: 10px;"><a href="" class="googleAnalytics" ga-category="BeforeLogin" ga-event="Feedback&SuggestionsBottonLink" ga-label="Click">Feedback & Suggestions</a></span> 
-                     </span> 
-                 </div>
-             </div>
-         </div>
-    </div>
+
+       <div id="ft">
+        <!-- footer -->
+        <div id="ydn-footer">
+          <div class="ydn-footer-row2wrap">
+            <div class="ydn-footer-row2">
+                <ul class="ydn-contact">
+                    <li class="ydn-divider-none"><a> ©2014  {{beforeLoginFooterCopyRightInfo.companyName}}</a></li>
+                    <li class="ydn-divider-left"><a href="#/contactus" class="googleAnalytics" ga-category="BeforeLogin" ga-event="ContactUsBottonLink" ga-label="Click">Contact us</a></li>
+                    <li class="ydn-divider-left"><a href="#/faq" class="googleAnalytics" ga-category="BeforeLogin" ga-event="FAQBottonLink" ga-label="Click">FAQ's</a></li>
+                    <li class="ydn-divider-left"><a href="" class="googleAnalytics" ga-category="BeforeLogin" ga-event="Terms&PrivacyBottonLink" ga-label="Click">Terms & Privacy</a></li>
+                </ul>
+           </div>
+        </div>
+            <!-- end footer -->
+       </div>
+      </div>
         <!-- Bootstrap -->
         <script src="../../Template/AdminLTE-master/js/bootstrap.min.js" type="text/javascript"></script>
         <!-- Bootstrap Switch-->
