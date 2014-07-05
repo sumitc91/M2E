@@ -1,6 +1,6 @@
 ﻿<div class="form-box" id="login-box" ng-controller="signUpClientController">
     <div class="header">Register New Membership</div>
-    <form action="../../index.html" method="post">
+    <form>
         <div class="body bg-gray">
             <div class="form-group">
                 <input type="text" name="name" class="form-control" ng-model="ClientFormData.FirstName" placeholder="Firstname">
@@ -24,10 +24,8 @@
                 <input type="text" name="userid" class="form-control" ng-model="ClientFormData.CompanyName" placeholder="Company Name">
             </div>
         </div>
-        <div class="footer">                    
-
-            <button type="submit" class="btn bg-olive btn-block">Sign me up</button>
-
+        <div class="footer">                                
+            <button type="submit" ng-click="ClientSignUp()" class="btn bg-olive btn-block">Sign me up</button>                       
             <a href="login.html" class="text-center">I already have a membership</a>
         </div>
     </form>
@@ -39,5 +37,5 @@
         <button class="btn bg-aqua btn-circle"><i class="fa fa-twitter"></i></button>
         <button class="btn bg-red btn-circle"><i class="fa fa-google-plus"></i></button>
 
-    </div>
+    </div>    
 </div>
