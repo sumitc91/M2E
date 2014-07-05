@@ -140,6 +140,7 @@
     <Content Include="App\js\jquery.blockUI.js" />
     <Content Include="App\js\jquery.cookie.js" />
     <Content Include="App\js\jquery.min.js" />
+    <Content Include="App\Pages\BeforeLogin\ContactUs\contactus.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpClient\SignUpClient.js" />
     <Content Include="App\Pages\ClientAfterLogin\Controller\clientAfterLoginApp.js" />
     <Content Include="App\Pages\ClientAfterLogin\Controller\common\CookieServiceClientView.js" />
@@ -347,7 +348,6 @@
     <Content Include="Template\AdminLTE-master\css\jQueryUI\jquery-ui-1.10.3.custom.css" />
     <Content Include="Template\AdminLTE-master\css\jQueryUI\jquery-ui-1.10.3.custom.min.css" />
     <Content Include="Template\AdminLTE-master\css\jvectormap\jquery-jvectormap-1.2.2.css" />
-    <Content Include="Template\AdminLTE-master\css\m2e_footer.css" />
     <Content Include="Template\AdminLTE-master\css\morris\morris.css" />
     <Content Include="Template\AdminLTE-master\css\timepicker\bootstrap-timepicker.css" />
     <Content Include="Template\AdminLTE-master\css\timepicker\bootstrap-timepicker.min.css" />
