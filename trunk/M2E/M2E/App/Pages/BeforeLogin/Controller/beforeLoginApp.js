@@ -27,10 +27,19 @@ BeforeLoginApp.config(function ($routeProvider) {
 
 BeforeLoginApp.run(function ($rootScope, $location) { //Insert in the function definition the dependencies you need.
     
-    $rootScope.$on("$locationChangeStart",function(event, next, current){        ;
+    $rootScope.$on("$locationChangeStart",function(event, next, current){
         gaWeb("BeforeLogin-Page Visited", "Page Visited", next);
         var path = next.split('#');        
-        gaPageView(path,'title');            
+        var contextPath = path[1];
+        gaPageView(path, 'title');
+        if (contextPath == "/signup" || contextPath == "/signup/user") {
+            $rootScope.showSignUpButton = false;
+            $rootScope.showLabelAlreadyRegistered = true;
+        }
+        else {
+            $rootScope.showSignUpButton = true;
+            $rootScope.showLabelAlreadyRegistered = false;
+        }
     });
 });
 
