@@ -1,7 +1,12 @@
 
 BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $routeParams, CookieUtil) {
     $scope.ClientFormData = {
-        
+        FirstName: "",
+        LastMame: "",
+        EmailId: "",
+        Password: "",
+        ConfirmPassword: "",
+        CompanyName:""
     };    
     $('#client_signup_company_textBox_id').hide();
     $("[name='sliding_client_company_checkbox']").bootstrapSwitch();
