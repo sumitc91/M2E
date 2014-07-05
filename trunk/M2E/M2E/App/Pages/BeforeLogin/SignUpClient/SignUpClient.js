@@ -1,9 +1,20 @@
 
-BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $routeParams, CookieUtil) {    
-    $("[name='sliding_remember_me_checkbox']").bootstrapSwitch();
+BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $routeParams, CookieUtil) {
     $scope.ClientFormData = {
         
-    };
+    };    
+    $('#client_signup_company_textBox_id').hide();
+    $("[name='sliding_client_company_checkbox']").bootstrapSwitch();
+    $('input[name="sliding_client_company_checkbox"]').on({        
+        'switchChange.bootstrapSwitch': function (event, state) {                        
+            if ($(this).is(':checked')) {
+                $('#client_signup_company_textBox_id').show();                
+            } else {
+                $('#client_signup_company_textBox_id').hide();                
+            }            
+        }
+    });
+    
 
 });
 
