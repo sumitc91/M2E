@@ -24,8 +24,20 @@ BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $ro
         var checkUserExistsRequestData = {
             userName: 'test'  //need to pass from the calling methods.
         }        
-        var url = ServerContextPah + '/Auth/Login/web';                
-        $.blockUI({ message: '<h1><img src="../../App/img/loading/loading123.gif" /></h1>' });
+        var url = ServerContextPah + '/Auth/Login/web';                        
+        $.blockUI({
+            message: '<h1><img src="../../App/img/loading/loading123.gif" /></h1>',
+            css: {
+                border: 'none',
+                padding: '15px',
+                backgroundColor: '#000',
+                '-webkit-border-radius': '10px',
+                '-moz-border-radius': '10px',
+                opacity: .5,
+                color: '#fff'
+            }
+        });
+        //$.blockUI({ message: '<h1><img src="../../App/img/loading/loading123.gif" /></h1>' });
         $http({
             url: url,
             method: "POST",
