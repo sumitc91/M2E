@@ -1,4 +1,5 @@
-﻿using System;
+﻿using M2E.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,6 +15,15 @@ namespace M2E.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult Login(string id)
+        {
+            var returnUrl = "/";
+            var referral = Request.QueryString["ref"];
+            var response = new ResponseModel<string> {Status = 200, Message = "success", Payload = "1234567890"};
+            return Json(response);
         }
 
     }

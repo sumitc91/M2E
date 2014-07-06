@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="GaDotNet.Common, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>dll\GaDotNet.Common.dll</HintPath>
@@ -50,7 +53,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -124,6 +130,58 @@
     </Compile>
     <Compile Include="Logger\ILogger.cs" />
     <Compile Include="Logger\Logger.cs" />
+    <Compile Include="Models\ClientDetail.cs">
+      <DependentUpon>M2E.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ForgetPassword.cs">
+      <DependentUpon>M2E.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JobData.cs">
+      <DependentUpon>M2E.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LinkedInAuthApiData.cs">
+      <DependentUpon>M2E.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\M2E.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>M2E.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\M2E.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>M2E.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\M2E.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>M2E.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RecommendedBy.cs">
+      <DependentUpon>M2E.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResponseModel.cs" />
+    <Compile Include="Models\ThirdPartyLogin.cs">
+      <DependentUpon>M2E.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>M2E.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserDetail.cs">
+      <DependentUpon>M2E.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserPageSetting.cs">
+      <DependentUpon>M2E.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserRecommendation.cs">
+      <DependentUpon>M2E.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserSkill.cs">
+      <DependentUpon>M2E.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ValidateUserKey.cs">
+      <DependentUpon>M2E.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -135,12 +193,13 @@
     <Content Include="App\js\angular-cookies.min.js" />
     <Content Include="App\js\angular.js" />
     <Content Include="App\js\angular.min.js" />
+    <Content Include="App\js\httpServices.js" />
     <Content Include="App\js\toastMessage.js" />
     <Content Include="App\js\googleAnalytics.js" />
     <Content Include="App\js\jquery.blockUI.js" />
     <Content Include="App\js\jquery.cookie.js" />
     <Content Include="App\js\jquery.min.js" />
-    <Content Include="App\Pages\BeforeLogin\ContactUs\contactus.html" />
+    <Content Include="App\Pages\BeforeLogin\Login\Login.js" />
     <Content Include="App\Pages\BeforeLogin\SignUpClient\SignUpClient.js" />
     <Content Include="App\Pages\ClientAfterLogin\Controller\clientAfterLoginApp.js" />
     <Content Include="App\Pages\ClientAfterLogin\Controller\common\CookieServiceClientView.js" />
@@ -348,6 +407,7 @@
     <Content Include="Template\AdminLTE-master\css\jQueryUI\jquery-ui-1.10.3.custom.css" />
     <Content Include="Template\AdminLTE-master\css\jQueryUI\jquery-ui-1.10.3.custom.min.css" />
     <Content Include="Template\AdminLTE-master\css\jvectormap\jquery-jvectormap-1.2.2.css" />
+    <Content Include="Template\AdminLTE-master\css\m2e_footer.css" />
     <Content Include="Template\AdminLTE-master\css\morris\morris.css" />
     <Content Include="Template\AdminLTE-master\css\timepicker\bootstrap-timepicker.css" />
     <Content Include="Template\AdminLTE-master\css\timepicker\bootstrap-timepicker.min.css" />
@@ -731,13 +791,29 @@
     <Folder Include="App\css\" />
     <Folder Include="App_Data\" />
     <Folder Include="DAO\" />
-    <Folder Include="Models\" />
     <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="Models\M2E.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>M2E.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\M2E.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>M2E.edmx</DependentUpon>
+      <LastGenOutput>M2E.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\M2E.edmx.diagram">
+      <DependentUpon>M2E.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\M2E.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>M2E.edmx</DependentUpon>
+      <LastGenOutput>M2E.cs</LastGenOutput>
+    </Content>
     <None Include="Template\AdminLTE-master\ajax\dashboard-boxrefresh-demo.php" />
     <None Include="Template\AdminLTE-master\fonts\fontawesome-webfont.eot" />
     <None Include="Template\AdminLTE-master\fonts\fontawesome-webfont.svg" />
@@ -793,6 +869,9 @@
     <None Include="Views\Client\Index.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -809,7 +888,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>5342</DevelopmentServerPort>
+          <DevelopmentServerPort>10379</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
