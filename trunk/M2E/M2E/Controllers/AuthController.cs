@@ -23,6 +23,7 @@ namespace M2E.Controllers
             var returnUrl = "/";
             var referral = Request.QueryString["ref"];
             var response = new ResponseModel<string> {Status = 200, Message = "success", Payload = "1234567890"};
+            System.Threading.Thread.Sleep((3000));
             return Json(response);
         }
 

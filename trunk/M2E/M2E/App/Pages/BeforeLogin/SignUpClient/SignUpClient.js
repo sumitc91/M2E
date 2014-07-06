@@ -27,9 +27,12 @@ BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $ro
         var url = ServerContextPah + '/Auth/Login/web';
         var responseData;
         //httpPost(url, checkUserExistsRequestData).done(function (data) { responseData = data; });
+        $('#login-box').loadOverStart();
         
         responseData = httpPost(url, checkUserExistsRequestData);
         console.log("Use ResponseData here " + responseData);
+
+        $('#login-box').loadOverStop();
         //$('#login-box').loadOverStart();
         //$('#login-box').loadOverStop();
     }
