@@ -24,17 +24,19 @@ BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $ro
         var checkUserExistsRequestData = {
             userName: 'test'  //need to pass from the calling methods.
         }        
-        var url = ServerContextPah + '/Auth/Login/web';
-        var responseData;
-        //httpPost(url, checkUserExistsRequestData).done(function (data) { responseData = data; });
-        $('#BodyId').loadOverStart();
-        
-        responseData = httpPost(url, checkUserExistsRequestData);
-        console.log("Use ResponseData here " + responseData);
-
-        $('#BodyId').loadOverStop();
-        //$('#login-box').loadOverStart();
-        //$('#login-box').loadOverStop();
+        var url = ServerContextPah + '/Auth/Login/web';                
+        $.blockUI({ message: '<h1><img src="../../App/img/loading/loading123.gif" /></h1>' });
+        $http({
+            url: url,
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' }
+        }).success(function (data, status, headers, config) {
+            //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
+            $.unblockUI();
+            
+        }).error(function (data, status, headers, config) {
+            
+        });
     }
     
 

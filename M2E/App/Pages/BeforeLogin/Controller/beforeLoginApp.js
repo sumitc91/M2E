@@ -43,7 +43,13 @@ BeforeLoginApp.run(function ($rootScope, $location) { //Insert in the function d
         }
     });
 });
-
+BeforeLoginApp.controller('beforeLoginMasterPageController', function ($scope, $http, $rootScope, CookieUtil) {    
+    $rootScope.logoImage = { url: logoImage };
+    $('title').html("MadeToEarn");
+    $rootScope.beforeLoginFooterCopyRightInfo = {
+        companyName: "MadeToEarn"
+    };
+});
 
 function loadjscssfile(filename, filetype) {
     var fileref = "";
