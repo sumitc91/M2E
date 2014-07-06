@@ -14,8 +14,7 @@ namespace M2E.Common.Logger
 {
     public class Logger : ILogger
     {
-        private string _currentClassName;
-        private string _userName;
+        private string _currentClassName;        
         bool GALoggin;
         ILog logger = null;
         public Logger(string currentClassName)

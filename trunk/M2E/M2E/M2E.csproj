@@ -189,6 +189,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App\img\loading\load1.gif" />
+    <Content Include="App\img\loading\loading.gif" />
+    <Content Include="App\img\loading\loading100x100.gif" />
+    <Content Include="App\img\loading\loading123.gif" />
+    <Content Include="App\img\loading\loading70x70.gif" />
     <Content Include="App\js\angular-cookies.js" />
     <Content Include="App\js\angular-cookies.min.js" />
     <Content Include="App\js\angular.js" />
