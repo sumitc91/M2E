@@ -199,6 +199,7 @@
     <Content Include="App\js\jquery.blockUI.js" />
     <Content Include="App\js\jquery.cookie.js" />
     <Content Include="App\js\jquery.min.js" />
+    <Content Include="App\Pages\BeforeLogin\ContactUs\contactus.html" />
     <Content Include="App\Pages\BeforeLogin\Login\Login.js" />
     <Content Include="App\Pages\BeforeLogin\SignUpClient\SignUpClient.js" />
     <Content Include="App\Pages\ClientAfterLogin\Controller\clientAfterLoginApp.js" />
