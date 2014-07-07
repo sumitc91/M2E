@@ -3,26 +3,27 @@
     <form>
         <div class="body bg-gray">
             <div class="form-group">
-                <input type="text" name="name" class="form-control" ng-model="ClientFormData.FirstName" placeholder="Firstname" required>
-            </div>
-            <div class="form-group">
-                <input type="text" name="name" class="form-control" ng-model="ClientFormData.LastName" placeholder="Lastname" required>
-            </div>
-            <div class="form-group">
-                <input type="text" name="userid" class="form-control" ng-model="ClientFormData.EmailId" placeholder="Email ID" required>
-                <div class="alert alert-danger alert-dismissable" ng-show="EmailIdAlert.visible" style="margin-left: 0;">                                                                               
-                                        {{EmailIdAlert.message}}
-                                    </div>
+                <input type="text" name="name" class="form-control" ng-model="ClientFormData.FirstName" placeholder="Firstname">
             </div>            
             <div class="form-group">
-                <input type="password" name="password" class="form-control" ng-model="ClientFormData.Password" placeholder="Password" required>
+            <div class="form-group">
+                <input type="text" name="name" class="form-control" ng-model="ClientFormData.LastName" placeholder="Lastname">
+            </div>            
+            <div class="form-group">
+                <input type="text" name="userid" class="form-control" ng-model="ClientFormData.EmailId" placeholder="Email ID">                
+            </div>            
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" ng-model="ClientFormData.Password" placeholder="Password">
             </div>
             <div class="form-group">
-                <input type="password" name="password2" class="form-control" ng-model="ClientFormData.ConfirmPassword" placeholder="Retype password" required>
+                <input type="password" name="password2" class="form-control" ng-model="ClientFormData.ConfirmPassword" placeholder="Retype password">
             </div>
-            <div class="alert alert-danger alert-dismissable"  ng-show="PasswordAlert.visible" style="margin-left: 0;">                                                                               
-                                        {{PasswordAlert.message}}
-                                    </div>
+            <ul class="alert alert-danger alert-dismissable"  ng-show="showErrors" style="margin-left: 0;">                                                                               
+                                        <li ng-show="FirstNameAlert.visible">{{FirstNameAlert.message}}</li>
+                                        <li ng-show="LastNameAlert.visible">{{LastNameAlert.message}}</li>
+                                        <li ng-show="EmailIdAlert.visible">{{EmailIdAlert.message}}</li>
+                                        <li ng-show="PasswordAlert.visible">{{PasswordAlert.message}}</li>
+                                    </ul>
             <div class="form-group">
                 Want to Register as a Company? <div style="float:right"><input type="checkbox" name="sliding_client_company_checkbox"  data-size="small" data-on-text="yes" data-off-text="no"></div>
             </div>
