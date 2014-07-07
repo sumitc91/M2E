@@ -8,12 +8,20 @@ BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $ro
         ConfirmPassword: "",
         CompanyName: ""
     };
-
+    $scope.showErrors = false;
     $scope.EmailIdAlert = {
         visible: false,
         message: ''
     };
     $scope.PasswordAlert = {
+        visible: false,
+        message: ''
+    };
+    $scope.FirstNameAlert = {
+        visible: false,
+        message: ''
+    };
+    $scope.LastNameAlert = {
         visible: false,
         message: ''
     };
@@ -41,6 +49,30 @@ BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $ro
         var url = ServerContextPah + '/Auth/Login/web';
         var validateEmail = false;
         var validatePassword = false;
+        var validateFirstName = false;
+        var validateLastName = false;
+        $scope.showErrors = false;
+
+        if ($scope.ClientFormData.FirstName != "") {
+            validateFirstName = true;
+            $scope.FirstNameAlert.visible = false;
+            $scope.FirstNameAlert.message = "";
+        }
+        else {
+            $scope.FirstNameAlert.visible = true;
+            $scope.FirstNameAlert.message = "First Name Cannot be Empty !!!";
+        }
+
+        if ($scope.ClientFormData.LastName != "") {
+            validateLastName = true;
+            $scope.LastNameAlert.visible = false;
+            $scope.LastNameAlert.message = "";
+        }
+        else {
+            $scope.LastNameAlert.visible = true;
+            $scope.LastNameAlert.message = "Last Name Cannot be Empty !!!";
+        }
+
         if (isValidEmailAddress($scope.ClientFormData.EmailId) && $scope.ClientFormData.EmailId != "") {
             validateEmail = true;
             $scope.EmailIdAlert.visible = false;
@@ -52,16 +84,23 @@ BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $ro
         }
 
         if ($scope.ClientFormData.Password == $scope.ClientFormData.ConfirmPassword) {
-            validatePassword = true;
-            $scope.PasswordAlert.visible = false;
-            $scope.PasswordAlert.message = "";
+            if ($scope.ClientFormData.Password != "") {
+                validatePassword = true;
+                $scope.PasswordAlert.visible = false;
+                $scope.PasswordAlert.message = "";
+            }
+            else {
+                $scope.PasswordAlert.visible = true;
+                $scope.PasswordAlert.message = "Your Password Cannot be Empty !!!";
+            }
+
         }
         else {
-            $scope.PasswordAlert.visible = true;            
+            $scope.PasswordAlert.visible = true;
             $scope.PasswordAlert.message = "Password didn't match !!!";
         }
 
-        if (validateEmail && validatePassword) {
+        if (validateEmail && validatePassword && validateFirstName && validateLastName) {
             startBlockUI('wait..', 3);
             $http({
                 url: url,
@@ -77,7 +116,8 @@ BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $ro
             });
         }
         else {
-            showToastMessage("Error", "Some Fields are Invalid !!!")            
+            $scope.showErrors = true;
+            showToastMessage("Error", "Some Fields are Invalid !!!")
         }
 
 
