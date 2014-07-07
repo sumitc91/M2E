@@ -3,22 +3,22 @@
     <form>
         <div class="body bg-gray">
             <div class="form-group">
-                <input type="text" name="name" class="form-control" ng-model="ClientFormData.FirstName" placeholder="Firstname">
+                <input type="text" name="name" class="form-control" ng-model="ClientFormData.FirstName" placeholder="Firstname" required>
             </div>
             <div class="form-group">
-                <input type="text" name="name" class="form-control" ng-model="ClientFormData.LastName" placeholder="Lastname">
+                <input type="text" name="name" class="form-control" ng-model="ClientFormData.LastName" placeholder="Lastname" required>
             </div>
             <div class="form-group">
-                <input type="text" name="userid" class="form-control" ng-model="ClientFormData.EmailId" placeholder="Email ID">
+                <input type="text" name="userid" class="form-control" ng-model="ClientFormData.EmailId" placeholder="Email ID" required>
                 <div class="alert alert-danger alert-dismissable" ng-show="EmailIdAlert.visible" style="margin-left: 0;">                                                                               
                                         {{EmailIdAlert.message}}
                                     </div>
             </div>            
             <div class="form-group">
-                <input type="password" name="password" class="form-control" ng-model="ClientFormData.Password" placeholder="Password">
+                <input type="password" name="password" class="form-control" ng-model="ClientFormData.Password" placeholder="Password" required>
             </div>
             <div class="form-group">
-                <input type="password" name="password2" class="form-control" ng-model="ClientFormData.ConfirmPassword" placeholder="Retype password">
+                <input type="password" name="password2" class="form-control" ng-model="ClientFormData.ConfirmPassword" placeholder="Retype password" required>
             </div>
             <div class="alert alert-danger alert-dismissable"  ng-show="PasswordAlert.visible" style="margin-left: 0;">                                                                               
                                         {{PasswordAlert.message}}
