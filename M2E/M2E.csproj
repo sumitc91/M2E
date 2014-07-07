@@ -123,9 +123,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonMethods\dbContextException.cs" />
+    <Compile Include="CommonMethods\forgetPasswordValidationEmail.cs" />
+    <Compile Include="CommonMethods\sendAccountCreationValidationEmail.cs" />
+    <Compile Include="CommonMethods\sendEmail.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Encryption\AES.cs" />
+    <Compile Include="Encryption\Encryption.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

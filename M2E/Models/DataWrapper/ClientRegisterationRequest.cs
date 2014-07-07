@@ -13,5 +13,7 @@ namespace M2E.Models.DataWrapper
         public string Password { get; set; }
         public string CompanyName { get; set; }
         public string Type { get; set; }
+        public string Source { get; set; }
+        public string Referral { get; set; }
     }
 }
