@@ -10,6 +10,9 @@
             </div>
             <div class="form-group">
                 <input type="text" name="userid" class="form-control" ng-model="ClientFormData.EmailId" placeholder="Email ID">
+                <div class="alert alert-danger alert-dismissable" ng-show="EmailIdAlert.visible" style="margin-left: 0;">                                                                               
+                                        {{EmailIdAlert.message}}
+                                    </div>
             </div>            
             <div class="form-group">
                 <input type="password" name="password" class="form-control" ng-model="ClientFormData.Password" placeholder="Password">
@@ -17,6 +20,9 @@
             <div class="form-group">
                 <input type="password" name="password2" class="form-control" ng-model="ClientFormData.ConfirmPassword" placeholder="Retype password">
             </div>
+            <div class="alert alert-danger alert-dismissable"  ng-show="PasswordAlert.visible" style="margin-left: 0;">                                                                               
+                                        {{PasswordAlert.message}}
+                                    </div>
             <div class="form-group">
                 Want to Register as a Company? <div style="float:right"><input type="checkbox" name="sliding_client_company_checkbox"  data-size="small" data-on-text="yes" data-off-text="no"></div>
             </div>

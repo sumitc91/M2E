@@ -1,6 +1,6 @@
 function showToastMessage(type, message) {
     // reconfiguring the toasts as sticky
-    $().toastmessage({ sticky: true });
+    $().toastmessage({ sticky: false });
 
     // saving the newly created toast into a variable    
     var myToast;
