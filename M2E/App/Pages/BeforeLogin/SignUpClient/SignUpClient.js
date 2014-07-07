@@ -2,7 +2,7 @@
 BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $routeParams, CookieUtil) {
     $scope.ClientFormData = {
         FirstName: "",
-        LastMame: "",
+        LastName: "",
         EmailId: "",
         Password: "",
         ConfirmPassword: "",
@@ -32,10 +32,11 @@ BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $ro
     $scope.ClientSignUp = function () {
         var clientSignUpData = {
             FirstName: $scope.ClientFormData.FirstName,
-            LastMame: $scope.ClientFormData.LastMame,
-            EmailId: $scope.ClientFormData.EmailId,
+            LastName: $scope.ClientFormData.LastName,
+            Username: $scope.ClientFormData.EmailId,
             Password: $scope.ClientFormData.Password,
-            CompanyName: $scope.ClientFormData.CompanyName
+            CompanyName: $scope.ClientFormData.CompanyName,
+            Type: 'client'
         }
         var url = ServerContextPah + '/Auth/Login/web';
         var validateEmail = false;

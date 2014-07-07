@@ -133,6 +133,7 @@
     <Compile Include="Models\ClientDetail.cs">
       <DependentUpon>M2E.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataWrapper\ClientRegisterationRequest.cs" />
     <Compile Include="Models\ForgetPassword.cs">
       <DependentUpon>M2E.tt</DependentUpon>
     </Compile>
