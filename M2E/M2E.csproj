@@ -39,7 +39,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="GaDotNet.Common, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -131,57 +132,57 @@
     <Compile Include="Logger\ILogger.cs" />
     <Compile Include="Logger\Logger.cs" />
     <Compile Include="Models\ClientDetail.cs">
-      <DependentUpon>M2E.tt</DependentUpon>
+      <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataWrapper\ClientRegisterationRequest.cs" />
     <Compile Include="Models\ForgetPassword.cs">
-      <DependentUpon>M2E.tt</DependentUpon>
+      <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\JobData.cs">
-      <DependentUpon>M2E.tt</DependentUpon>
+      <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LinkedInAuthApiData.cs">
-      <DependentUpon>M2E.tt</DependentUpon>
+      <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\M2E.Context.cs">
+    <Compile Include="Models\M2EContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>M2E.Context.tt</DependentUpon>
+      <DependentUpon>M2EContext.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\M2E.cs">
+    <Compile Include="Models\M2EContext.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>M2E.tt</DependentUpon>
+      <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\M2E.Designer.cs">
+    <Compile Include="Models\M2EContext.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>M2E.edmx</DependentUpon>
+      <DependentUpon>M2EContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\RecommendedBy.cs">
-      <DependentUpon>M2E.tt</DependentUpon>
+      <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ResponseModel.cs" />
     <Compile Include="Models\ThirdPartyLogin.cs">
-      <DependentUpon>M2E.tt</DependentUpon>
+      <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>M2E.tt</DependentUpon>
+      <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserDetail.cs">
-      <DependentUpon>M2E.tt</DependentUpon>
+      <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserPageSetting.cs">
-      <DependentUpon>M2E.tt</DependentUpon>
+      <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserRecommendation.cs">
-      <DependentUpon>M2E.tt</DependentUpon>
+      <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserSkill.cs">
-      <DependentUpon>M2E.tt</DependentUpon>
+      <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ValidateUserKey.cs">
-      <DependentUpon>M2E.tt</DependentUpon>
+      <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -803,22 +804,22 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Models\M2E.edmx">
+    <EntityDeploy Include="Models\M2EContext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>M2E.Designer.cs</LastGenOutput>
+      <LastGenOutput>M2EContext.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\M2E.Context.tt">
+    <Content Include="Models\M2EContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>M2E.edmx</DependentUpon>
-      <LastGenOutput>M2E.Context.cs</LastGenOutput>
+      <DependentUpon>M2EContext.edmx</DependentUpon>
+      <LastGenOutput>M2EContext.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\M2E.edmx.diagram">
-      <DependentUpon>M2E.edmx</DependentUpon>
+    <Content Include="Models\M2EContext.edmx.diagram">
+      <DependentUpon>M2EContext.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\M2E.tt">
+    <Content Include="Models\M2EContext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>M2E.edmx</DependentUpon>
-      <LastGenOutput>M2E.cs</LastGenOutput>
+      <DependentUpon>M2EContext.edmx</DependentUpon>
+      <LastGenOutput>M2EContext.cs</LastGenOutput>
     </Content>
     <None Include="Template\AdminLTE-master\ajax\dashboard-boxrefresh-demo.php" />
     <None Include="Template\AdminLTE-master\fonts\fontawesome-webfont.eot" />

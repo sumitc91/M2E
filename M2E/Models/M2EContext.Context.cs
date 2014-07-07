@@ -13,10 +13,10 @@ namespace M2E.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class M2E : DbContext
+    public partial class M2EEntities : DbContext
     {
-        public M2E()
-            : base("name=M2E")
+        public M2EEntities()
+            : base("name=M2EEntities")
         {
         }
     

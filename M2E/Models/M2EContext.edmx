@@ -144,7 +144,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="M2EModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="M2E" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="M2EEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ClientDetails" EntityType="M2EModel.ClientDetail" />
           <EntitySet Name="ForgetPasswords" EntityType="M2EModel.ForgetPassword" />
           <EntitySet Name="JobDatas" EntityType="M2EModel.JobData" />
@@ -283,7 +283,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="M2EModelStoreContainer" CdmEntityContainer="M2E">
+        <EntityContainerMapping StorageEntityContainer="M2EModelStoreContainer" CdmEntityContainer="M2EEntities">
           <EntitySetMapping Name="ClientDetails">
             <EntityTypeMapping TypeName="M2EModel.ClientDetail">
               <MappingFragment StoreEntitySet="ClientDetails">

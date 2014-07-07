@@ -1,4 +1,5 @@
-﻿using M2E.Models;
+﻿using System.Runtime.InteropServices;
+using M2E.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace M2E.Controllers
     {
         //
         // GET: /Auth/        
-
+        private M2EEntities _db = new M2EEntities();
         public ActionResult Index()
         {
             return View();
@@ -34,6 +35,7 @@ namespace M2E.Controllers
             
             var returnUrl = "/";
             var referral = Request.QueryString["ref"];
+            
             var response = new ResponseModel<string> { Status = 200, Message = "success", Payload = "1234567890" };
             System.Threading.Thread.Sleep((5000));
             return Json(response);
