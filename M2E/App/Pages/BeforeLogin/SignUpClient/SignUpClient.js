@@ -8,6 +8,15 @@ BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $ro
         ConfirmPassword: "",
         CompanyName: ""
     };
+
+    $scope.EmailIdAlert = {
+        visible: false,
+        message: ''
+    };
+    $scope.PasswordAlert = {
+        visible: false,
+        message: ''
+    };
     $('#client_signup_company_textBox_id').hide();
     $("[name='sliding_client_company_checkbox']").bootstrapSwitch();
     $('input[name="sliding_client_company_checkbox"]').on({
@@ -21,23 +30,58 @@ BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $ro
     });
 
     $scope.ClientSignUp = function () {
-        var checkUserExistsRequestData = {
-            userName: 'test'  //need to pass from the calling methods.
+        var clientSignUpData = {
+            FirstName: $scope.ClientFormData.FirstName,
+            LastMame: $scope.ClientFormData.LastMame,
+            EmailId: $scope.ClientFormData.EmailId,
+            Password: $scope.ClientFormData.Password,
+            CompanyName: $scope.ClientFormData.CompanyName
         }
         var url = ServerContextPah + '/Auth/Login/web';
+        var validateEmail = false;
+        var validatePassword = false;
+        if (isValidEmailAddress($scope.ClientFormData.EmailId) && $scope.ClientFormData.EmailId != "") {
+            validateEmail = true;
+            $scope.EmailIdAlert.visible = false;
+            $scope.EmailIdAlert.message = "";
+        }
+        else {
+            $scope.EmailIdAlert.visible = true;
+            $scope.EmailIdAlert.message = "Incorrect Email Id !!!";
+        }
 
-        startBlockUI('wait..',3);
-        $http({
-            url: url,
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' }
-        }).success(function (data, status, headers, config) {
-            //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
-            stopBlockUI();
+        if ($scope.ClientFormData.Password == $scope.ClientFormData.ConfirmPassword) {
+            validatePassword = true;
+            $scope.PasswordAlert.visible = false;
+            $scope.PasswordAlert.message = "";
+        }
+        else {
+            $scope.PasswordAlert.visible = true;            
+            $scope.PasswordAlert.message = "Password didn't match !!!";
+        }
 
-        }).error(function (data, status, headers, config) {
+        if (validateEmail && validatePassword) {
+            startBlockUI('wait..', 3);
+            $http({
+                url: url,
+                method: "POST",
+                data: clientSignUpData,
+                headers: { 'Content-Type': 'application/json' }
+            }).success(function (data, status, headers, config) {
+                //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
+                stopBlockUI();
 
-        });
+            }).error(function (data, status, headers, config) {
+
+            });
+        }
+        else {
+            showToastMessage("Error", "Some Fields are Invalid !!!")            
+        }
+
+
+
+
     }
 
 
