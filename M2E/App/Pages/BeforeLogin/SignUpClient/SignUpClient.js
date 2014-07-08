@@ -46,7 +46,7 @@ BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $ro
             CompanyName: $scope.ClientFormData.CompanyName,
             Type: 'client',
             Source: 'web',
-            Referral:'sumitReferral' // TODO: need to update with referral id.
+            Referral: 'sumitReferral' // TODO: need to update with referral id.
         }
         var url = ServerContextPah + '/Auth/CreateAccount';
         var validateEmail = false;
@@ -111,15 +111,16 @@ BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $ro
                 headers: { 'Content-Type': 'application/json' }
             }).success(function (data, status, headers, config) {
                 //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
-                stopBlockUI();
-
+                stopBlockUI();                
+                if (data.Status == "409")
+                    showToastMessage("Error", "Username already registered.")
             }).error(function (data, status, headers, config) {
 
             });
         }
         else {
             $scope.showErrors = true;
-            showToastMessage("Error", "Some Fields are Invalid !!!")
+            showToastMessage("Error", "Some Fields are Invalid !!!");
         }
 
 
