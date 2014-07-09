@@ -95,14 +95,15 @@ namespace M2E.Controllers
             catch (DbEntityValidationException e)
             {
                 DbContextException.LogDbContextException(e);
-                throw;
+                response.Status = 500;
+                response.Message = "Internal Server Error !!!";                
+                return Json(response);
             }
 
             response.Status = 200;
             response.Message = "success";
             response.Payload = "Account Created";
-
-            System.Threading.Thread.Sleep((5000));
+            
             return Json(response);
         }
 
