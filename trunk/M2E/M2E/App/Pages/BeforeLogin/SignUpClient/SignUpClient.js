@@ -113,7 +113,11 @@ BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $ro
                 //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
                 stopBlockUI();                
                 if (data.Status == "409")
-                    showToastMessage("Error", "Username already registered.")
+                    showToastMessage("Warning", "Username already registered !")
+                else if(data.Status == "500")
+                    showToastMessage("Error", "Internal Server Error Occured !")
+                else if(data.Status == "200")
+                    showToastMessage("Success", "Account successfully created ! check your email for validation.")
             }).error(function (data, status, headers, config) {
 
             });
@@ -122,9 +126,6 @@ BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $ro
             $scope.showErrors = true;
             showToastMessage("Error", "Some Fields are Invalid !!!");
         }
-
-
-
 
     }
 
