@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using M2E.Models.DataWrapper;
 using M2E.CommonMethods;
 using System.Data.Entity.Validation;
+using M2E.Encryption;
 
 namespace M2E.Controllers
 {
@@ -46,10 +47,11 @@ namespace M2E.Controllers
             }
 
             var guid = Guid.NewGuid().ToString();
+            EncryptionClass encrypt = new EncryptionClass();
             var user = new User
             {
                 Username = req.Username,
-                Password = req.Password,
+                Password = encrypt.MD5Hash(req.Password),
                 Source = req.Source,
                 isActive = "false",
                 Type = req.Type,
