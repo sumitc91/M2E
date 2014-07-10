@@ -2,7 +2,7 @@
 using System.Text;
 namespace M2E.Encryption
 {
-    public class Encryption
+    public class EncryptionClass
     {
         public string GetEncryptionKey(string plainText, string key)
         {            
@@ -12,7 +12,7 @@ namespace M2E.Encryption
         {
             return AES.Decrypt(cipherText, key);
         }
-        public static string MD5Hash(string text)
+        public string MD5Hash(string text)
         {
             MD5 md5 = new MD5CryptoServiceProvider();
 
