@@ -21,6 +21,7 @@ BeforeLoginApp.config(function ($routeProvider) {
                    when("/404", { templateUrl: "../../Resource/templates/beforeLogin/contentView/404.html" }).
                    when("/AboutUs", { templateUrl: "../../App/Pages/BeforeLogin/AboutUs/AboutUs.html" }).
                    when("/contactus", { templateUrl: "../../App/Pages/BeforeLogin/ContactUs/contactus.html" }).
+                   when("/showmessage", { templateUrl: "../../App/Pages/BeforeLogin/ShowMessage/showmessage.html" }).
                    when("/forgetpassword", { templateUrl: "../../Resource/templates/beforeLogin/contentView/forgetPassword.html" }).
                    otherwise({ templateUrl: "../../Resource/templates/beforeLogin/contentView/404.html" });
 

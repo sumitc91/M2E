@@ -33,7 +33,7 @@ namespace M2E.Controllers
         }
 
         [HttpPost]
-        public JsonResult CreateAccount(ClientRegisterationRequest req)
+        public JsonResult CreateAccount(RegisterationRequest req)
         {
             
             var returnUrl = "/";

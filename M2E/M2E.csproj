@@ -140,8 +140,7 @@
     <Compile Include="Models\ClientDetail.cs">
       <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataWrapper\ClientRegisterationRequest.cs" />
-    <Compile Include="Models\DataWrapper\UserRegisterationRequest.cs" />
+    <Compile Include="Models\DataWrapper\RegisterationRequest.cs" />
     <Compile Include="Models\ForgetPassword.cs">
       <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
@@ -906,7 +905,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>10379</DevelopmentServerPort>
+          <DevelopmentServerPort>12013</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
