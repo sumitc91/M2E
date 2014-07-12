@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using M2E.Models.DataResponse;
 using M2E.Models.DataWrapper;
 using M2E.CommonMethods;
 using System.Data.Entity.Validation;
 using M2E.Encryption;
+using M2E.Service;
 
 namespace M2E.Controllers
 {
@@ -23,12 +25,18 @@ namespace M2E.Controllers
         }
 
         [HttpPost]
-        public JsonResult Login(string id)
+        public JsonResult Login(LoginRequest req)
         {
             var returnUrl = "/";
             var referral = Request.QueryString["ref"];
-            var response = new ResponseModel<string> {Status = 200, Message = "success", Payload = "1234567890"};
-            System.Threading.Thread.Sleep((5000));
+            var responseData = new LoginResponse();
+            if (req.Type == "web")
+            {
+                var loginService = new LoginService();
+                responseData = loginService.WebLogin(req.UserName, req.Password, returnUrl, req.KeepMeSignedInCheckBox != null ? "true" : "false");                
+            }
+
+            var response = new ResponseModel<LoginResponse> { Status = 200, Message = "success", Payload = responseData };
             return Json(response);
         }
 

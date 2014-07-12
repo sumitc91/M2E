@@ -140,6 +140,8 @@
     <Compile Include="Models\ClientDetail.cs">
       <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataResponse\LoginResponse.cs" />
+    <Compile Include="Models\DataWrapper\LoginRequest.cs" />
     <Compile Include="Models\DataWrapper\RegisterationRequest.cs" />
     <Compile Include="Models\ForgetPassword.cs">
       <DependentUpon>M2EContext.tt</DependentUpon>
@@ -191,6 +193,9 @@
       <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\LoginService.cs" />
+    <Compile Include="Service\Login\WebLogin.cs" />
+    <Compile Include="Service\Register\WebRegister.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -808,7 +813,6 @@
     <Folder Include="App\css\" />
     <Folder Include="App_Data\" />
     <Folder Include="DAO\" />
-    <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
