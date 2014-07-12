@@ -1,19 +1,19 @@
-﻿<div id="login-box" class="form-box">
+﻿<div id="login-box" class="form-box" ng-controller="beforeLoginSignInController">
     <div class="header">Sign In</div>
     <form>
         <div class="body bg-gray">
             <div class="form-group">
-                <input type="text" placeholder="User ID" class="form-control" name="emailid">
+                <input type="text" ng-model="EmailId" placeholder="User ID" class="form-control" name="emailid"> email {{EmailId}}
             </div>
             <div class="form-group">
-                <input type="password" placeholder="Password" class="form-control" name="password">
+                <input type="password" ng-model="Password" placeholder="Password" class="form-control" name="password"> pass {{Password}}
             </div>          
             <div class="form-group">
                 <input type="checkbox" name="remember_me"> Remember me
             </div>
         </div>
         <div class="footer">                                                               
-            <button class="btn bg-olive btn-block" type="submit">Sign me in</button>  
+            <button class="btn bg-olive btn-block" type="submit" ng-click="Login()">Sign me in</button>  
                     
             <p><a href="#">I forgot my password</a></p>
                     
