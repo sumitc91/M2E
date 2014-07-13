@@ -16,12 +16,12 @@ BeforeLoginApp.config(function ($routeProvider) {
                    when("/googleLogin", { templateUrl: "../../Resource/templates/beforeLogin/contentView/googleLogin.html" }).
                    when("/linkedinLogin/:userType", { templateUrl: "../../Resource/templates/beforeLogin/contentView/linkedinLogin.html" }).
                    when("/linkedinLogin", { templateUrl: "../../Resource/templates/beforeLogin/contentView/linkedinLogin.html" }).
-                   when("/validate/:userName/:guid", { templateUrl: "../../Resource/templates/beforeLogin/contentView/validateAccount.html" }).
+                   when("/validate/:userName/:guid", { templateUrl: "../../App/Pages/BeforeLogin/validateAccount.html" }).
                    when("/tnc", { templateUrl: "../../Resource/templates/beforeLogin/contentView/termsAndConditions.html" }).
                    when("/404", { templateUrl: "../../Resource/templates/beforeLogin/contentView/404.html" }).
                    when("/AboutUs", { templateUrl: "../../App/Pages/BeforeLogin/AboutUs/AboutUs.html" }).
                    when("/contactus", { templateUrl: "../../App/Pages/BeforeLogin/ContactUs/contactus.html" }).
-                   when("/showmessage", { templateUrl: "../../App/Pages/BeforeLogin/ShowMessage/showmessage.html" }).
+                   when("/showmessage/:header/:content", { templateUrl: "../../App/Pages/BeforeLogin/ShowMessage/showmessage.html" }).
                    when("/forgetpassword", { templateUrl: "../../Resource/templates/beforeLogin/contentView/forgetPassword.html" }).
                    otherwise({ templateUrl: "../../Resource/templates/beforeLogin/contentView/404.html" });
 
