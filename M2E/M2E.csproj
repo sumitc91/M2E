@@ -262,6 +262,7 @@
     <Content Include="Global.asax" />
     <Content Include="Template\AdminLTE-master\.gitignore" />
     <Content Include="Template\AdminLTE-master\css\AdminLTE.css" />
+    <Content Include="Template\AdminLTE-master\css\bootstrap-responsive.css" />
     <Content Include="Template\AdminLTE-master\css\bootstrap-slider\slider.css" />
     <Content Include="Template\AdminLTE-master\css\bootstrap-switch.css" />
     <Content Include="Template\AdminLTE-master\css\bootstrap-wysihtml5\bootstrap3-wysihtml5.css" />
