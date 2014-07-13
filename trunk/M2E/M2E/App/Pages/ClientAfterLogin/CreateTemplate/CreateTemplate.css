@@ -1,0 +1,42 @@
+.form-horizontal.form-bordered .control-group .control-label {
+    color: #555;
+    margin: 0;
+    padding: 15px 10px 5px;
+}
+.form-horizontal .control-label {
+    text-align: left;
+    width: 140px;
+}
+.form-horizontal .control-label {
+    float: left;
+    padding-top: 5px;
+    text-align: right;
+    width: 160px;
+}
+label, input, button, select, textarea {
+    font-size: 13px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+label, input, button, select, textarea {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+}
+label, select, button, input[type="button"], input[type="reset"], input[type="submit"], input[type="radio"], input[type="checkbox"] {
+    cursor: pointer;
+}
+
+bordered .control-group .controls {
+    background: none repeat scroll 0 0 #fff;
+    border-left: 1px solid #ddd;
+    padding: 10px;
+}
+.form-horizontal .controls {
+    margin-left: 160px;
+}
+.form-horizontal .controls {
+    margin-left: 180px;
+}
