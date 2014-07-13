@@ -1,0 +1,235 @@
+﻿<!-- Content Header (Page header) -->
+<div ng-controller="createTemplateController">
+    <section class="content-header">
+        <h1>
+            Dashboard
+            <small>Control panel</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Dashboard</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">                   
+        <!-- top row -->
+        <div class="row">
+            <div class="col-xs-12 connectedSortable">
+                            
+            </div><!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+        <!-- Main row -->
+        <div class="row">
+            <!-- Left col -->
+            <section class="col-lg-12 connectedSortable">                            
+                <div class="box box-color box-bordered">
+                    <div class="box-title">
+                        <h3>
+                            <i class="icon-user"></i>Edit user profile
+                        </h3>
+                    </div>
+                    <div class="box-content nopadding">
+                        <form class='form-horizontal form-bordered'>
+                            <div class="control-group">
+                                                        <a class="btn btn-block btn-primary" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> Compose Message</a>
+                                <a ng-click="addInstructionsRow()" role="button" class="btn"><i
+                                                                                                 class="icon-plus-sign"></i>{{jobTemplate[0].buttonText}}</a>
+
+                                <a ng-click="addSingleAnswer()" role="button" class="btn"><i
+                                                                                              class="icon-plus-sign"></i>{{jobTemplate[1].buttonText}}</a>
+                                <a ng-click="addMultipleAnswer()" role="button" class="btn"><i
+                                                                                                class="icon-plus-sign"></i>{{jobTemplate[2].buttonText}}</a>
+                                <a href="#" role="button" class="btn"><i
+                                                                          class="icon-plus-sign"></i>Text Box</a>
+                                <a href="#" role="button" class="btn"><i
+                                                                          class="icon-plus-sign"></i>List Box</a>
+                                                                                                               
+                                <a href="#modal-AddInstructions" role="button" class="btn" data-toggle="modal"><i
+                                                                                                                   class="icon-plus-sign"></i>Images</a>
+                            </div>
+                        
+                            <div class="control-group" ng-show="jobTemplate[0].visible">
+                                <label for="textfield" class="control-label">
+                            
+                                    <a href="#modal-AddInstructions" role="button" class="btn" data-toggle="modal"><i
+                                                                                                                       class="icon-plus-sign"></i>Add Instruction</a></label>
+                                <div class="controls">
+                                    <ul id="editableInstructionsListID">
+                               
+
+                                    </ul>
+                                </div>
+                            </div>          
+                            <div class="control-group" ng-show="jobTemplate[1].visible">
+                                <label for="textfield" class="control-label">
+                                    <a href="#modal-AddSingleQuestions" role="button" class="btn" data-toggle="modal"><i
+                                                                                                                          class="icon-plus-sign"></i>Add Questions</a><small>(Single Answer)</small>    </label>
+                                <div class="controls" id="addSingleAnswerQuestionID">
+                                
+                                </div>
+                            </div>
+                            <div class="control-group" ng-show="jobTemplate[2].visible">
+                                <label for="textfield" class="control-label">
+                                    <a href="#modal-AddMultipleQuestions" role="button" class="btn" data-toggle="modal"><i
+                                                                                                                            class="icon-plus-sign"></i>Add Questions</a><small>(Multiple Answer)</small>    </label>
+                                <div class="controls" id="addMultipleAnswerQuestionID">
+                                
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    <button type="submit" class="btn btn-primary">
+                                        Add Questions</button><small>(TextBox)</small></label>
+                                <div class="controls">
+                                    <fieldset>
+                                        <div class="input-group">
+                                            <label>
+                                                1. What is your age?</label>
+                                            <input type="text" size="120" name="Age" class="form-control"></div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">
+                                    <button type="submit" class="btn btn-primary">
+                                        Add Questions</button><small>(ListBox)</small></label>
+                                <div class="controls">
+                                    <fieldset>
+                                        <label>
+                                            1. Which of the following best describes your highest achieved education level?
+                                        </label>
+                                        <select name="Education" class="form-control">
+                                            <option value="select one" selected="selected">- select one -</option>
+                                            <option value="Some High School">Some High School</option>
+                                            <option value="Some college, no degree">Some college, no degree</option>
+                                            <option value="Associates degree">Associates degree</option>
+                                            <option value="Bachelors degree">Bachelors degree</option>
+                                            <option value="Graduate degree (Masters, Doctorate, etc.)">Graduate degree (Masters,
+                                                Doctorate, etc.)</option>
+                                        </select></fieldset>
+                                    <fieldset>
+                                        <label>
+                                            2. What is the total income of your household?
+                                        </label>
+                                        <select size="5" name="HouseHoldIncome" class="form-control">
+                                            <option>Less than $12,500</option>
+                                            <option>$12,500 - $24,999</option>
+                                            <option>$25,000 - $37,499</option>
+                                            <option>$37,500 - $49,999</option>
+                                            <option>$50,000 - $62,499</option>
+                                            <option>$62,500 - $74,999</option>
+                                            <option>$75,000 - $87,499</option>
+                                            <option>$87,500 - $99,999</option>
+                                            <option>$100,000 or more</option>
+                                        </select></fieldset>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    Create</button>
+                                <button type="button" class="btn">
+                                    Need More Info</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section><!-- /.Left col -->                        
+        </div><!-- /.row (main row) -->
+        
+    </section><!-- /.content -->
+</div>
+
+<div class="modal fade" id="modal-AddInstructions" tabindex="-1" role="dialog" aria-hidden="true" ng-controller="createTemplateController">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-hidden="true"id="addInstructionCloseButton" data-dismiss="modal" class="close"
+                                type="button" style="display: block;">
+                            ×</button>
+                        <h3 id="H3">
+                            Add New Instructions</h3>
+                    </div>
+                    <form>
+                        <div class="modal-body">                            
+                            <div class="form-group">
+                                <textarea class="input-block-level" id="AddInstructionsTextArea" name="textarea" placeholder="Add Instruction"></textarea> 
+                            </div>                            
+
+                        </div>
+                        <div class="modal-footer clearfix">
+
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard </button>
+
+                            <button ng-click="addEditableInstructions()" class="btn btn-primary pull-left"><i class="fa fa-envelope"></i> Submit </button>
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="modal-AddSingleQuestions" tabindex="-1" role="dialog" aria-hidden="true" ng-controller="createTemplateController">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-hidden="true" id="addQuestionSingleAnswerCloseButton" data-dismiss="modal" class="close"
+                            type="button" style="display: block;">
+                            ×</button>
+                        <h3 id="H1">
+                            Add New Questions (Single Answer)</h3>
+                    </div>
+                    <form>
+                        <div class="modal-body">                            
+                            <div>
+                                <h6>Add Question</h6>
+                                Question <textarea class="input-block-level" id="SingleQuestionTextBoxQuestionData" name="textarea" placeholder="Question (Single Answer)"></textarea>
+                                Options - Separated by semi-color(i.e ;) <textarea class="input-block-level" id="SingleQuestionTextBoxAnswerData" name="textarea" placeholder="Options must be separated by seme-color (ie. ;)"></textarea>                                                
+                            </div>                 
+
+                        </div>
+                        <div class="modal-footer clearfix">
+
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard </button>
+
+                            <button class="btn btn-primary" ng-click="InsertSingleQuestionRow()">
+                                    Submit</button> 
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="modal-AddMultipleQuestions" tabindex="-1" role="dialog" aria-hidden="true" ng-controller="createTemplateController">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-hidden="true" id="addQuestionMultipleAnswerCloseButton" data-dismiss="modal" class="close"
+                                type="button" style="display: block;">
+                            ×</button>
+                        <h3 id="H2">
+                            Add New Questions (Multiple Answer)</h3>
+                    </div>
+                    <form>
+                        <div class="modal-body">                            
+                            <div>
+                                <h6>
+                                    Add Question</h6>
+                                Question <textarea class="input-block-level" id="MultipleQuestionTextBoxQuestionData" name="textarea" placeholder="Question (Multiple Answer)"></textarea>
+                                Options - Separated by semi-color(i.e ;) <textarea class="input-block-level" id="MultipleQuestionTextBoxAnswerData" name="textarea" placeholder="Options must be separated by seme-color (ie. ;)"></textarea>           
+            
+                            </div>                 
+
+                        </div>
+                        <div class="modal-footer clearfix">
+
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard </button>
+
+                            <button class="btn btn-primary" ng-click="InsertMultipleQuestionRow()">
+                                Submit</button>    
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
