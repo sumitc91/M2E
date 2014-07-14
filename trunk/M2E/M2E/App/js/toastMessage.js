@@ -1,4 +1,4 @@
-function showToastMessage(type, message) {
+﻿function showToastMessage(type, message) {
     // reconfiguring the toasts as sticky
     $().toastmessage({ sticky: false });
 
@@ -13,3 +13,4 @@ function showToastMessage(type, message) {
     //$().toastmessage('showWarningToast', "some message here");
     //$().toastmessage('showErrorToast', "some message here");
 }
+

@@ -133,6 +133,15 @@
                                                            </select></fieldset>
                                                    </div>
                                                </div>
+                                                <div class="control-group">
+                                                   <label class="control-label">
+                                                       <a href="" role="button" class="btn btn-primary" data-toggle="modal">
+                                                           Add</a><b><small>Question with listbox ans</small></b></label>
+                                                   <div class="controls">
+                                                        <a href="#modal-UploadImages" role="button" class="btn btn-primary" data-toggle="modal">
+                                                           Add</a><b><small>Upload new images</small></b>
+                                                   </div>
+                                               </div>
                                                <div class="form-actions">
                                                    <button type="submit" class="btn btn-primary">
                                                        Create</button>
@@ -243,4 +252,32 @@
 </div><!-- /.modal -->
 
 
+<div class="modal fade" id="modal-UploadImages" tabindex="-1" role="dialog" aria-hidden="true" ng-controller="createTemplateController">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-hidden="true" id="Button1" data-dismiss="modal" class="close"
+                                type="button" style="display: block;">
+                            ×</button>
+                        <h3 id="H4">
+                            Upload Images</h3>
+                    </div>
+                    <form>
+                        <div id="dropZone"></div>
+                            
+                            <br/>
+                            <div id="progress" style="display:none">
+                                <span id="percent"></span>
+                                <div id="bar"></div>
+                            </div>
+                            <br />                            
+                            Uploaded Files:
+                        <ul id="uploadResult">
+        
+                        </ul>
+                       
+					
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
 
