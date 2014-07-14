@@ -48,8 +48,8 @@
                                                                                                                  class="icon-plus-sign"></i>{{jobTemplate[1].buttonText}}</a>
                                                    <a ng-click="addMultipleAnswer()" role="button" class="btn"><i
                                                                                                                    class="icon-plus-sign"></i>{{jobTemplate[2].buttonText}}</a>
-                                                   <a href="#" role="button" class="btn"><i
-                                                                                             class="icon-plus-sign"></i>Text Box</a>
+                                                   <a ng-click="enableFileDrop()"enableFileDrop role="button" class="btn"><i
+                                                                                             class="icon-plus-sign"></i>enableFileDrop</a>
                                                    <a href="#" role="button" class="btn"><i
                                                                                              class="icon-plus-sign"></i>List Box</a>
                                                                                                                
@@ -262,22 +262,12 @@
                         <h3 id="H4">
                             Upload Images</h3>
                     </div>
-                    <form>
-                        <div id="dropZone"></div>
-                            
-                            <br/>
-                            <div id="progress" style="display:none">
-                                <span id="percent"></span>
-                                <div id="bar"></div>
-                            </div>
-                            <br />                            
-                            Uploaded Files:
-                        <ul id="uploadResult">
-        
-                        </ul>
-                       
-					
-                    </form>
+                    <div class="modal-body">                            
+                            <div id="dropbox">
+			<span class="message">Drop images here to upload. <br /><i>(they will only be visible to you)</i></span>
+		</div>                            
+
+                        </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
 

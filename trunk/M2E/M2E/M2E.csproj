@@ -130,6 +130,7 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Encryption\AES.cs" />
     <Compile Include="Encryption\Encryption.cs" />
     <Compile Include="Global.asax.cs">
@@ -247,6 +248,17 @@
     <Content Include="App\Pages\ClientAfterLogin\Index\Index.html" />
     <Content Include="App\Pages\ClientAfterLogin\Index\index.js" />
     <Content Include="App\Property\m2eProperties.js" />
+    <Content Include="App\third-Party\html5-file-upload\assets\css\styles.css" />
+    <Content Include="App\third-Party\html5-file-upload\assets\img\background_tile_1.jpg" />
+    <Content Include="App\third-Party\html5-file-upload\assets\img\background_tile_2.jpg" />
+    <Content Include="App\third-Party\html5-file-upload\assets\img\background_tile_3.jpg" />
+    <Content Include="App\third-Party\html5-file-upload\assets\img\blue_line.jpg" />
+    <Content Include="App\third-Party\html5-file-upload\assets\img\done.png" />
+    <Content Include="App\third-Party\html5-file-upload\assets\img\logo.jpg" />
+    <Content Include="App\third-Party\html5-file-upload\assets\img\tzine.png" />
+    <Content Include="App\third-Party\html5-file-upload\assets\js\jquery.filedrop.js" />
+    <Content Include="App\third-Party\html5-file-upload\assets\js\script.js" />
+    <Content Include="App\third-Party\html5-file-upload\index.html" />
     <Content Include="App\third-Party\loadOver\loading.png" />
     <Content Include="App\third-Party\loadOver\loadover.css" />
     <Content Include="App\third-Party\loadOver\loadover.js" />
@@ -817,8 +829,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App\css\" />
+    <Folder Include="App\third-Party\html5-file-upload\uploads\" />
     <Folder Include="App_Data\" />
     <Folder Include="DAO\" />
+    <Folder Include="Upload\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -841,6 +855,7 @@
       <DependentUpon>M2EContext.edmx</DependentUpon>
       <LastGenOutput>M2EContext.cs</LastGenOutput>
     </Content>
+    <None Include="App\third-Party\html5-file-upload\post_file.php" />
     <None Include="Template\AdminLTE-master\ajax\dashboard-boxrefresh-demo.php" />
     <None Include="Template\AdminLTE-master\fonts\fontawesome-webfont.eot" />
     <None Include="Template\AdminLTE-master\fonts\fontawesome-webfont.svg" />
