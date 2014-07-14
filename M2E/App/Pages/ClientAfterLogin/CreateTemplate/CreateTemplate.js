@@ -227,40 +227,15 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
         $('#addQuestionMultipleAnswerCloseButton').click();
     }
 
-});
-
-jQuery(document).ready(function ($) {
-    alert("filedrop instantiated");
-    $('#dropZone').filedrop({
-        url: '/Home/UploadDropZoneFiles',
-        paramname: 'files',
-        maxFiles: 5,
-        dragOver: function () {
-            $('#dropZone').css('background', 'blue');
-        },
-        dragLeave: function () {
-            $('#dropZone').css('background', 'gray');
-        },
-        drop: function () {
-            $('#dropZone').css('background', 'gray');
-            $('#progress').show();
-
-        },
-        afterAll: function () {
-            $('#dropZone').html('');
-            $('.refreshsamepage').trigger('click');
-        },
-        uploadFinished: function (i, file, response, time) {
-            $('#uploadResult').append('<li>' + file.name + '</li>');
-            $('#percent').html('100%');
-            $('#bar').css('width', '100%');
-            $('.fileuploadingimage').hide();
-        },
-        progressUpdated: function (i, file, progress) {
-            //$.data(file).find('.progress').width(progress);
-            $('#percent').html('' + progress + '%');
-            $('#bar').css('width', '' + progress + '%');
+    $scope.enableFileDrop = function () {
+        if ($scope.jobTemplate[1].visible == true) {
+            $scope.jobTemplate[1].buttonText = "Add Ques. (single Ans.)";
+            $scope.jobTemplate[1].visible = false;
+        } else {
+            $scope.jobTemplate[1].visible = true;
+            $scope.jobTemplate[1].buttonText = "Remove Ques. (single Ans.)";
         }
-    });
+    }
 });
+
 
