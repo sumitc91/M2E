@@ -48,8 +48,8 @@
                                                                                                                  class="icon-plus-sign"></i>{{jobTemplate[1].buttonText}}</a>
                                                    <a ng-click="addMultipleAnswer()" role="button" class="btn"><i
                                                                                                                    class="icon-plus-sign"></i>{{jobTemplate[2].buttonText}}</a>
-                                                   <a ng-click="enableFileDrop()"enableFileDrop role="button" class="btn"><i
-                                                                                             class="icon-plus-sign"></i>enableFileDrop</a>
+                                                   <a ng-click="addTextBoxAnswer()" role="button" class="btn"><i
+                                                                                             class="icon-plus-sign"></i>{{jobTemplate[3].buttonText}}</a>
                                                    <a href="#" role="button" class="btn"><i
                                                                                              class="icon-plus-sign"></i>List Box</a>
                                                                                                                
@@ -85,17 +85,12 @@
                                 
                                                    </div>
                                                </div>
-                                               <div class="control-group">
-                                                   <label class="control-label">
-                                                       <a href="" role="button" class="btn btn-primary" data-toggle="modal">
-                                                           Add</a><b><small>Question with single line ans</small></b></label>
-                                                   <div class="controls">
-                                                       <fieldset>
-                                                           <div class="input-group">
-                                                               <label>
-                                                                   1. What is your age?</label>
-                                                               <input type="text" size="120" name="Age" class="form-control"></div>
-                                                       </fieldset>
+                                               <div class="control-group" ng-show="jobTemplate[3].visible">
+                                                   <label for="textfield" class="control-label">
+                                                       <a href="#modal-AddTextBoxQuestions" role="button" class="btn btn-primary" data-toggle="modal">
+                                                           Add</a><b><small>Question with single line ans</small></b></label>                                                 
+                                                   <div class="controls" id="addTextBoxAnswerQuestionID">
+                                                       
                                                    </div>
                                                </div>
                                                <div class="control-group">
@@ -253,20 +248,35 @@
 </div><!-- /.modal -->
 
 
-<div class="modal fade" id="modal-UploadImages" tabindex="-1" role="dialog" aria-hidden="true" ng-controller="createTemplateController">
+<div class="modal fade" id="modal-AddTextBoxQuestions" tabindex="-1" role="dialog" aria-hidden="true" ng-controller="createTemplateController">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button aria-hidden="true" id="Button1" data-dismiss="modal" class="close"
+                        <button aria-hidden="true" id="addQuestionTextBoxAnswerCloseButton" data-dismiss="modal" class="close"
                                 type="button" style="display: block;">
                             ×</button>
                         <h3 id="H4">
-                            Upload Images</h3>
+                            Add New Questions (TextBox Answer)</h3>
                     </div>
-                    <div class="modal-body">                            
-                                                      
+                    <form>
+                        <div class="modal-body">                            
+                            <div>
+                                <h6>
+                                    Add Question</h6>
+                                Question <textarea class="input-block-level" id="TextBoxQuestionTextBoxQuestionData" name="textarea" placeholder="Question (TextBox Answer)"></textarea>                               
+            
+                            </div>                 
 
                         </div>
+                        <div class="modal-footer clearfix">
+
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard </button>
+
+                            <button class="btn btn-primary" ng-click="InsertTextBoxQuestionRow()">
+                                Submit</button>    
+                        </div>
+                    </form>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
