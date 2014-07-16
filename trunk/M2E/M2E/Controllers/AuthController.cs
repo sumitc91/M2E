@@ -52,5 +52,37 @@ namespace M2E.Controllers
             return Json(webRegisterService.WebRegisterService(req, Request));
         }
 
+        [HttpPost]
+        public JsonResult validateAccount(ValidateAccountRequest req)
+        {
+            var response = new ResponseModel<string>();
+            if (_db.ValidateUserKeys.Any(x => x.Username == req.userName && x.guid == req.guid))
+            {
+                User User = _db.Users.SingleOrDefault(x => x.Username == req.userName);
+                User.isActive = "true";
+                try
+                {
+                    _db.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    DbContextException.LogDbContextException(e);
+                    response.Status = 500;
+                    response.Message = "Internal Server Error";
+                    return Json(response);
+                }
+                response.Status = 200;
+                response.Message = "validated";
+                return Json(response);
+            }
+            else
+            {
+                response.Status = 402;
+                response.Message = "link expired";
+                return Json(response);
+            }
+
+        }
+
     }
 }

@@ -144,6 +144,7 @@
     <Compile Include="Models\DataResponse\LoginResponse.cs" />
     <Compile Include="Models\DataWrapper\LoginRequest.cs" />
     <Compile Include="Models\DataWrapper\RegisterationRequest.cs" />
+    <Compile Include="Models\DataWrapper\ValidateAccountRequest.cs" />
     <Compile Include="Models\ForgetPassword.cs">
       <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
@@ -224,6 +225,8 @@
     <Content Include="App\Pages\BeforeLogin\ShowMessage\showMessageTemplate.js" />
     <Content Include="App\Pages\BeforeLogin\SignUpClient\SignUpClient.js" />
     <Content Include="App\Pages\BeforeLogin\SignUpUser\SignUpUser.js" />
+    <Content Include="App\Pages\BeforeLogin\ValidateEmail\validateEmail.html" />
+    <Content Include="App\Pages\BeforeLogin\ValidateEmail\validateEmail.js" />
     <Content Include="App\Pages\ClientAfterLogin\Controller\clientAfterLoginApp.js" />
     <Content Include="App\Pages\ClientAfterLogin\Controller\common\CookieServiceClientView.js" />
     <Content Include="App\Pages\BeforeLogin\AboutUs\AboutUs.html" />
