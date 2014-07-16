@@ -45,8 +45,8 @@
                                                                                                                    class="icon-plus-sign"></i>{{jobTemplate[2].buttonText}}</a>
                                                    <a ng-click="addTextBoxAnswer()" role="button" class="btn"><i
                                                                                              class="icon-plus-sign"></i>{{jobTemplate[3].buttonText}}</a>
-                                                   <a href="#" role="button" class="btn"><i
-                                                                                             class="icon-plus-sign"></i>List Box</a>
+                                                   <a ng-click="addListBoxAnswer()" role="button" class="btn"><i
+                                                                                             class="icon-plus-sign"></i>{{jobTemplate[4].buttonText}}</a>
                                                                                                                
                                                    <a href="#modal-AddInstructions" role="button" class="btn" data-toggle="modal"><i
                                                                                                                                       class="icon-plus-sign"></i>Images</a>
@@ -88,39 +88,12 @@
                                                        
                                                    </div>
                                                </div>
-                                               <div class="control-group">
+                                               <div class="control-group" ng-show="jobTemplate[4].visible">
                                                    <label class="control-label">
-                                                       <a href="" role="button" class="btn btn-primary" data-toggle="modal">
-                                                           Add</a><b><small>Question with listbox ans</small></b></label>
-                                                   <div class="controls">
-                                                       <fieldset>
-                                                           <label>
-                                                               1. Which of the following best describes your highest achieved education level?
-                                                           </label>
-                                                           <select name="Education" class="form-control">
-                                                               <option value="select one" selected="selected">- select one -</option>
-                                                               <option value="Some High School">Some High School</option>
-                                                               <option value="Some college, no degree">Some college, no degree</option>
-                                                               <option value="Associates degree">Associates degree</option>
-                                                               <option value="Bachelors degree">Bachelors degree</option>
-                                                               <option value="Graduate degree (Masters, Doctorate, etc.)">Graduate degree (Masters,
-                                                                   Doctorate, etc.)</option>
-                                                           </select></fieldset>
-                                                       <fieldset>
-                                                           <label>
-                                                               2. What is the total income of your household?
-                                                           </label>
-                                                           <select size="5" name="HouseHoldIncome" class="form-control">
-                                                               <option>Less than $12,500</option>
-                                                               <option>$12,500 - $24,999</option>
-                                                               <option>$25,000 - $37,499</option>
-                                                               <option>$37,500 - $49,999</option>
-                                                               <option>$50,000 - $62,499</option>
-                                                               <option>$62,500 - $74,999</option>
-                                                               <option>$75,000 - $87,499</option>
-                                                               <option>$87,500 - $99,999</option>
-                                                               <option>$100,000 or more</option>
-                                                           </select></fieldset>
+                                                       <a href="#modal-AddListBoxQuestions" role="button" class="btn btn-primary" data-toggle="modal">
+                                                           Add</a><b><small>Question with list box ans</small></b></label>
+                                                   <div class="controls" id="addListBoxAnswerQuestionID">
+                                                       
                                                    </div>
                                                </div>
                                                 <div class="control-group">
@@ -273,3 +246,35 @@
             </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<div class="modal fade" id="modal-AddListBoxQuestions" tabindex="-1" role="dialog" aria-hidden="true" ng-controller="createTemplateController">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-hidden="true" id="addQuestionListBoxAnswerCloseButton" data-dismiss="modal" class="close"
+                                type="button" style="display: block;">
+                            ×</button>
+                        <h3 id="H5">
+                            Add New Questions (ListBox Answer)</h3>
+                    </div>
+                    <form>
+                        <div class="modal-body">                            
+                            <div>
+                                <h6>
+                                    Add Question</h6>
+                                Question <textarea class="input-block-level" id="ListBoxQuestionTextBoxQuestionData" name="textarea" placeholder="Question (ListBox Answer)"></textarea>
+                                Options - Separated by semi-color(i.e ;) <textarea class="input-block-level" id="ListBoxQuestionTextBoxAnswerData" name="textarea" placeholder="Options must be separated by seme-color (ie. ;)"></textarea>           
+            
+                            </div>                 
+
+                        </div>
+                        <div class="modal-footer clearfix">
+
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Discard </button>
+
+                            <button class="btn btn-primary" ng-click="InsertListBoxQuestionRow()">
+                                Submit</button>    
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
