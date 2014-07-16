@@ -5,14 +5,17 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     var totalQuestionSingleAnswerHtmlData = "";
     var totalQuestionMultipleAnswerHtmlData = "";
     var totalQuestionTextBoxAnswerHtmlData = "";
+    var totalQuestionListBoxAnswerHtmlData = "";
     var totalEditableInstruction = 0;
     var totalSingleQuestionList = 0;
     var totalMultipleQuestionList = 0;
     var totalTextBoxQuestionList = 0;
+    var totalListBoxQuestionList = 0;
     $scope.jobTemplate = [{ type: "AddInstructions", visible: false, buttonText: "Add Instructions", editableInstructionsList: [{ Number: totalEditableInstruction, Text: "Instruction 1" }] },
         { type: "AddSingleQuestionsList", visible: false, buttonText: "Add Ques. (single Ans.)", singleQuestionsList: [{ Number: totalSingleQuestionList, Question: "What is your gender ?", Options: "Male1;Female2" }] },
         { type: "AddMultipleQuestionsList", visible: false, buttonText: "Add Ques. (Multiple Ans.)", multipleQuestionsList: [{ Number: totalMultipleQuestionList, Question: "What is your multiple gender ?", Options: "Malem1;Femalem2" }] },
-        { type: "AddTextBoxQuestionsList", visible: false, buttonText: "Add Ques. (TextBox Ans.)", textBoxQuestionsList: [{ Number: totalTextBoxQuestionList, Question: "Who won 2014 FIFA World cup ?", Options: "text" }] }
+        { type: "AddTextBoxQuestionsList", visible: false, buttonText: "Add Ques. (TextBox Ans.)", textBoxQuestionsList: [{ Number: totalTextBoxQuestionList, Question: "Who won 2014 FIFA World cup ?", Options: "text"}] },
+        { type: "AddListBoxQuestionsList", visible: false, buttonText: "Add Ques. (ListBox Ans.)", listBoxQuestionsList: [{ Number: totalListBoxQuestionList, Question: "What is your multiple gender ?", Options: "Malem1;Femalem2"}] }
     ];
 
     $.each($scope.jobTemplate[0].editableInstructionsList, function () {
@@ -66,6 +69,25 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     });
 
     quesCount = 1;
+    $.each($scope.jobTemplate[4].listBoxQuestionsList, function () {
+
+        totalQuestionListBoxAnswerHtmlData += "<fieldset>";
+
+        totalQuestionListBoxAnswerHtmlData += "<label>";
+        totalQuestionListBoxAnswerHtmlData += "<b>" + quesCount + ". " + this.Question + "</b><a style='cursor:pointer' class='addQuestionListBoxAnswerClass' id='" + this.Number + "'><i class='fa fa-times'></i></a>";
+        totalQuestionListBoxAnswerHtmlData += "</label>";
+
+        var listBoxQuestionsOptionList = this.Options.split(';');
+        totalQuestionListBoxAnswerHtmlData += "<select name='Education' class='form-control'>";
+        for (var j = 0; j < listBoxQuestionsOptionList.length; j++) {                  
+            totalQuestionListBoxAnswerHtmlData += "<option value='" + quesCount + "'>" + listBoxQuestionsOptionList[j] + "</option>";            
+        }
+        totalQuestionListBoxAnswerHtmlData += "</select>";
+        totalQuestionListBoxAnswerHtmlData += "</fieldset>";
+        quesCount++;
+    });
+
+    quesCount = 1;
     $.each($scope.jobTemplate[3].textBoxQuestionsList, function () {
 
         totalQuestionTextBoxAnswerHtmlData += "<fieldset>";
@@ -84,6 +106,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     $('#addSingleAnswerQuestionID').html(totalQuestionSingleAnswerHtmlData);
     $('#addMultipleAnswerQuestionID').html(totalQuestionMultipleAnswerHtmlData);
     $('#addTextBoxAnswerQuestionID').html(totalQuestionTextBoxAnswerHtmlData);
+    $('#addListBoxAnswerQuestionID').html(totalQuestionListBoxAnswerHtmlData);
     initAddInstructionClass();
     initAddQuestionSingleAnswerClass();
     initAddQuestionMultipleAnswerClass();
@@ -113,6 +136,14 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
         refreshMultipleQuestionsList();
     }
 
+    // listBox questions..
+    $scope.InsertListBoxQuestionRow = function () {
+        totalListBoxQuestionList = totalListBoxQuestionList + 1;
+        var listBoxQuestionsList = { Number: totalListBoxQuestionList, Question: $('#ListBoxQuestionTextBoxQuestionData').val(), Options: $('#ListBoxQuestionTextBoxAnswerData').val() };
+        $scope.jobTemplate[4].listBoxQuestionsList.push(listBoxQuestionsList);
+        refreshListBoxQuestionsList();
+    }
+
     // textbox questions..
     $scope.InsertTextBoxQuestionRow = function () {
         totalTextBoxQuestionList = totalTextBoxQuestionList + 1;
@@ -138,6 +169,16 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
         } else {
             $scope.jobTemplate[2].visible = true;
             $scope.jobTemplate[2].buttonText = "Remove Ques. (Multiple Ans.)";
+        }
+    }
+
+    $scope.addListBoxAnswer = function () {
+        if ($scope.jobTemplate[4].visible == true) {
+            $scope.jobTemplate[4].buttonText = "Add Ques. (ListBox Ans.)";
+            $scope.jobTemplate[4].visible = false;
+        } else {
+            $scope.jobTemplate[4].visible = true;
+            $scope.jobTemplate[4].buttonText = "Remove Ques. (ListBox Ans.)";
         }
     }
 
@@ -196,6 +237,19 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
             }
             $scope.jobTemplate[2].multipleQuestionsList.splice(i, 1);
             refreshMultipleQuestionsList();
+        });
+    }
+
+    function initAddQuestionListBoxAnswerClass() {
+        $('.addQuestionListBoxAnswerClass').click(function () {
+            var i;
+            for (i = 0; i < $scope.jobTemplate[4].listBoxQuestionsList.length; i++) {
+                if ($scope.jobTemplate[4].listBoxQuestionsList[i].Number == this.id) {
+                    break;
+                }
+            }
+            $scope.jobTemplate[4].listBoxQuestionsList.splice(i, 1);
+            refreshListBoxQuestionsList();
         });
     }
 
@@ -276,6 +330,31 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
         $('#addMultipleAnswerQuestionID').html(totalQuestionMultipleAnswerHtmlData);
         initAddQuestionMultipleAnswerClass();
         $('#addQuestionMultipleAnswerCloseButton').click();
+    }
+
+    function refreshListBoxQuestionsList() {
+        totalQuestionListBoxAnswerHtmlData = "";
+        var innerQuesCount = 1;
+        $.each($scope.jobTemplate[4].listBoxQuestionsList, function () {
+            totalQuestionListBoxAnswerHtmlData += "<fieldset>";
+
+            totalQuestionListBoxAnswerHtmlData += "<label>";
+            totalQuestionListBoxAnswerHtmlData += "<b>" + innerQuesCount + ". " + this.Question + "</b> <a style='cursor:pointer' class='addQuestionListBoxAnswerClass' id='" + this.Number + "'><i class='fa fa-times'></i></a>";
+            totalQuestionListBoxAnswerHtmlData += "</label>";
+
+            var listBoxQuestionsOptionList = this.Options.split(';');
+            totalQuestionListBoxAnswerHtmlData += "<select name='Education' class='form-control'>";
+            for (var j = 0; j < listBoxQuestionsOptionList.length; j++) {
+                totalQuestionListBoxAnswerHtmlData += "<option value='" + quesCount + "'>" + listBoxQuestionsOptionList[j] + "</option>";
+            }
+            totalQuestionListBoxAnswerHtmlData += "</select>";
+
+            totalQuestionListBoxAnswerHtmlData += "</fieldset>";
+            innerQuesCount++;
+        });
+        $('#addListBoxAnswerQuestionID').html(totalQuestionListBoxAnswerHtmlData);
+        initAddQuestionListBoxAnswerClass();
+        $('#addQuestionListBoxAnswerCloseButton').click();
     }
 
     function refreshTextBoxQuestionsList() {
