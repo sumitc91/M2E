@@ -111,13 +111,13 @@ BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $ro
                 headers: { 'Content-Type': 'application/json' }
             }).success(function (data, status, headers, config) {
                 //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
-                stopBlockUI();                
+                stopBlockUI();
                 if (data.Status == "409")
-                    showToastMessage("Warning", "Username already registered !")
-                else if(data.Status == "500")
-                    showToastMessage("Error", "Internal Server Error Occured !")
-                else if(data.Status == "200")
-                    showToastMessage("Success", "Account successfully created ! check your email for validation.")
+                    showToastMessage("Warning", "Username already registered !");
+                else if (data.Status == "500")
+                    showToastMessage("Error", "Internal Server Error Occured !");
+                else if (data.Status == "200")
+                    showToastMessage("Success", "Account successfully created ! check your email for validation.");
             }).error(function (data, status, headers, config) {
 
             });
