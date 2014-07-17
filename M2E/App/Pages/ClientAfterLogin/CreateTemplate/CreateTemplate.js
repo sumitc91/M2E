@@ -11,9 +11,9 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     var totalMultipleQuestionList = 0;
     var totalTextBoxQuestionList = 0;
     var totalListBoxQuestionList = 0;
-    $scope.jobTemplate = [{ type: "AddInstructions", visible: false, buttonText: "Add Instructions", editableInstructionsList: [{ Number: totalEditableInstruction, Text: "Instruction 1" }] },
-        { type: "AddSingleQuestionsList", visible: false, buttonText: "Add Ques. (single Ans.)", singleQuestionsList: [{ Number: totalSingleQuestionList, Question: "What is your gender ?", Options: "Male1;Female2" }] },
-        { type: "AddMultipleQuestionsList", visible: false, buttonText: "Add Ques. (Multiple Ans.)", multipleQuestionsList: [{ Number: totalMultipleQuestionList, Question: "What is your multiple gender ?", Options: "Malem1;Femalem2" }] },
+    $scope.jobTemplate = [{ type: "AddInstructions", visible: false, buttonText: "Add Instructions", editableInstructionsList: [{ Number: totalEditableInstruction, Text: "Instruction 1"}] },
+        { type: "AddSingleQuestionsList", visible: false, buttonText: "Add Ques. (single Ans.)", singleQuestionsList: [{ Number: totalSingleQuestionList, Question: "What is your gender ?", Options: "Male1;Female2"}] },
+        { type: "AddMultipleQuestionsList", visible: false, buttonText: "Add Ques. (Multiple Ans.)", multipleQuestionsList: [{ Number: totalMultipleQuestionList, Question: "What is your multiple gender ?", Options: "Malem1;Femalem2"}] },
         { type: "AddTextBoxQuestionsList", visible: false, buttonText: "Add Ques. (TextBox Ans.)", textBoxQuestionsList: [{ Number: totalTextBoxQuestionList, Question: "Who won 2014 FIFA World cup ?", Options: "text"}] },
         { type: "AddListBoxQuestionsList", visible: false, buttonText: "Add Ques. (ListBox Ans.)", listBoxQuestionsList: [{ Number: totalListBoxQuestionList, Question: "What is your multiple gender ?", Options: "Malem1;Femalem2"}] }
     ];
@@ -79,8 +79,8 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
 
         var listBoxQuestionsOptionList = this.Options.split(';');
         totalQuestionListBoxAnswerHtmlData += "<select name='Education' class='form-control'>";
-        for (var j = 0; j < listBoxQuestionsOptionList.length; j++) {                  
-            totalQuestionListBoxAnswerHtmlData += "<option value='" + quesCount + "'>" + listBoxQuestionsOptionList[j] + "</option>";            
+        for (var j = 0; j < listBoxQuestionsOptionList.length; j++) {
+            totalQuestionListBoxAnswerHtmlData += "<option value='" + quesCount + "'>" + listBoxQuestionsOptionList[j] + "</option>";
         }
         totalQuestionListBoxAnswerHtmlData += "</select>";
         totalQuestionListBoxAnswerHtmlData += "</fieldset>";
@@ -96,8 +96,8 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
         totalQuestionTextBoxAnswerHtmlData += "<b>" + quesCount + ". " + this.Question + "</b><a style='cursor:pointer' class='addQuestionTextBoxAnswerClass' id='" + this.Number + "'><i class='fa fa-times'></i></a>";
         totalQuestionTextBoxAnswerHtmlData += "</label>";
         totalQuestionTextBoxAnswerHtmlData += "</div>";
-            totalQuestionTextBoxAnswerHtmlData += "<input type='text' class='form-control' value='' placeholder='Enter your answer' name='" + quesCount + " id='"+this.Number+"'/>";           
-        
+        totalQuestionTextBoxAnswerHtmlData += "<input type='text' class='form-control' value='' placeholder='Enter your answer' name='" + quesCount + " id='" + this.Number + "'/>";
+
         totalQuestionTextBoxAnswerHtmlData += "</fieldset>";
         quesCount++;
     });
@@ -112,7 +112,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     initAddQuestionMultipleAnswerClass();
     initAddQuestionTextBoxAnswerClass();
 
-    $scope.addEditableInstructions = function () {        
+    $scope.addEditableInstructions = function () {
         totalEditableInstruction = totalEditableInstruction + 1;
         var editableInstructionDataToBeAdded = { Number: totalEditableInstruction, Text: $('#AddInstructionsTextArea').val() };
         $scope.jobTemplate[0].editableInstructionsList.push(editableInstructionDataToBeAdded);
@@ -156,6 +156,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
         if ($scope.jobTemplate[1].visible == true) {
             $scope.jobTemplate[1].buttonText = "Add Ques. (single Ans.)";
             $scope.jobTemplate[1].visible = false;
+
         } else {
             $scope.jobTemplate[1].visible = true;
             $scope.jobTemplate[1].buttonText = "Remove Ques. (single Ans.)";
@@ -185,7 +186,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     $scope.addInstructionsRow = function () {
         if ($scope.jobTemplate[0].visible == true) {
             $scope.jobTemplate[0].buttonText = "Add Instructions";
-            $scope.jobTemplate[0].visible = false;
+            $scope.jobTemplate[0].visible = false;            
         } else {
             $scope.jobTemplate[0].visible = true;
             $scope.jobTemplate[0].buttonText = "Remove Instructions";
@@ -388,6 +389,34 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
             $scope.jobTemplate[1].buttonText = "Remove Ques. (single Ans.)";
         }
     }
+
+
+    $scope.ClientCreateTemplateFunction = function () {
+        var clientCreateTemplateData =  $scope.jobTemplate;          
+        var url = ServerContextPah + '/Client/CreateTemplate';        
+        if (true) {
+            //startBlockUI('wait..', 3);
+            $http({
+                url: url,
+                method: "POST",
+                data: clientCreateTemplateData,
+                headers: { 'Content-Type': 'application/json' }
+            }).success(function (data, status, headers, config) {
+                //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
+                //stopBlockUI();
+                
+            }).error(function (data, status, headers, config) {
+
+            });
+        }
+        else {
+            $scope.showErrors = true;
+            showToastMessage("Error", "Some Fields are Invalid !!!");
+        }
+
+    }
+
+
 });
 
 

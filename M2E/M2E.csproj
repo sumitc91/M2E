@@ -142,6 +142,13 @@
       <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DataResponse\LoginResponse.cs" />
+    <Compile Include="Models\DataWrapper\CreateTemplateRequest.cs" />
+    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateeditableInstructionsList.cs" />
+    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateListBoxQuestionsList.cs" />
+    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateMultipleQuestionsList.cs" />
+    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateQuestionInfo.cs" />
+    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateSingleQuestionsList.cs" />
+    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateTextBoxQuestionsList.cs" />
     <Compile Include="Models\DataWrapper\LoginRequest.cs" />
     <Compile Include="Models\DataWrapper\RegisterationRequest.cs" />
     <Compile Include="Models\DataWrapper\ValidateAccountRequest.cs" />

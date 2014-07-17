@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using M2E.Common.Logger;
 using System.Reflection;
 using System.Configuration;
+using M2E.Models.DataWrapper;
+using M2E.Models.DataWrapper.CreateTemplate;
 
 namespace M2E.Controllers
 {
@@ -21,5 +23,11 @@ namespace M2E.Controllers
             return View();
         }
 
+        [HttpPost]
+        public JsonResult CreateTemplate(List<CreateTemplateQuestionInfo> req)
+        {
+            
+            return Json("create Template");
+        }
     }
 }
