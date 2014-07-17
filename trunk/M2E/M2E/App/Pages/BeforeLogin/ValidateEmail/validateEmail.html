@@ -2,29 +2,26 @@
                     
 <!--        <!-- START CUSTOM TABS -->        
         <div class="container" ng-controller="validateEmailTemplate">
-            <h1 class="page-header title">validate account</h1>
-            <div class="row">
-	
-                 
-                    <div class="error-page">
-                        <h2 class="headline text-info"> 404</h2>
-                        <div class="error-content">
-                            <h3><i class="fa fa-warning text-yellow"></i> Oops! Page not found.</h3>
-                            <p>
-                                We could not find the page you were looking for. 
-                                Meanwhile, you may <a href="../../index.html">return to dashboard</a> or try using the search form.
-                            </p>
-                            <form class="search-form">
-                                <div class="input-group">
-                                    
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-primary" name="submit" type="submit"></button>
-                                    </div>
-                                </div><!-- /.input-group -->
-                            </form>
-                        </div><!-- /.error-content -->
-                    </div><!-- /.error-page -->
+
+
+                 <div class="alert {{Header.className}} alert-dismissable">
+                                        <i class="fa {{Header.iconClassName}}"></i>
+                                        <b>Alert!</b> {{Header.message}}
+                                    </div> 
+                 <div class="error-page">
+                        <h2 class="headline text-info">{{Content.header1}}<br />{{Content.companyName}}</h2>
+                     <div class="error-content callout {{Content.contentClasstheme}}">
+                         <h3> <i class="{{Content.header2IconClassName}}"></i> {{Content.header2}}</h3>
+                         <p style="font-size: 17px">
+                             {{Content.message}}
+                             Please login into your account by <a href="#/login">clicking here</a><br />
+                             To get acquainted with the website, please go through the below pages: <br />
+                             <a href="#/faq">FAQ</a><br />
+                             <a href="#/AboutUs">About us</a><br />
+                             <a href="#/">Home</a>
+                         </p>
+                     </div><!-- /.error-content -->
+                    </div>
 	    					
 	    	</div>
-            </div>-->
     </section>

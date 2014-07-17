@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using M2E.Common.Logger;
 using M2E.Models;
 using System;
 using System.Collections.Generic;
@@ -12,14 +13,15 @@ using System.Data.Entity.Validation;
 using M2E.Encryption;
 using M2E.Service;
 using M2E.Service.Register;
+using System.Reflection;
 
 namespace M2E.Controllers
 {
     public class AuthController : Controller
     {
-        //
         // GET: /Auth/        
         private readonly M2EEntities _db = new M2EEntities();
+        private static readonly ILogger Logger = new Logger(Convert.ToString(MethodBase.GetCurrentMethod().DeclaringType));
         public ActionResult Index()
         {
             return View();
@@ -58,7 +60,20 @@ namespace M2E.Controllers
             var response = new ResponseModel<string>();
             if (_db.ValidateUserKeys.Any(x => x.Username == req.userName && x.guid == req.guid))
             {
-                User User = _db.Users.SingleOrDefault(x => x.Username == req.userName);
+                var User = _db.Users.SingleOrDefault(x => x.Username == req.userName);
+                if (User == null)
+                {
+                    response.Status = 500;
+                    response.Message = "Internal Server Error";
+                    Logger.Info("Validate Account : " + req.userName);
+                    return Json(response);
+                }
+                if (User.isActive == "true")
+                {
+                    response.Status = 402;
+                    response.Message = "link expired";
+                    return Json(response);
+                }
                 User.isActive = "true";
                 try
                 {

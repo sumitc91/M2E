@@ -2337,7 +2337,7 @@ Component: timeline
 ------------------------------------
 */
 .error-page {
-  width: 600px;
+  width: auto;
   margin: 20px auto 0 auto;
 }
 @media screen and (max-width: 767px) {
@@ -2347,7 +2347,7 @@ Component: timeline
 }
 .error-page > .headline {
   float: left;
-  font-size: 100px;
+  font-size: 28px;
   font-weight: 300;
 }
 @media screen and (max-width: 767px) {
