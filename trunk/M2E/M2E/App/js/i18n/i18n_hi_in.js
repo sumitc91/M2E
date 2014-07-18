@@ -5,8 +5,8 @@ window.madetoearn.i18n = {
 
     // before login master page
     "beforeLoginCompanyTitle": "बिंदास कमाएँ",
-    "beforeLoginMasterPageAboutM2E": "M2E क्या है?",
-    "beforeLoginMasterPageSignIn": "साइन इन",
+    "beforeLoginMasterPageAboutM2E": "What is M2E?",
+    "beforeLoginMasterPageSignIn": "Sign In",
     "beforeLoginMasterPageContactUs": "हमसे संपर्क करें",
     "beforeLoginMasterPageFAQ": "पूछे जाने वाले प्रश्न",
     "beforeLoginMasterPageTnC": "शर्तें और गोपनीयता",
