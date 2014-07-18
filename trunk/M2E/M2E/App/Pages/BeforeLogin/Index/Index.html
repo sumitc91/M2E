@@ -5,15 +5,15 @@
                     
         <!-- START CUSTOM TABS -->        
         <div class="container">
-            <h2 class="page-header">Made To Earn</h2>
+            <h2 class="page-header" data-i18n="beforeLoginIndexPageM2EText"></h2>
             <div class="row">                       
                 <div class="col-md-6">
                     <!-- Custom Tabs (Pulled to the right) -->
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs pull-right">                                    
-                            <li class=""><a data-toggle="tab" href="#tab_1-1">More Info</a></li>
-                            <li class="active"><a data-toggle="tab" href="#tab_1-2">Register</a></li>                                    
-                            <li class="pull-left header"><i class="fa fa-th"></i>Client</li>
+                            <li class=""><a data-toggle="tab" href="#tab_1-1" data-i18n="beforeLoginIndexPageClientMoreInfo"></a></li>
+                            <li class="active"><a data-toggle="tab" href="#tab_1-2" data-i18n="beforeLoginIndexPageClientAbout"></a></li>                                    
+                            <li class="pull-left header" data-i18n="beforeLoginIndexClientText"></li>
                         </ul>
                         <div class="tab-content">
                             <div id="tab_1-1" class="tab-pane">
@@ -62,8 +62,8 @@
                             <div id="tab_1-2" class="tab-pane active">
                                 <div class="small-box bg-olive">
                                 <div class="inner">
-                                    <h3>
-                                        HIRE
+                                    <h3 data-i18n="beforeLoginIndexPageClientHireText">
+                                        
                                     </h3>
                                     <p>
                                         I need it done
@@ -84,9 +84,9 @@
                     <!-- Custom Tabs (Pulled to the right) -->
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs pull-right">
-                            <li class=""><a data-toggle="tab" href="#tab_2-1">More Info</a></li>
-                            <li class="active"><a data-toggle="tab" href="#tab_2-2">About</a></li>                                    
-                            <li class="pull-left header"><i class="fa fa-th"></i>User</li>
+                            <li class=""><a data-toggle="tab" href="#tab_2-1" data-i18n="beforeLoginIndexPageUserMoreInfo"></a></li>
+                            <li class="active"><a data-toggle="tab" href="#tab_2-2" data-i18n="beforeLoginIndexPageUserAbout"></a></li>                                    
+                            <li class="pull-left header" data-i18n="beforeLoginIndexPageUserText"></li>
                         </ul>
                         <div class="tab-content">
                             <div id="tab_2-1" class="tab-pane">
@@ -135,8 +135,8 @@
                             <div id="tab_2-2" class="tab-pane active">
                                 <div class="small-box bg-olive">
                                 <div class="inner">
-                                    <h3>
-                                        WORK
+                                    <h3 data-i18n="beforeLoginIndexPageClientWorkText">
+                                       
                                     </h3>
                                     <p>
                                         I will do it.
@@ -252,3 +252,9 @@
         <!-- END CUSTOM TABS -->
     </section><!-- /.content -->
 </aside>
+
+<script>
+    $(function () {
+        window.madetoearn.i18nLocalizePage();
+    });
+</script>
