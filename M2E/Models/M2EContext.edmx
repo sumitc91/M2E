@@ -127,6 +127,7 @@
     <Property Name="gender" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Locked" Type="nvarchar(max)" Nullable="true" />
     <Property Name="KeepMeSignedIn" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RegistrationTime" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="UserSkills">
     <Key>
@@ -162,6 +163,7 @@
     <Property Name="referenceCreateTemplateMultipleQuestionsList" Type="nvarchar(max)" Nullable="false" />
     <Property Name="referenceCreateTemplateSingleQuestionsList" Type="nvarchar(max)" Nullable="false" />
     <Property Name="referenceCreateTemplateTextBoxQuestionsList" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="creationTime" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="CreateTemplateeditableInstructionsLists">
     <Key>
@@ -368,6 +370,7 @@
           <Property Name="gender" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Locked" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="KeepMeSignedIn" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="RegistrationTime" Nullable="true" />
         </EntityType>
         <EntityType Name="UserSkill">
           <Key>
@@ -403,6 +406,7 @@
           <Property Type="String" Name="referenceCreateTemplateMultipleQuestionsList" Nullable="false" />
           <Property Type="String" Name="referenceCreateTemplateSingleQuestionsList" Nullable="false" />
           <Property Type="String" Name="referenceCreateTemplateTextBoxQuestionsList" Nullable="false" />
+          <Property Type="String" Name="creationTime" Nullable="false" />
         </EntityType>
         <EntityType Name="CreateTemplateeditableInstructionsList">
           <Key>
@@ -599,6 +603,7 @@
           <ScalarProperty Name="gender" ColumnName="gender" />
           <ScalarProperty Name="Locked" ColumnName="Locked" />
           <ScalarProperty Name="KeepMeSignedIn" ColumnName="KeepMeSignedIn" />
+          <ScalarProperty Name="RegistrationTime" ColumnName="RegistrationTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -637,6 +642,7 @@
           <ScalarProperty Name="referenceCreateTemplateMultipleQuestionsList" ColumnName="referenceCreateTemplateMultipleQuestionsList" />
           <ScalarProperty Name="referenceCreateTemplateSingleQuestionsList" ColumnName="referenceCreateTemplateSingleQuestionsList" />
           <ScalarProperty Name="referenceCreateTemplateTextBoxQuestionsList" ColumnName="referenceCreateTemplateTextBoxQuestionsList" />
+          <ScalarProperty Name="creationTime" ColumnName="creationTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -754,10 +760,10 @@
         <EntityTypeShape EntityType="M2EModel.UserDetail" Width="1.5" PointX="6.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
         <EntityTypeShape EntityType="M2EModel.UserPageSetting" Width="1.5" PointX="2.75" PointY="6.75" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="M2EModel.UserRecommendation" Width="1.5" PointX="6.75" PointY="3.75" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="M2EModel.User" Width="1.5" PointX="4.75" PointY="6.75" Height="3.5186979166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.User" Width="1.5" PointX="4.75" PointY="6.75" Height="3.7109993489583335" IsExpanded="true" />
         <EntityTypeShape EntityType="M2EModel.UserSkill" Width="1.5" PointX="6.75" PointY="6.75" Height="1.7879850260416674" IsExpanded="true" />
         <EntityTypeShape EntityType="M2EModel.ValidateUserKey" Width="1.5" PointX="8.75" PointY="0.75" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="M2EModel.CreateTemplateQuestionInfo" Width="3.875" PointX="1.875" PointY="14.75" Height="3.5186979166666656" />
+        <EntityTypeShape EntityType="M2EModel.CreateTemplateQuestionInfo" Width="3.875" PointX="1.875" PointY="14.75" Height="3.7109993489583353" />
         <EntityTypeShape EntityType="M2EModel.CreateTemplateeditableInstructionsList" Width="1.5" PointX="2" PointY="11.5" Height="2.9417936197916656" />
         <EntityTypeShape EntityType="M2EModel.CreateTemplateTextBoxQuestionsList" Width="1.5" PointX="3.5" PointY="11.5" Height="3.1340950520833335" />
         <EntityTypeShape EntityType="M2EModel.CreateTemplateSingleQuestionsList" Width="1.5" PointX="5" PointY="11.5" Height="3.1340950520833335" />
