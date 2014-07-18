@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 07/18/2014 17:11:52
+-- Date Created: 07/18/2014 17:45:09
 -- Generated from EDMX file: F:\pcongo\trunk\M2E\M2E\Models\M2EContext.edmx
 -- --------------------------------------------------
 
@@ -180,7 +180,8 @@ CREATE TABLE [dbo].[Users] (
     [ImageUrl] nvarchar(max)  NULL,
     [gender] nvarchar(max)  NULL,
     [Locked] nvarchar(max)  NULL,
-    [KeepMeSignedIn] nvarchar(max)  NULL
+    [KeepMeSignedIn] nvarchar(max)  NULL,
+    [RegistrationTime] nvarchar(max)  NULL
 );
 GO
 
@@ -215,7 +216,8 @@ CREATE TABLE [dbo].[CreateTemplateQuestionInfoes] (
     [referenceCreateTemplateListBoxQuestionsList] nvarchar(max)  NOT NULL,
     [referenceCreateTemplateMultipleQuestionsList] nvarchar(max)  NOT NULL,
     [referenceCreateTemplateSingleQuestionsList] nvarchar(max)  NOT NULL,
-    [referenceCreateTemplateTextBoxQuestionsList] nvarchar(max)  NOT NULL
+    [referenceCreateTemplateTextBoxQuestionsList] nvarchar(max)  NOT NULL,
+    [creationTime] nvarchar(max)  NOT NULL
 );
 GO
 
