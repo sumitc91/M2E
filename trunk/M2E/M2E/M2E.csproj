@@ -141,14 +141,32 @@
     <Compile Include="Models\ClientDetail.cs">
       <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CreateTemplateeditableInstructionsList.cs">
+      <DependentUpon>M2EContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CreateTemplateListBoxQuestionsList.cs">
+      <DependentUpon>M2EContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CreateTemplateMultipleQuestionsList.cs">
+      <DependentUpon>M2EContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CreateTemplateQuestionInfo.cs">
+      <DependentUpon>M2EContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CreateTemplateSingleQuestionsList.cs">
+      <DependentUpon>M2EContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CreateTemplateTextBoxQuestionsList.cs">
+      <DependentUpon>M2EContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DataResponse\LoginResponse.cs" />
     <Compile Include="Models\DataWrapper\CreateTemplateRequest.cs" />
-    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateeditableInstructionsList.cs" />
-    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateListBoxQuestionsList.cs" />
-    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateMultipleQuestionsList.cs" />
-    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateQuestionInfo.cs" />
-    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateSingleQuestionsList.cs" />
-    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateTextBoxQuestionsList.cs" />
+    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateeditableInstructionsListModel.cs" />
+    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateListBoxQuestionsListModel.cs" />
+    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateMultipleQuestionsListModel.cs" />
+    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateQuestionInfoModel.cs" />
+    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateSingleQuestionsListModel.cs" />
+    <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateTextBoxQuestionsListModel.cs" />
     <Compile Include="Models\DataWrapper\LoginRequest.cs" />
     <Compile Include="Models\DataWrapper\RegisterationRequest.cs" />
     <Compile Include="Models\DataWrapper\ValidateAccountRequest.cs" />
@@ -219,6 +237,7 @@
     <Content Include="App\js\angular-cookies.min.js" />
     <Content Include="App\js\angular.js" />
     <Content Include="App\js\angular.min.js" />
+    <Content Include="App\js\i18n\i18n_hi_in.js" />
     <Content Include="App\js\m2ei18n.js" />
     <Content Include="App\js\httpServices.js" />
     <Content Include="App\js\i18n\i18n_en-us.js" />
@@ -285,6 +304,7 @@
     <Content Include="dll\GaDotNet.Common.dll" />
     <Content Include="dll\log4net.dll" />
     <Content Include="Global.asax" />
+    <Content Include="Models\M2EContext.edmx.sql" />
     <Content Include="Template\AdminLTE-master\.gitignore" />
     <Content Include="Template\AdminLTE-master\css\AdminLTE.css" />
     <Content Include="Template\AdminLTE-master\css\bootstrap-responsive.css" />
@@ -867,7 +887,6 @@
       <DependentUpon>M2EContext.edmx</DependentUpon>
       <LastGenOutput>M2EContext.cs</LastGenOutput>
     </Content>
-    <None Include="App\third-Party\html5-file-upload\post_file.php" />
     <None Include="Template\AdminLTE-master\ajax\dashboard-boxrefresh-demo.php" />
     <None Include="Template\AdminLTE-master\fonts\fontawesome-webfont.eot" />
     <None Include="Template\AdminLTE-master\fonts\fontawesome-webfont.svg" />

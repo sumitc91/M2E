@@ -27,5 +27,6 @@ namespace M2E.Models
         public string gender { get; set; }
         public string Locked { get; set; }
         public string KeepMeSignedIn { get; set; }
+        public string RegistrationTime { get; set; }
     }
 }
