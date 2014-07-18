@@ -5,7 +5,7 @@ using System.Web;
 
 namespace M2E.Models.DataWrapper.CreateTemplate
 {
-    public class CreateTemplateMultipleQuestionsList
+    public class CreateTemplateSingleQuestionsListModel
     {
         public string Number { get; set; }
         public string Question { get; set; }

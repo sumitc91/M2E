@@ -25,10 +25,10 @@ namespace M2E.Controllers
         }
 
         [HttpPost]
-        public JsonResult CreateTemplate(List<CreateTemplateQuestionInfo> req)
+        public JsonResult CreateTemplate(List<CreateTemplateQuestionInfoModel> req)
         {
             var username = "sumitchourasia91@gmail.com";
-
+            
             return Json("create Template");
         }
     }
