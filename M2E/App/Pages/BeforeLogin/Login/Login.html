@@ -1,5 +1,5 @@
 ﻿<div id="login-box" class="form-box" ng-controller="beforeLoginSignInController">
-    <div class="header">Sign In</div>
+    <div class="header" data-i18n="signInTitle"></div>    
     <form>
         <div class="body bg-gray">
             <div class="form-group">
@@ -30,3 +30,9 @@
 
     </div>
 </div>
+
+<script>
+    $(function () {
+        window.madetoearn.i18nLocalizePage();
+    });
+</script>

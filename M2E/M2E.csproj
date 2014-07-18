@@ -219,7 +219,9 @@
     <Content Include="App\js\angular-cookies.min.js" />
     <Content Include="App\js\angular.js" />
     <Content Include="App\js\angular.min.js" />
+    <Content Include="App\js\m2ei18n.js" />
     <Content Include="App\js\httpServices.js" />
+    <Content Include="App\js\i18n\i18n_en-us.js" />
     <Content Include="App\js\jquery.filedrop.js" />
     <Content Include="App\js\toastMessage.js" />
     <Content Include="App\js\googleAnalytics.js" />
