@@ -13,9 +13,9 @@ window.madetoearn.i18n = {
 
     //beflore login index page
     "beforeLoginIndexPageM2EText": "बिंदास कमाएँ",
-    "beforeLoginIndexPageClientMoreInfo": "अधिक जानकारी",
+    "beforeLoginIndexPageClientMoreInfo": "जानकारी",
     "beforeLoginIndexPageClientAbout": "रजिस्टर",
-    "beforeLoginIndexPageUserMoreInfo": "अधिक जानकारी",
+    "beforeLoginIndexPageUserMoreInfo": "जानकारी",
     "beforeLoginIndexPageUserAbout": "रजिस्टर",
     "beforeLoginIndexPageUserText": "उपयोगकर्ता",
     "beforeLoginIndexClientText": "ग्राहक",

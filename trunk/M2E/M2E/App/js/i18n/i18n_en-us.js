@@ -16,7 +16,7 @@ window.madetoearn.i18n = {
     "beforeLoginIndexPageClientMoreInfo": "More Info",
     "beforeLoginIndexPageClientAbout": "About",
     "beforeLoginIndexPageUserMoreInfo": "More Info",
-    "beforeLoginIndexPageUserRegister": "Register",
+    "beforeLoginIndexPageUserAbout": "Register",
     "beforeLoginIndexPageUserText": "User",
     "beforeLoginIndexClientText": "Client",
     "beforeLoginIndexPageClientHireText": "HIRE",
