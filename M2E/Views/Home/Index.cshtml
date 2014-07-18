@@ -6,7 +6,7 @@
 <html ng-app="BeforeLoginApp">
     <head>
         <meta charset="UTF-8">
-        <title>Made To Earn</title>
+        <title data-i18n="beforeLoginCompanyTitle"></title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
         <link href="../../Template/AdminLTE-master/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -62,8 +62,8 @@
                     </div>
                     <div>                
                         <div class=" navbar-right googleAnalytics" style="line-height: 37px;" ga-category="BeforeLogin" ga-event="Login" ga-label="web" method="post" action="/Account/Login/web">
-                            <a class="googleAnalytics" href="#/AboutUs" ga-category="BeforeLogin" ga-event="What is M2E" ga-label="LinkClick"><span style="color: #d6d6d6; font-size: 16px; font-weight: normal;">What is M2E?</span></a>
-                            <a class="googleAnalytics" href="#/login" ga-category="BeforeLogin" ga-event="Sign In Link Clicked" ga-label="LinkClick"><span style="color: #d6d6d6; font-size: 16px; font-weight: normal; margin-left: 10px;">Sign In</span></a>
+                            <a class="googleAnalytics" href="#/AboutUs" ga-category="BeforeLogin" ga-event="What is M2E" ga-label="LinkClick"><span style="color: #d6d6d6; font-size: 16px; font-weight: normal;" data-i18n="beforeLoginMasterPageAboutM2E"></span></a>
+                            <a class="googleAnalytics" href="#/login" ga-category="BeforeLogin" ga-event="Sign In Link Clicked" ga-label="LinkClick"><span style="color: #d6d6d6; font-size: 16px; font-weight: normal; margin-left: 10px;" data-i18n="beforeLoginMasterPageSignIn"></span></a>
                         </div>
                     </div>
                 </div>                                                                                
@@ -77,16 +77,21 @@
              <div class="text-muted credit">
                  <div style="float: left; margin-left: -16px auto;font-size: 16px; margin-top: -12px;">
                      <span>©2014  {{beforeLoginFooterCopyRightInfo.companyName}}
-                         <span style="margin-left: 10px; padding-left: 10px;"><a href="#/contactus" class="googleAnalytics" ga-category="BeforeLogin" ga-event="ContactUsBottonLink" ga-label="Click">Contact us</a></span>
+                         <span style="margin-left: 10px; padding-left: 10px;"><a href="#/contactus" class="googleAnalytics" ga-category="BeforeLogin" ga-event="ContactUsBottonLink" ga-label="Click" data-i18n="beforeLoginMasterPageContactUs"></a></span>
                          <span style="margin-left: 4px; padding-left: 10px;">|</span>
-                         <span style="margin-left: 4px; padding-left: 10px;"><a href="#/faq" class="googleAnalytics" ga-category="BeforeLogin" ga-event="FAQBottonLink" ga-label="Click">FAQ</a></span>
+                         <span style="margin-left: 4px; padding-left: 10px;"><a href="#/faq" class="googleAnalytics" ga-category="BeforeLogin" ga-event="FAQBottonLink" ga-label="Click" data-i18n="beforeLoginMasterPageFAQ"></a></span>
                          <span style="margin-left: 4px; padding-left: 10px;">|</span>
-                         <span style="margin-left: 4px; padding-left: 10px;"><a href="" class="googleAnalytics" ga-category="BeforeLogin" ga-event="Terms&PrivacyBottonLink" ga-label="Click">Terms & Privacy</a></span>
+                         <span style="margin-left: 4px; padding-left: 10px;"><a href="" class="googleAnalytics" ga-category="BeforeLogin" ga-event="Terms&PrivacyBottonLink" ga-label="Click" data-i18n="beforeLoginMasterPageTnC"></a></span>
                      </span> 
                  </div>
              </div>
          </div>
-    </div>	
+    </div>
+	<script>
+    $(function () {
+        window.madetoearn.i18nLocalizePage();
+    });
+</script>
         <!-- Bootstrap -->
         <script src="../../Template/AdminLTE-master/js/bootstrap.min.js" type="text/javascript"></script>
         <!-- Bootstrap Switch-->
