@@ -11,21 +11,22 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     var totalMultipleQuestionList = 0;
     var totalTextBoxQuestionList = 0;
     var totalListBoxQuestionList = 0;
-    $scope.jobTemplate = [{ type: "AddInstructions", visible: false, buttonText: "Add Instructions", editableInstructionsList: [{ Number: totalEditableInstruction, Text: "Instruction 1"}] },
+
+    $rootScope.jobTemplate = [{ type: "AddInstructions", visible: false, buttonText: "Add Instructions", editableInstructionsList: [{ Number: totalEditableInstruction, Text: "Instruction 1"}] },
         { type: "AddSingleQuestionsList", visible: false, buttonText: "Add Ques. (single Ans.)", singleQuestionsList: [{ Number: totalSingleQuestionList, Question: "What is your gender ?", Options: "Male1;Female2"}] },
         { type: "AddMultipleQuestionsList", visible: false, buttonText: "Add Ques. (Multiple Ans.)", multipleQuestionsList: [{ Number: totalMultipleQuestionList, Question: "What is your multiple gender ?", Options: "Malem1;Femalem2"}] },
         { type: "AddTextBoxQuestionsList", visible: false, buttonText: "Add Ques. (TextBox Ans.)", textBoxQuestionsList: [{ Number: totalTextBoxQuestionList, Question: "Who won 2014 FIFA World cup ?", Options: "text"}] },
         { type: "AddListBoxQuestionsList", visible: false, buttonText: "Add Ques. (ListBox Ans.)", listBoxQuestionsList: [{ Number: totalListBoxQuestionList, Question: "What is your multiple gender ?", Options: "Malem1;Femalem2"}] }
     ];
 
-    $.each($scope.jobTemplate[0].editableInstructionsList, function () {
+    $.each($rootScope.jobTemplate[0].editableInstructionsList, function () {
         editableInstructions += "<li>";
         editableInstructions += this.Text + "&nbsp;&nbsp<a style='cursor:pointer' class='addInstructionClass' id='" + this.Number + "'><i class='fa fa-times'></i></a>";
         editableInstructions += "</li>";
     });
 
     var quesCount = 1;
-    $.each($scope.jobTemplate[1].singleQuestionsList, function () {
+    $.each($rootScope.jobTemplate[1].singleQuestionsList, function () {
 
         totalQuestionSingleAnswerHtmlData += "<fieldset>";
 
@@ -47,7 +48,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     });
 
     quesCount = 1;
-    $.each($scope.jobTemplate[2].multipleQuestionsList, function () {
+    $.each($rootScope.jobTemplate[2].multipleQuestionsList, function () {
 
         totalQuestionMultipleAnswerHtmlData += "<fieldset>";
 
@@ -69,7 +70,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     });
 
     quesCount = 1;
-    $.each($scope.jobTemplate[4].listBoxQuestionsList, function () {
+    $.each($rootScope.jobTemplate[4].listBoxQuestionsList, function () {
 
         totalQuestionListBoxAnswerHtmlData += "<fieldset>";
 
@@ -88,7 +89,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     });
 
     quesCount = 1;
-    $.each($scope.jobTemplate[3].textBoxQuestionsList, function () {
+    $.each($rootScope.jobTemplate[3].textBoxQuestionsList, function () {
 
         totalQuestionTextBoxAnswerHtmlData += "<fieldset>";
         totalQuestionTextBoxAnswerHtmlData += "<div class='input-group'>";
@@ -115,7 +116,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     $scope.addEditableInstructions = function () {
         totalEditableInstruction = totalEditableInstruction + 1;
         var editableInstructionDataToBeAdded = { Number: totalEditableInstruction, Text: $('#AddInstructionsTextArea').val() };
-        $scope.jobTemplate[0].editableInstructionsList.push(editableInstructionDataToBeAdded);
+        $rootScope.jobTemplate[0].editableInstructionsList.push(editableInstructionDataToBeAdded);
         refreshInstructionList();
         //$('#AddInstructionsTextArea').val(''); // TODO: clearing the text area not working
     }
@@ -124,7 +125,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     $scope.InsertSingleQuestionRow = function () {
         totalSingleQuestionList = totalSingleQuestionList + 1;
         var singleQuestionsList = { Number: totalSingleQuestionList, Question: $('#SingleQuestionTextBoxQuestionData').val(), Options: $('#SingleQuestionTextBoxAnswerData').val() };
-        $scope.jobTemplate[1].singleQuestionsList.push(singleQuestionsList);
+        $rootScope.jobTemplate[1].singleQuestionsList.push(singleQuestionsList);
         refreshSingleQuestionsList();
     }
 
@@ -132,7 +133,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     $scope.InsertMultipleQuestionRow = function () {
         totalMultipleQuestionList = totalMultipleQuestionList + 1;
         var multipleQuestionsList = { Number: totalMultipleQuestionList, Question: $('#MultipleQuestionTextBoxQuestionData').val(), Options: $('#MultipleQuestionTextBoxAnswerData').val() };
-        $scope.jobTemplate[2].multipleQuestionsList.push(multipleQuestionsList);
+        $rootScope.jobTemplate[2].multipleQuestionsList.push(multipleQuestionsList);
         refreshMultipleQuestionsList();
     }
 
@@ -140,7 +141,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     $scope.InsertListBoxQuestionRow = function () {
         totalListBoxQuestionList = totalListBoxQuestionList + 1;
         var listBoxQuestionsList = { Number: totalListBoxQuestionList, Question: $('#ListBoxQuestionTextBoxQuestionData').val(), Options: $('#ListBoxQuestionTextBoxAnswerData').val() };
-        $scope.jobTemplate[4].listBoxQuestionsList.push(listBoxQuestionsList);
+        $rootScope.jobTemplate[4].listBoxQuestionsList.push(listBoxQuestionsList);
         refreshListBoxQuestionsList();
     }
 
@@ -148,69 +149,69 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     $scope.InsertTextBoxQuestionRow = function () {
         totalTextBoxQuestionList = totalTextBoxQuestionList + 1;
         var textBoxQuestionsList = { Number: totalTextBoxQuestionList, Question: $('#TextBoxQuestionTextBoxQuestionData').val(), Options: "text" };
-        $scope.jobTemplate[3].textBoxQuestionsList.push(textBoxQuestionsList);
+        $rootScope.jobTemplate[3].textBoxQuestionsList.push(textBoxQuestionsList);
         refreshTextBoxQuestionsList();
     }
 
     $scope.addSingleAnswer = function () {
-        if ($scope.jobTemplate[1].visible == true) {
-            $scope.jobTemplate[1].buttonText = "Add Ques. (single Ans.)";
-            $scope.jobTemplate[1].visible = false;
+        if ($rootScope.jobTemplate[1].visible == true) {
+            $rootScope.jobTemplate[1].buttonText = "Add Ques. (single Ans.)";
+            $rootScope.jobTemplate[1].visible = false;
 
         } else {
-            $scope.jobTemplate[1].visible = true;
-            $scope.jobTemplate[1].buttonText = "Remove Ques. (single Ans.)";
+            $rootScope.jobTemplate[1].visible = true;
+            $rootScope.jobTemplate[1].buttonText = "Remove Ques. (single Ans.)";
         }
     }
 
     $scope.addMultipleAnswer = function () {
-        if ($scope.jobTemplate[2].visible == true) {
-            $scope.jobTemplate[2].buttonText = "Add Ques. (Multiple Ans.)";
-            $scope.jobTemplate[2].visible = false;
+        if ($rootScope.jobTemplate[2].visible == true) {
+            $rootScope.jobTemplate[2].buttonText = "Add Ques. (Multiple Ans.)";
+            $rootScope.jobTemplate[2].visible = false;
         } else {
-            $scope.jobTemplate[2].visible = true;
-            $scope.jobTemplate[2].buttonText = "Remove Ques. (Multiple Ans.)";
+            $rootScope.jobTemplate[2].visible = true;
+            $rootScope.jobTemplate[2].buttonText = "Remove Ques. (Multiple Ans.)";
         }
     }
 
     $scope.addListBoxAnswer = function () {
-        if ($scope.jobTemplate[4].visible == true) {
-            $scope.jobTemplate[4].buttonText = "Add Ques. (ListBox Ans.)";
-            $scope.jobTemplate[4].visible = false;
+        if ($rootScope.jobTemplate[4].visible == true) {
+            $rootScope.jobTemplate[4].buttonText = "Add Ques. (ListBox Ans.)";
+            $rootScope.jobTemplate[4].visible = false;
         } else {
-            $scope.jobTemplate[4].visible = true;
-            $scope.jobTemplate[4].buttonText = "Remove Ques. (ListBox Ans.)";
+            $rootScope.jobTemplate[4].visible = true;
+            $rootScope.jobTemplate[4].buttonText = "Remove Ques. (ListBox Ans.)";
         }
     }
 
     $scope.addInstructionsRow = function () {
-        if ($scope.jobTemplate[0].visible == true) {
-            $scope.jobTemplate[0].buttonText = "Add Instructions";
-            $scope.jobTemplate[0].visible = false;            
+        if ($rootScope.jobTemplate[0].visible == true) {
+            $rootScope.jobTemplate[0].buttonText = "Add Instructions";
+            $rootScope.jobTemplate[0].visible = false;            
         } else {
-            $scope.jobTemplate[0].visible = true;
-            $scope.jobTemplate[0].buttonText = "Remove Instructions";
+            $rootScope.jobTemplate[0].visible = true;
+            $rootScope.jobTemplate[0].buttonText = "Remove Instructions";
         }
     }
     $scope.addTextBoxAnswer = function () {
-        if ($scope.jobTemplate[3].visible == true) {
-            $scope.jobTemplate[3].buttonText = "Add Ques. (TextBox Ans.)";
-            $scope.jobTemplate[3].visible = false;
+        if ($rootScope.jobTemplate[3].visible == true) {
+            $rootScope.jobTemplate[3].buttonText = "Add Ques. (TextBox Ans.)";
+            $rootScope.jobTemplate[3].visible = false;
         } else {
-            $scope.jobTemplate[3].visible = true;
-            $scope.jobTemplate[3].buttonText = "Remove Ques. (TextBox Ans.)";
+            $rootScope.jobTemplate[3].visible = true;
+            $rootScope.jobTemplate[3].buttonText = "Remove Ques. (TextBox Ans.)";
         }
     }
 
     function initAddInstructionClass() {
         $('.addInstructionClass').click(function () {
             var i;
-            for (i = 0; i < $scope.jobTemplate[0].editableInstructionsList.length; i++) {
-                if ($scope.jobTemplate[0].editableInstructionsList[i].Number == this.id) {
+            for (i = 0; i < $rootScope.jobTemplate[0].editableInstructionsList.length; i++) {
+                if ($rootScope.jobTemplate[0].editableInstructionsList[i].Number == this.id) {
                     break;
                 }
             }
-            $scope.jobTemplate[0].editableInstructionsList.splice(i, 1);
+            $rootScope.jobTemplate[0].editableInstructionsList.splice(i, 1);
             refreshInstructionList();
         });
     }
@@ -218,12 +219,12 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     function initAddQuestionSingleAnswerClass() {
         $('.addQuestionSingleAnswerClass').click(function () {
             var i;
-            for (i = 0; i < $scope.jobTemplate[1].singleQuestionsList.length; i++) {
-                if ($scope.jobTemplate[1].singleQuestionsList[i].Number == this.id) {
+            for (i = 0; i < $rootScope.jobTemplate[1].singleQuestionsList.length; i++) {
+                if ($rootScope.jobTemplate[1].singleQuestionsList[i].Number == this.id) {
                     break;
                 }
             }
-            $scope.jobTemplate[1].singleQuestionsList.splice(i, 1);
+            $rootScope.jobTemplate[1].singleQuestionsList.splice(i, 1);
             refreshSingleQuestionsList();
         });
     }
@@ -231,12 +232,12 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     function initAddQuestionMultipleAnswerClass() {
         $('.addQuestionMultipleAnswerClass').click(function () {
             var i;
-            for (i = 0; i < $scope.jobTemplate[2].multipleQuestionsList.length; i++) {
-                if ($scope.jobTemplate[2].multipleQuestionsList[i].Number == this.id) {
+            for (i = 0; i < $rootScope.jobTemplate[2].multipleQuestionsList.length; i++) {
+                if ($rootScope.jobTemplate[2].multipleQuestionsList[i].Number == this.id) {
                     break;
                 }
             }
-            $scope.jobTemplate[2].multipleQuestionsList.splice(i, 1);
+            $rootScope.jobTemplate[2].multipleQuestionsList.splice(i, 1);
             refreshMultipleQuestionsList();
         });
     }
@@ -244,12 +245,12 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     function initAddQuestionListBoxAnswerClass() {
         $('.addQuestionListBoxAnswerClass').click(function () {
             var i;
-            for (i = 0; i < $scope.jobTemplate[4].listBoxQuestionsList.length; i++) {
-                if ($scope.jobTemplate[4].listBoxQuestionsList[i].Number == this.id) {
+            for (i = 0; i < $rootScope.jobTemplate[4].listBoxQuestionsList.length; i++) {
+                if ($rootScope.jobTemplate[4].listBoxQuestionsList[i].Number == this.id) {
                     break;
                 }
             }
-            $scope.jobTemplate[4].listBoxQuestionsList.splice(i, 1);
+            $rootScope.jobTemplate[4].listBoxQuestionsList.splice(i, 1);
             refreshListBoxQuestionsList();
         });
     }
@@ -257,19 +258,19 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     function initAddQuestionTextBoxAnswerClass() {
         $('.addQuestionTextBoxAnswerClass').click(function () {
             var i;
-            for (i = 0; i < $scope.jobTemplate[3].textBoxQuestionsList.length; i++) {
-                if ($scope.jobTemplate[3].textBoxQuestionsList[i].Number == this.id) {
+            for (i = 0; i < $rootScope.jobTemplate[3].textBoxQuestionsList.length; i++) {
+                if ($rootScope.jobTemplate[3].textBoxQuestionsList[i].Number == this.id) {
                     break;
                 }
             }
-            $scope.jobTemplate[3].textBoxQuestionsList.splice(i, 1);
+            $rootScope.jobTemplate[3].textBoxQuestionsList.splice(i, 1);
             refreshTextBoxQuestionsList();
         });
     }
 
     function refreshInstructionList() {
         editableInstructions = "";
-        $.each($scope.jobTemplate[0].editableInstructionsList, function () {
+        $.each($rootScope.jobTemplate[0].editableInstructionsList, function () {
             editableInstructions += "<li>";
             editableInstructions += this.Text + "&nbsp;&nbsp<a style='cursor:pointer' class='addInstructionClass' id='" + this.Number + "'><i class='fa fa-times'></i></a>";
             editableInstructions += "</li>";
@@ -282,7 +283,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     function refreshSingleQuestionsList() {
         totalQuestionSingleAnswerHtmlData = "";
         var innerQuesCount = 1;
-        $.each($scope.jobTemplate[1].singleQuestionsList, function () {
+        $.each($rootScope.jobTemplate[1].singleQuestionsList, function () {
             totalQuestionSingleAnswerHtmlData += "<fieldset>";
 
             totalQuestionSingleAnswerHtmlData += "<label>";
@@ -309,7 +310,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     function refreshMultipleQuestionsList() {
         totalQuestionMultipleAnswerHtmlData = "";
         var innerQuesCount = 1;
-        $.each($scope.jobTemplate[2].multipleQuestionsList, function () {
+        $.each($rootScope.jobTemplate[2].multipleQuestionsList, function () {
             totalQuestionMultipleAnswerHtmlData += "<fieldset>";
 
             totalQuestionMultipleAnswerHtmlData += "<label>";
@@ -336,7 +337,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     function refreshListBoxQuestionsList() {
         totalQuestionListBoxAnswerHtmlData = "";
         var innerQuesCount = 1;
-        $.each($scope.jobTemplate[4].listBoxQuestionsList, function () {
+        $.each($rootScope.jobTemplate[4].listBoxQuestionsList, function () {
             totalQuestionListBoxAnswerHtmlData += "<fieldset>";
 
             totalQuestionListBoxAnswerHtmlData += "<label>";
@@ -361,7 +362,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     function refreshTextBoxQuestionsList() {
         totalQuestionTextBoxAnswerHtmlData = "";
         var innerQuesCount = 1;
-        $.each($scope.jobTemplate[3].textBoxQuestionsList, function () {
+        $.each($rootScope.jobTemplate[3].textBoxQuestionsList, function () {
 
             totalQuestionTextBoxAnswerHtmlData += "<fieldset>";
             totalQuestionTextBoxAnswerHtmlData += "<div class='input-group'>";
@@ -381,18 +382,18 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     }
 
     $scope.enableFileDrop = function () {
-        if ($scope.jobTemplate[1].visible == true) {
-            $scope.jobTemplate[1].buttonText = "Add Ques. (single Ans.)";
-            $scope.jobTemplate[1].visible = false;
+        if ($rootScope.jobTemplate[1].visible == true) {
+            $rootScope.jobTemplate[1].buttonText = "Add Ques. (single Ans.)";
+            $rootScope.jobTemplate[1].visible = false;
         } else {
-            $scope.jobTemplate[1].visible = true;
-            $scope.jobTemplate[1].buttonText = "Remove Ques. (single Ans.)";
+            $rootScope.jobTemplate[1].visible = true;
+            $rootScope.jobTemplate[1].buttonText = "Remove Ques. (single Ans.)";
         }
     }
 
 
     $scope.ClientCreateTemplateFunction = function () {
-        var clientCreateTemplateData =  $scope.jobTemplate;          
+        var clientCreateTemplateData =  $rootScope.jobTemplate;          
         var url = ServerContextPah + '/Client/CreateTemplate';        
         if (true) {
             //startBlockUI('wait..', 3);
