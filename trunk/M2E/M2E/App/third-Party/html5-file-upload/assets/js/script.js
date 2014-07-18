@@ -1,5 +1,5 @@
 $(function () {
-    alert("html5 upload");
+    //alert("html5 upload");
     var dropbox = $('#dropbox'),
 		message = $('.message', dropbox);
 
