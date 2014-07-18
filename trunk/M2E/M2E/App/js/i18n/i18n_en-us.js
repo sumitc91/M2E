@@ -1,8 +1,6 @@
 ﻿window.madetoearn = window.madetoearn || {};
 window.madetoearn.i18n = {
-    //signin page.
-    "signInTitle": "SIGN IN",
-
+   
     // before login master page
     "beforeLoginCompanyTitle":"Made To Earn",
     "beforeLoginMasterPageAboutM2E": "What is M2E?",
@@ -44,5 +42,11 @@ window.madetoearn.i18n = {
                             "<p>Lot of issues are going to rise, but we are confident that with support from our users we will be able to overcome our difficulties. </p>"+
                             "<p>Below listed are our facebook page links!</p>"+
                             "<p>If you feel like supporting us or just wanna say a hi, use the comment section below. Your voice will be a thrust for us to move forward. </p>" +
-                            "<p>Thank You!</p>"
+                            "<p>Thank You!</p>",
+
+    //signin page.
+    "signInTitle": "SIGN IN",
+    "beforeLoginLoginPageEmailIdText": "Email Id",
+    "beforeLoginLoginPagePasswordText": "Password"
+
 };

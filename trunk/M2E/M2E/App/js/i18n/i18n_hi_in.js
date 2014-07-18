@@ -1,8 +1,6 @@
 ﻿window.madetoearn = window.madetoearn || {};
 window.madetoearn.i18n = {
-    //signin page.
-    "signInTitle": "लॉगिन",
-
+    
     // before login master page
     "beforeLoginCompanyTitle": "बिंदास कमाएँ",
     "beforeLoginMasterPageAboutM2E": "What is M2E?",
@@ -44,5 +42,10 @@ window.madetoearn.i18n = {
                              "<p>मुद्दों की , भूखंड वृद्धि करने के लिए जा रहे हैं, लेकिन हम अपने उपयोगकर्ताओं की सहायता से हम अपने कठिनाइयों को दूर करने में सक्षम हो जाएगा कि पूरा भरोसा है. </ p>"+
                              "<p> सूचीबद्ध नीचे हमारे फेसबुक पेज लिंक कर रहे हैं! </ p>"+
                              "<p> तुम हमें समर्थन या बस चाहता हूँ नीचे टिप्पणी अनुभाग का उपयोग, एक नमस्ते कहने की तरह लग रहा है. हमें आगे बढ़ने के लिए अपनी आवाज़ एक जोर दिया जाएगा. </ p>"+
-                             "<p> धन्यवाद! </ p>"
+                             "<p> धन्यवाद! </ p>",
+
+    //signin page.
+    "signInTitle": "लॉगिन",
+    "beforeLoginLoginPageEmailIdText": "प्रयोक्ता नाम",
+    "beforeLoginLoginPagePasswordText": "पासवर्ड"
 };
