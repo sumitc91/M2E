@@ -114,11 +114,16 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     initAddQuestionTextBoxAnswerClass();
 
     $scope.addEditableInstructions = function () {
-        totalEditableInstruction = totalEditableInstruction + 1;
-        var editableInstructionDataToBeAdded = { Number: totalEditableInstruction, Text: $('#AddInstructionsTextArea').val() };
-        $rootScope.jobTemplate[0].editableInstructionsList.push(editableInstructionDataToBeAdded);
-        refreshInstructionList();
-        //$('#AddInstructionsTextArea').val(''); // TODO: clearing the text area not working
+        if (($('#AddInstructionsTextArea').val() != "") && ($('#AddInstructionsTextArea').val() != null)) {
+            totalEditableInstruction = totalEditableInstruction + 1;
+            var editableInstructionDataToBeAdded = { Number: totalEditableInstruction, Text: $('#AddInstructionsTextArea').val() };
+            $rootScope.jobTemplate[0].editableInstructionsList.push(editableInstructionDataToBeAdded);
+            refreshInstructionList();
+            //$('#AddInstructionsTextArea').val(''); // TODO: clearing the text area not working
+        } else {
+            showToastMessage("Warning", "Instruction Text Box cann't be empty");
+        }
+        
     }
 
     // single questions..
