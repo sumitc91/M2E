@@ -162,6 +162,7 @@
     <Compile Include="Models\CreateTemplateTextBoxQuestionsList.cs">
       <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataResponse\ClientTemplateResponse.cs" />
     <Compile Include="Models\DataResponse\LoginResponse.cs" />
     <Compile Include="Models\DataWrapper\CreateTemplateRequest.cs" />
     <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateeditableInstructionsListModel.cs" />
