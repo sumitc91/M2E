@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using M2E.Common.Logger;
 using System.Reflection;
 using System.Configuration;
+using M2E.Models.DataResponse;
 using M2E.Models.DataWrapper;
 using M2E.Models.DataWrapper.CreateTemplate;
 using M2E.Models;
@@ -29,6 +30,33 @@ namespace M2E.Controllers
         }
 
         [HttpPost]
+        public JsonResult GetAllTemplateInformation()
+        {
+            var username = "sumitchourasia91@gmail.com";
+            var response = new ResponseModel<List<ClientTemplateResponse>>();
+
+            List<CreateTemplateQuestionInfo> templateData = _db.CreateTemplateQuestionInfoes.OrderByDescending(x=>x.creationTime).ToList();
+            response.Status = 200;
+            response.Message = "success";
+            response.Payload = new List<ClientTemplateResponse>();
+            foreach (var job in templateData)
+            {
+                var clientTemplate = new ClientTemplateResponse
+                {
+                    title = job.title,
+                    creationDate = job.creationTime,
+                    showTime = " 4 hours",
+                    editId = job.Id.ToString(CultureInfo.InvariantCulture),
+                    showEllipse = true,
+                    timeShowType = "success"
+                };
+                response.Payload.Add(clientTemplate);
+            }
+            return Json(response);
+        }
+
+
+        [HttpPost]
         public JsonResult CreateTemplate(List<CreateTemplateQuestionInfoModel> req)
         {
             var username = "sumitchourasia91@gmail.com";
@@ -44,7 +72,7 @@ namespace M2E.Controllers
             {
                 refKey += 1;
             }
-            
+
             var createTemplateQuestionsInfoInsert = new CreateTemplateQuestionInfo
             {
                 buttonText = "NA",
@@ -58,7 +86,7 @@ namespace M2E.Controllers
                 completed = "NA",
                 verified = "NA"
             };
-            
+
             foreach (var templateQuestions in req)
             {
                 if (templateQuestions.visible == false)
@@ -67,7 +95,7 @@ namespace M2E.Controllers
                 {
                     case "AddInstructions":
                         foreach (var instructionsList in templateQuestions.editableInstructionsList)
-                        {                        
+                        {
                             var createTemplateeditableInstructionsListInsert = new CreateTemplateeditableInstructionsList
                             {
                                 username = username,
@@ -91,7 +119,7 @@ namespace M2E.Controllers
                                 username = username,
                                 Number = singleQuestionList.Number,
                                 Question = singleQuestionList.Question,
-                                Options = singleQuestionList.Options,                            
+                                Options = singleQuestionList.Options,
                                 assignTime = DateTime.Now.ToString(CultureInfo.InvariantCulture),
                                 assignedTo = "NA",
                                 completedAt = "NA",
@@ -168,7 +196,7 @@ namespace M2E.Controllers
             }
             catch (DbEntityValidationException e)
             {
-                DbContextException.LogDbContextException(e);                
+                DbContextException.LogDbContextException(e);
             }
             return Json("create Template");
         }
