@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity.Validation;
-using System.Globalization;
 using System.Reflection;
 using M2E.Common.Logger;
 using M2E.CommonMethods;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using M2E.Encryption;
 using M2E.Models;
-using M2E.Models.DataResponse;
 using M2E.Models.DataWrapper;
 
 namespace M2E.Service.Register
@@ -35,11 +28,10 @@ namespace M2E.Service.Register
             }
 
             var guid = Guid.NewGuid().ToString();
-            var encrypt = new EncryptionClass();
             var user = new User
             {
                 Username = req.Username,
-                Password = encrypt.MD5Hash(req.Password),
+                Password = EncryptionClass.Md5Hash(req.Password),
                 Source = req.Source,
                 isActive = "false",
                 Type = req.Type,

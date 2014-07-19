@@ -22,10 +22,12 @@ BeforeLoginApp.controller('beforeLoginSignInController', function ($scope, $http
             }).success(function (data, status, headers, config) {
                 //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
                 stopBlockUI();
-                if (data.Status == "409")
-                    showToastMessage("Warning", "Username already registered !");
+                if (data.Status == "401")
+                    showToastMessage("Notice", "The username/password combination is incorrect !");
                 else if (data.Status == "500")
                     showToastMessage("Error", "Internal Server Error Occured !");
+                else if (data.Status == "403")
+                    showToastMessage("Warning", "Your Account is not verified. Please check your mail !");
                 else if (data.Status == "200") {
                     showToastMessage("Success", "Successfully Logged in !");
                     console.log("data : " + data);

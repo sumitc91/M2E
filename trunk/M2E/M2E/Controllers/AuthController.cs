@@ -1,16 +1,13 @@
-﻿using System.Runtime.InteropServices;
-using M2E.Common.Logger;
+﻿using M2E.Common.Logger;
 using M2E.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using M2E.Encryption;
 using System.Web.Mvc;
 using M2E.Models.DataResponse;
 using M2E.Models.DataWrapper;
 using M2E.CommonMethods;
 using System.Data.Entity.Validation;
-using M2E.Encryption;
 using M2E.Service;
 using M2E.Service.Register;
 using System.Reflection;
@@ -36,10 +33,10 @@ namespace M2E.Controllers
             if (req.Type == "web")
             {
                 var loginService = new LoginService();
-                responseData = loginService.WebLogin(req.UserName, req.Password, returnUrl, req.KeepMeSignedInCheckBox != null ? "true" : "false");                
+                responseData = loginService.WebLogin(req.UserName, EncryptionClass.Md5Hash(req.Password), returnUrl, req.KeepMeSignedInCheckBox != null ? "true" : "false");                
             }
 
-            var response = new ResponseModel<LoginResponse> { Status = 200, Message = "success", Payload = responseData };
+            var response = new ResponseModel<LoginResponse> { Status = Convert.ToInt32(responseData.Code), Message = "success", Payload = responseData };
             return Json(response);
         }
 
@@ -90,13 +87,9 @@ namespace M2E.Controllers
                 response.Message = "validated";
                 return Json(response);
             }
-            else
-            {
-                response.Status = 402;
-                response.Message = "link expired";
-                return Json(response);
-            }
-
+            response.Status = 402;
+            response.Message = "link expired";
+            return Json(response);
         }
 
     }

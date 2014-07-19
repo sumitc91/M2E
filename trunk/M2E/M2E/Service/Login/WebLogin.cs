@@ -4,9 +4,7 @@ using System.Reflection;
 using M2E.Common.Logger;
 using M2E.CommonMethods;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using M2E.Models;
 using M2E.Models.DataResponse;
 
@@ -36,8 +34,9 @@ namespace M2E.Service.Login
                     }
                     catch (DbEntityValidationException e)
                     {
-                        var dbContextException = new DbContextException();
                         DbContextException.LogDbContextException(e);
+                        userData.Code = "500";
+                        return userData;
                     }
                 }
                 else
