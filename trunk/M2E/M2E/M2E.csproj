@@ -43,7 +43,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="GaDotNet.Common, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -252,9 +253,10 @@
     <Content Include="App\js\jquery.cookie.js" />
     <Content Include="App\js\jquery.min.js" />
     <Content Include="App\Pages\BeforeLogin\ContactUs\contactus.html" />
+    <Content Include="App\Pages\BeforeLogin\ForgetPassword\forgetpassword.html" />
     <Content Include="App\Pages\BeforeLogin\Login\Login.js" />
-    <Content Include="App\Pages\BeforeLogin\ShowMessage\showmessage.html" />
     <Content Include="App\Pages\BeforeLogin\ShowMessage\showMessageTemplate.js" />
+    <Content Include="App\Pages\BeforeLogin\ShowMessage\showmessage.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpClient\SignUpClient.js" />
     <Content Include="App\Pages\BeforeLogin\SignUpUser\SignUpUser.js" />
     <Content Include="App\Pages\BeforeLogin\ValidateEmail\validateEmail.html" />
