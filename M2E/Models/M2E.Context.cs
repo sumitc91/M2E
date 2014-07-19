@@ -13,10 +13,10 @@ namespace M2E.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class M2EEntities : DbContext
+    public partial class M2EEntitiesDB : DbContext
     {
-        public M2EEntities()
-            : base("name=M2EEntities")
+        public M2EEntitiesDB()
+            : base("name=M2EEntitiesDB")
         {
         }
     
@@ -26,6 +26,12 @@ namespace M2E.Models
         }
     
         public DbSet<ClientDetail> ClientDetails { get; set; }
+        public DbSet<CreateTemplateeditableInstructionsList> CreateTemplateeditableInstructionsLists { get; set; }
+        public DbSet<CreateTemplateListBoxQuestionsList> CreateTemplateListBoxQuestionsLists { get; set; }
+        public DbSet<CreateTemplateMultipleQuestionsList> CreateTemplateMultipleQuestionsLists { get; set; }
+        public DbSet<CreateTemplateQuestionInfo> CreateTemplateQuestionInfoes { get; set; }
+        public DbSet<CreateTemplateSingleQuestionsList> CreateTemplateSingleQuestionsLists { get; set; }
+        public DbSet<CreateTemplateTextBoxQuestionsList> CreateTemplateTextBoxQuestionsLists { get; set; }
         public DbSet<ForgetPassword> ForgetPasswords { get; set; }
         public DbSet<JobData> JobDatas { get; set; }
         public DbSet<LinkedInAuthApiData> LinkedInAuthApiDatas { get; set; }
