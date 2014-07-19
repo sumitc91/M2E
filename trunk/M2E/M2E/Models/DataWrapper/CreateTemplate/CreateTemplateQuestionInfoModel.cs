@@ -10,6 +10,7 @@ namespace M2E.Models.DataWrapper.CreateTemplate
         public string type { get; set; }
         public bool visible {get;set;}
         public string buttonText {get;set;}
+        public string title { get; set; }
         public List<CreateTemplateeditableInstructionsListModel> editableInstructionsList { get; set; }
         public List<CreateTemplateTextBoxQuestionsListModel> textBoxQuestionsList { get; set; }
         public List<CreateTemplateSingleQuestionsListModel> singleQuestionsList { get; set; }

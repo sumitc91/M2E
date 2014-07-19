@@ -307,6 +307,7 @@
     <Content Include="dll\GaDotNet.Common.dll" />
     <Content Include="dll\log4net.dll" />
     <Content Include="Global.asax" />
+    <Content Include="Models\M2EContext.edmx.sql" />
     <Content Include="Template\AdminLTE-master\.gitignore" />
     <Content Include="Template\AdminLTE-master\css\AdminLTE.css" />
     <Content Include="Template\AdminLTE-master\css\bootstrap-responsive.css" />

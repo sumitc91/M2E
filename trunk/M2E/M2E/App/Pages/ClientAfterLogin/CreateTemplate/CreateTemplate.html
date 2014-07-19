@@ -51,7 +51,13 @@
                                                    <a href="#modal-AddInstructions" role="button" class="btn" data-toggle="modal"><i
                                                                                                                                       class="icon-plus-sign"></i>Images</a>
                                                </div>
-                        
+                                                
+                                               <div class="control-group" style="">
+                                                   <label class="control-label" for="textfield">
+                                                       <b>Title</b></label>                                                 
+                                                   <div class="controls"><fieldset><div class="input-group"></div><input type="text" id="createTemplateTitleText" placeholder="Enter Title for the Survey (compulsory)" value="" class="form-control"></fieldset></div>
+                                               </div>
+
                                                <div class="control-group" ng-show="jobTemplate[0].visible">
                                                    <label for="textfield" class="control-label">
                                                         
@@ -63,7 +69,7 @@
 
                                                        </ul>
                                                    </div>
-                                               </div>          
+                                               </div>       
                                                <div class="control-group" ng-show="jobTemplate[1].visible">
                                                    <label for="textfield" class="control-label">
                                                        <a href="#modal-AddSingleQuestions" role="button" class="btn btn-primary" data-toggle="modal">

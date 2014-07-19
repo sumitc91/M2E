@@ -24,5 +24,6 @@ namespace M2E.Models
         public string completed { get; set; }
         public string verified { get; set; }
         public string creationTime { get; set; }
+        public string title { get; set; }
     }
 }

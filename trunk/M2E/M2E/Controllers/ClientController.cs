@@ -32,12 +32,24 @@ namespace M2E.Controllers
         public JsonResult CreateTemplate(List<CreateTemplateQuestionInfoModel> req)
         {
             var username = "sumitchourasia91@gmail.com";
-            //var templateList = _db.CreateTemplateQuestionInfoes.SingleOrDefault(x => x.username == username);            
-            var refKey = username + _db.CreateTemplateQuestionInfoes.Max(x => x.Id);
+            //var templateList = _db.CreateTemplateQuestionInfoes.SingleOrDefault(x => x.username == username);
+
+            var keyInfo = _db.CreateTemplateQuestionInfoes.FirstOrDefault();
+            var refKey = username;
+            if (keyInfo != null)
+            {
+                refKey += _db.CreateTemplateQuestionInfoes.Max(x => x.Id) + 1;
+            }
+            else
+            {
+                refKey += 1;
+            }
+            
             var createTemplateQuestionsInfoInsert = new CreateTemplateQuestionInfo
             {
                 buttonText = "NA",
                 username = username,
+                title = req[0].title,
                 visible = "NA",
                 type = "NA",
                 creationTime = DateTime.Now.ToString(CultureInfo.InvariantCulture),
