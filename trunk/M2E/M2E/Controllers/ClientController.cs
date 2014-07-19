@@ -44,7 +44,7 @@ namespace M2E.Controllers
                 var clientTemplate = new ClientTemplateResponse
                 {
                     title = job.title,
-                    creationDate = job.creationTime,
+                    creationDate = job.creationTime.Split(' ')[0],
                     showTime = " 4 hours",
                     editId = job.Id.ToString(CultureInfo.InvariantCulture),
                     showEllipse = true,

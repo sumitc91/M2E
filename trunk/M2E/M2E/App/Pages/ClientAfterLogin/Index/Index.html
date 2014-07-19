@@ -39,24 +39,32 @@
                                         </ul>
                                     </div>
                                 </div><!-- /.box-header -->
-                                <div class="box-body">
-                                    <ul class="todo-list">                                        
-                                        <li ng-repeat="subTask in InProgressTaskList">
-                                            <span class="handle">
-                                                <i class="fa fa-ellipsis-v"></i>
-                                                <i class="fa fa-ellipsis-v"></i>
-                                            </span>                                            
-                                            <span class="text">{{subTask.title}}</span>
-                                            <small class="label label-{{subTask.timeShowType}}"><i class="fa fa-clock-o"></i> {{subTask.showTime}}</small>
-                                            <span style="float:right">{{subTask.creationDate}}</span>
-                                            <div class="tools">
-                                                <i class="fa fa-edit" ng-click="alert('hi')"></i>
-                                                <i class="fa fa-trash-o"></i>
-                                            </div>
-                                        </li>
+                                
+                                <div class="box">
+                           
+                                <div class="box-body no-padding">
+                                    <table class="table table-condensed">
+                                        <tbody><tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Task</th>
+                                            <th>Progress</th>
+                                            <th style="width: 40px">Label</th>
+                                        </tr>
+                                        <tr ng-repeat="subTask in InProgressTaskList">
+                                            <td>{{subTask.creationDate}}</td>
+                                            <td>{{subTask.title}}</td>
+                                            <td>
+                                                <div class="progress xs">
+                                                    <div style="width: 55%" class="progress-bar progress-bar-danger"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-red">55%</span></td>
+                                        </tr>
                                         
-                                    </ul>
+                                    </tbody></table>
                                 </div><!-- /.box-body -->
+                            </div>
+                                
                                 <div class="box-footer clearfix no-border">
                                     <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
                                 </div>
