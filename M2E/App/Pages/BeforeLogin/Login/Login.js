@@ -21,7 +21,7 @@ BeforeLoginApp.controller('beforeLoginSignInController', function ($scope, $http
 }
 
     $scope.Login = function () {
-
+        $scope.showFooterErrors = false;
         var userLoginData = {
             Username: $scope.EmailId,
             Password: $scope.Password,

@@ -116,8 +116,11 @@ BeforeLoginApp.controller('signUpClientController', function ($scope, $http, $ro
                     showToastMessage("Warning", "Username already registered !");
                 else if (data.Status == "500")
                     showToastMessage("Error", "Internal Server Error Occured !");
-                else if (data.Status == "200")
+                else if (data.Status == "200") {
                     showToastMessage("Success", "Account successfully created ! check your email for validation.");
+                    location.href = "/?email=" + $scope.ClientFormData.EmailId + "#/showmessage/1/";
+                }
+                    
             }).error(function (data, status, headers, config) {
 
             });

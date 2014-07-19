@@ -44,7 +44,7 @@
 
         //         Querystring parameter         Mozilla               IE
         var lang = getParameterByName("lang") || navigator.language || navigator.userLanguage;
-        console.log("getParameterByName lang : " + getParameterByName("lang"));
+        //console.log("getParameterByName lang : " + getParameterByName("lang"));
         // Default to en-us
         return (lang && langMap[lang.toLowerCase()]) ? langMap[lang.toLowerCase()] : langMap["en"];
     }

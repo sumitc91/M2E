@@ -1,18 +1,26 @@
 ﻿<section class="content">
                     
-        <!-- START CUSTOM TABS -->        
+<!--        <!-- START CUSTOM TABS -->        
         <div class="container" ng-controller="showMessageTemplate">
-            <h1 class="page-header title">{{header}}</h1>
-            <div class="row">
-	
-	    		<div class="col-sm-8">
-	    			<div class="contact-form">
-	    				<h4 class="title text-left">{{content}}</h4>
-                        <br />
-	    				
-	    			</div>
-	    		</div>
+
+
+                 <div class="alert {{Header.className}} alert-dismissable">
+                                        <i class="fa {{Header.iconClassName}}"></i>
+                                        <b>Alert!</b> {{Header.message}}
+                                    </div> 
+                 <div class="error-page">
+                        <h2 class="headline text-info">{{Content.header1}}<br />{{Content.companyName}}</h2>
+                     <div class="error-content callout {{Content.contentClasstheme}}">
+                         <h3> <i class="{{Content.header2IconClassName}}"></i> {{Content.header2}}</h3>
+                         <div style="font-size: 17px">
+                             <div ng-show="RegisterContent">
+                                 Thank you for registering! A confirmation email has been sent to <span class="text-red">{{Content.email}}.</span> To continue, please click on the activation link we sent in confirmation email. This will confirm your email as your contact address. </div>
+                         </div>
+                          <div ng-show="ForgetPasswordContent">
+                                A new password reset link has been sent to <span class="text-red">{{Content.email}}.</span> To reset password, please click on reset link we sent to your email id.</div>
+                         </div>
+                     </div><!-- /.error-content -->
+                    </div>
 	    					
 	    	</div>
-            </div>
     </section>

@@ -105,6 +105,7 @@ BeforeLoginApp.controller('signUpUserController', function ($scope, $http, $rout
                     showToastMessage("Error", "Internal Server Error Occured !");
                 else if (data.Status == "200")
                     showToastMessage("Success", "Account successfully created ! check your email for validation.");
+                location.href = "/?email=" + $scope.UserFormData.EmailId + "#/showmessage/1/";
             }).error(function (data, status, headers, config) {
 
             });
