@@ -14,7 +14,7 @@ namespace M2E.Service.Login
     {
         private static readonly ILogger Logger = new Logger(Convert.ToString(MethodBase.GetCurrentMethod().DeclaringType));
         private DbContextException _dbContextException = new DbContextException();
-        private readonly M2EEntitiesDB _db = new M2EEntitiesDB();
+        private readonly M2EContext _db = new M2EContext();
 
         public LoginResponse Login(string userName, string passwrod, string returnUrl, string keepMeSignedIn)
         {            

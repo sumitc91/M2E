@@ -15,7 +15,7 @@ namespace M2E.Service.Register
     {
         private static readonly ILogger Logger = new Logger(Convert.ToString(MethodBase.GetCurrentMethod().DeclaringType));
         private DbContextException _dbContextException = new DbContextException();
-        private readonly M2EEntitiesDB _db = new M2EEntitiesDB();
+        private readonly M2EContext _db = new M2EContext();
 
         public ResponseModel<String> WebRegisterService(RegisterationRequest req, HttpRequestBase request)
         {

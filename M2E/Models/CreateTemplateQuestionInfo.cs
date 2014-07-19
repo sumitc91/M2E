@@ -19,14 +19,10 @@ namespace M2E.Models
         public string type { get; set; }
         public string visible { get; set; }
         public string buttonText { get; set; }
-        public string referenceCreateTemplateeditableInstructionsListId { get; set; }
+        public string referenceId { get; set; }
         public string total { get; set; }
         public string completed { get; set; }
         public string verified { get; set; }
-        public string referenceCreateTemplateListBoxQuestionsList { get; set; }
-        public string referenceCreateTemplateMultipleQuestionsList { get; set; }
-        public string referenceCreateTemplateSingleQuestionsList { get; set; }
-        public string referenceCreateTemplateTextBoxQuestionsList { get; set; }
         public string creationTime { get; set; }
     }
 }
