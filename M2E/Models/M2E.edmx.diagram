@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="M2EModel.CreateTemplateeditableInstructionsList" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="M2EModel.CreateTemplateListBoxQuestionsList" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="M2EModel.CreateTemplateMultipleQuestionsList" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="M2EModel.CreateTemplateQuestionInfo" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.CreateTemplateQuestionInfo" Width="4.375" PointX="1.625" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="M2EModel.CreateTemplateSingleQuestionsList" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="M2EModel.CreateTemplateTextBoxQuestionsList" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="M2EModel.ForgetPassword" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
@@ -17,8 +17,8 @@
         <EntityTypeShape EntityType="M2EModel.LinkedInAuthApiData" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="M2EModel.RecommendedBy" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="M2EModel.ThirdPartyLogin" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="M2EModel.UserDetail" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="M2EModel.UserPageSetting" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.UserDetail" Width="1.5" PointX="8.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.UserPageSetting" Width="1.5" PointX="7" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="M2EModel.UserRecommendation" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="M2EModel.User" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="M2EModel.UserSkill" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
