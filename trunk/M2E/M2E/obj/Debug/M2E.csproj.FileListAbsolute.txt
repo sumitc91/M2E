@@ -126,3 +126,5 @@ F:\pcongo\trunk\M2E\M2E\obj\Debug\M2E.pdb
 F:\PcOnGo_SVN\trunk\M2E\M2E\obj\Debug\M2E.csprojResolveAssemblyReference.cache
 F:\PcOnGo_SVN\trunk\M2E\M2E\bin\EntityFramework.dll
 F:\PcOnGo_SVN\trunk\M2E\M2E\bin\EntityFramework.xml
+F:\PcOnGo_SVN\trunk\M2E\M2E\bin\EntityFramework.SqlServer.dll
+F:\PcOnGo_SVN\trunk\M2E\M2E\bin\EntityFramework.SqlServer.xml

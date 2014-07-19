@@ -17,7 +17,7 @@ namespace M2E.Controllers
         //
         // GET: /Client/
         private ILogger logger = new Logger(Convert.ToString(MethodBase.GetCurrentMethod().DeclaringType));
-        private readonly M2EEntitiesDB _db = new M2EEntitiesDB();
+        private readonly M2EContext _db = new M2EContext();
         public ActionResult Index()
         {
             logger.Info("Client Controller index page");  
@@ -28,7 +28,8 @@ namespace M2E.Controllers
         public JsonResult CreateTemplate(List<CreateTemplateQuestionInfoModel> req)
         {
             var username = "sumitchourasia91@gmail.com";
-            
+            //var templateList = _db.CreateTemplateQuestionInfoes.SingleOrDefault(x => x.username == username);
+            var latestTemplate = _db.CreateTemplateQuestionInfoes.Max(x => x.Id);            
             return Json("create Template");
         }
     }

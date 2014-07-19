@@ -17,7 +17,7 @@ namespace M2E.Controllers
     public class AuthController : Controller
     {
         // GET: /Auth/        
-        private readonly M2EEntitiesDB _db = new M2EEntitiesDB();
+        private readonly M2EContext _db = new M2EContext();
         private static readonly ILogger Logger = new Logger(Convert.ToString(MethodBase.GetCurrentMethod().DeclaringType));
         public ActionResult Index()
         {
