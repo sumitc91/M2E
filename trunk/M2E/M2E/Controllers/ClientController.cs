@@ -17,7 +17,7 @@ namespace M2E.Controllers
         //
         // GET: /Client/
         private ILogger logger = new Logger(Convert.ToString(MethodBase.GetCurrentMethod().DeclaringType));
-        private readonly M2EEntities _db = new M2EEntities();
+        private readonly M2EEntitiesDB _db = new M2EEntitiesDB();
         public ActionResult Index()
         {
             logger.Info("Client Controller index page");  
