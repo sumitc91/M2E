@@ -9,7 +9,7 @@ ClientAfterLoginApp.controller('ClientAfterLoginIndex', function ($scope, $http,
     //    { showEllipse: true, title: "my fifth template", timeShowType: "default", showTime: "5 hours", editId: "", creationDate: "nov 2015" }
     //];
     var url = ServerContextPah + '/Client/GetAllTemplateInformation';
-
+    startBlockUI('wait..', 3);
     $http({
         url: url,
         method: "POST",
@@ -17,7 +17,7 @@ ClientAfterLoginApp.controller('ClientAfterLoginIndex', function ($scope, $http,
         headers: { 'Content-Type': 'application/json' }
     }).success(function (data, status, headers, config) {
         //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
-        
+        stopBlockUI();
         if (data.Status == "200") {
             $scope.InProgressTaskList = data.Payload;
         }
