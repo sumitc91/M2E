@@ -25,4 +25,9 @@ ClientAfterLoginApp.controller('ClientAfterLoginIndex', function ($scope, $http,
     }).error(function (data, status, headers, config) {
 
     });
+
+    $scope.openTemplateEditPageWithId = function (id) {
+        $('#closeModalPopup'+id).click();
+        location.href = "#/editTemplate/edit/" + id;
+    }
 });
