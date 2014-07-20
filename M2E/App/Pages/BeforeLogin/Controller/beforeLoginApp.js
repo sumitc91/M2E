@@ -49,8 +49,15 @@ BeforeLoginApp.controller('beforeLoginMasterPageController', function ($scope, $
     $rootScope.logoImage = { url: logoImage };
     $('title').html("MadeToEarn");
     $rootScope.beforeLoginFooterCopyRightInfo = {
-        companyName: "MadeToEarn"
+        companyName: "MadeToEarn",
+        contactUs: "Contact Us",
+        FAQ: "FAQ",
+        TnC: "Terms & Conditions"
     };
+    if (detectmob()) {
+        $rootScope.beforeLoginFooterCopyRightInfo.companyName = "M2E";
+        $rootScope.beforeLoginFooterCopyRightInfo.TnC = "T&C";
+    }
 });
 
 function loadjscssfile(filename, filetype) {
