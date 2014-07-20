@@ -163,6 +163,7 @@
     <Compile Include="Models\CreateTemplateTextBoxQuestionsList.cs">
       <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataResponse\ClientTemplateDetailById.cs" />
     <Compile Include="Models\DataResponse\ClientTemplateResponse.cs" />
     <Compile Include="Models\DataResponse\LoginResponse.cs" />
     <Compile Include="Models\DataWrapper\CreateTemplateRequest.cs" />
@@ -278,6 +279,8 @@
     <Content Include="App\Pages\BeforeLogin\Login\Login.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpClient\SignUpClient.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpUser\SignUpUser.html" />
+    <Content Include="App\Pages\ClientAfterLogin\EditTemplate\EditTemplate.html" />
+    <Content Include="App\Pages\ClientAfterLogin\EditTemplate\EditTemplate.js" />
     <Content Include="App\Pages\ClientAfterLogin\CreateTemplate\CreateTemplate.js" />
     <Content Include="App\Pages\ClientAfterLogin\CreateTemplate\CreateTemplate.html" />
     <Content Include="App\Pages\ClientAfterLogin\CreateTemplate\CreateTemplate.css" />

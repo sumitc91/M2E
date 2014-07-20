@@ -1,5 +1,5 @@
 //getting user info..
-ClientAfterLoginApp.controller('createTemplateController', function ($scope, $http, $rootScope, $routeParams, CookieUtil) {
+ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http, $rootScope, $routeParams, CookieUtil) {
     //alert("create product controller");    
     var editableInstructions = "";
     var totalQuestionSingleAnswerHtmlData = "";
@@ -11,15 +11,26 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     var totalMultipleQuestionList = 0;
     var totalTextBoxQuestionList = 0;
     var totalListBoxQuestionList = 0;
+    $rootScope.jobTemplate = [];
+    
+        var url = ServerContextPah + '/Client/GetTemplateDetailById';
+        startBlockUI('wait..', 3);
+        $http({
+            url: url,
+            method: "POST",            
+            headers: { 'Content-Type': 'application/json' }
+        }).success(function (data, status, headers, config) {
+            //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
 
-        $rootScope.jobTemplate = [
-            { type: "AddInstructions", title: "", visible: false, buttonText: "Add Instructions", editableInstructionsList: [{ Number: totalEditableInstruction, Text: "Instruction 1" }] },
-            { type: "AddSingleQuestionsList", title: "", visible: false, buttonText: "Add Ques. (single Ans.)", singleQuestionsList: [{ Number: totalSingleQuestionList, Question: "What is your gender ?", Options: "Male1;Female2" }] },
-            { type: "AddMultipleQuestionsList", title: "", visible: false, buttonText: "Add Ques. (Multiple Ans.)", multipleQuestionsList: [{ Number: totalMultipleQuestionList, Question: "What is your multiple gender ?", Options: "Malem1;Femalem2" }] },
-            { type: "AddTextBoxQuestionsList", title: "", visible: false, buttonText: "Add Ques. (TextBox Ans.)", textBoxQuestionsList: [{ Number: totalTextBoxQuestionList, Question: "Who won 2014 FIFA World cup ?", Options: "text" }] },
-            { type: "AddListBoxQuestionsList", title: "", visible: false, buttonText: "Add Ques. (ListBox Ans.)", listBoxQuestionsList: [{ Number: totalListBoxQuestionList, Question: "What is your multiple gender ?", Options: "Malem1;Femalem2" }] }
-        ];
-        loadTemplate();
+            if (data.Status == "200") {
+                stopBlockUI();
+                $rootScope.jobTemplate = data.Payload.Data;
+                loadTemplate();
+            }
+
+        }).error(function (data, status, headers, config) {
+
+        });
     
 
     function loadTemplate() {
@@ -434,3 +445,21 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
 });
 
 
+function startBlockUI(mssg, size) {
+    $.blockUI({
+        message: '<h' + size + '><img src="../../App/img/loading/loading123.gif" />' + mssg + '</h' + size + '>',
+        css: {
+            border: 'none',
+            padding: '15px',
+            backgroundColor: '#000',
+            '-webkit-border-radius': '10px',
+            '-moz-border-radius': '10px',
+            opacity: .5,
+            color: '#fff'
+        }
+    });
+}
+
+function stopBlockUI() {
+    $.unblockUI();
+}
