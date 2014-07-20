@@ -254,7 +254,10 @@
     <Content Include="App\js\jquery.min.js" />
     <Content Include="App\Pages\BeforeLogin\ContactUs\contactus.html" />
     <Content Include="App\Pages\BeforeLogin\ForgetPassword\forgetpassword.html" />
+    <Content Include="App\Pages\BeforeLogin\ForgetPassword\forgetPasswordTemplate.js" />
     <Content Include="App\Pages\BeforeLogin\Login\Login.js" />
+    <Content Include="App\Pages\BeforeLogin\ResetPassword\resetPasswordTemplate.js" />
+    <Content Include="App\Pages\BeforeLogin\ResetPassword\resetpassword.html" />
     <Content Include="App\Pages\BeforeLogin\ShowMessage\showMessageTemplate.js" />
     <Content Include="App\Pages\BeforeLogin\ShowMessage\showmessage.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpClient\SignUpClient.js" />

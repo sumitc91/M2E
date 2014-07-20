@@ -418,7 +418,7 @@ button, input, select, textarea {
 
 
 #dropbox{
-	background:url('../../../../App/third-Party/html5-file-upload/img/background_tile_3.jpg');
+	/*background:url('../../../../App/third-Party/html5-file-upload/assets/img/background_tile_3.jpg');*/
 	
 	border-radius:3px;
 	position: relative;	

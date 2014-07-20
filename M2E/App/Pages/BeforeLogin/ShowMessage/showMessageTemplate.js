@@ -29,30 +29,17 @@ BeforeLoginApp.controller('showMessageTemplate', function ($scope, $http, $route
     }
     else if ($scope.code == 2) {
         $scope.ForgetPasswordContent = true;
-        $scope.Header.message = "Password Reset.";
+        $scope.Header.message = "Password reset link has been sent.";
         $scope.Header.className = "alert-success";
         $scope.Header.iconClassName = "fa-check";
         $scope.Content.header1 = "MadeToEarn";
         $scope.Content.companyName = "";
         $scope.Content.contentClasstheme = "callout-info";
         $scope.Content.header2IconClassName = "fa fa-info";
-        $scope.Content.header2 = "Check Your Email Inbox";
+        $scope.Content.header2 = "Please check your email";
         $scope.Content.email = getParameterByName("email");
     }
 });
-
-BeforeLoginApp.controller('forgetPasswordTemplate', function ($scope, $http, $routeParams, $location) {
-    
-    $scope.ForgetPasswordSendRequest = function () {
-        if ($('#forgetPasswordInputBoxId').val() != "" && $('#forgetPasswordInputBoxId').val() != null) {
-
-        } else {
-            showToastMessage("Error", "Password field cann't be empty.");
-        }
-    }
-});
-
-
 
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
