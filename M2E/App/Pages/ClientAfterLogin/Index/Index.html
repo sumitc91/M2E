@@ -42,7 +42,7 @@
                                 
                                 <div class="box">
                            
-                                <div class="box-body no-padding">
+                                <div class="box-body no-padding" ng-cloak>
                                     <table class="table table-condensed">
                                         <tbody><tr>
                                             <th style="width: 10px">#</th>
@@ -52,7 +52,7 @@
                                         </tr>
                                         <tr ng-repeat="subTask in InProgressTaskList">
                                             <td>{{subTask.creationDate}}</td>
-                                            <td>{{subTask.title}}</td>
+                                            <td>{{subTask.title}}&nbsp<a href="#/editTemplate/view/{{subTask.editId}}">detail</a></td>
                                             <td>
                                                 <div class="progress xs">
                                                     <div style="width: 55%" class="progress-bar progress-bar-danger"></div>
@@ -180,4 +180,4 @@
                     </div><!-- /.row (main row) -->
 
                 </section><!-- /.content -->
-         
+         <script src="../../App/js/jquery.blockUI.js"></script>
