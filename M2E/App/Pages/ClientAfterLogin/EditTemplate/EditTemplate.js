@@ -51,7 +51,7 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
 
             if (data.Status == "200") {
                 var imgurHTML = "";
-                alert(data.data.id);
+                alert(data.Payload);
             }
             else if (data.Status == "404") {
                 stopBlockUI();

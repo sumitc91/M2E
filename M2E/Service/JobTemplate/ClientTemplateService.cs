@@ -215,6 +215,7 @@ namespace M2E.Service.JobTemplate
                     foreach (var createTemplateImageCreateResponse in createTemplateImagesListsCreateResponse)
                     {
                         var imgurImage = new imgurUploadImageResponse();
+                        imgurImage.data = new data();
                         imgurImage.data.id = createTemplateImageCreateResponse.imgurId;
                         imgurImage.data.deletehash = createTemplateImageCreateResponse.imgurDeleteHash;
                         imgurImage.data.link = createTemplateImageCreateResponse.imgurLink;
@@ -232,7 +233,7 @@ namespace M2E.Service.JobTemplate
                 }
                 return response;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 response.Status = 500;
                 response.Message = "Exception";
@@ -499,7 +500,7 @@ namespace M2E.Service.JobTemplate
         {
             var response = new ResponseModel<string>();
 
-            var refKey = username + id;
+            var refKey = id;
             foreach (var imageInfo in ImgurList)
             {
                 var CreateTemplateImgurImagesListInsert = new CreateTemplateImgurImagesList
