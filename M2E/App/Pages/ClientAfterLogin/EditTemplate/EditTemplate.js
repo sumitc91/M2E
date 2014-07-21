@@ -12,7 +12,7 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
     var totalTextBoxQuestionList = 0;
     var totalListBoxQuestionList = 0;
     $rootScope.jobTemplate = [];
-   
+
     var url = ServerContextPah + '/Client/GetTemplateDetailById?username=' + userSession.username + '&id=' + $routeParams.templateid;
     startBlockUI('wait..', 3);
     $http({
@@ -26,6 +26,7 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
             stopBlockUI();
             $rootScope.jobTemplate = data.Payload.Data;
             loadTemplate();
+            loadImagesfromImgur();
         }
         else if (data.Status == "404") {
             stopBlockUI();
@@ -39,7 +40,31 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
 
     });
 
+    function loadImagesfromImgur() {
+        var url = ServerContextPah + '/Client/GetTemplateImageDetailById?username=' + userSession.username + '&id=' + $routeParams.templateid;
+        $http({
+            url: url,
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' }
+        }).success(function (data, status, headers, config) {
+            //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
 
+            if (data.Status == "200") {
+                var imgurHTML = "";
+                alert(data.data.id);
+            }
+            else if (data.Status == "404") {
+                stopBlockUI();
+                alert("This template is not present in database");
+            }
+            else if (data.Status == "500") {
+                stopBlockUI();
+                alert("Internal Server Error Occured");
+            }
+        }).error(function (data, status, headers, config) {
+
+        });
+    }
     function loadTemplate() {
         $('#createTemplateTitleText').val($rootScope.jobTemplate[0].title);
         $.each($rootScope.jobTemplate[0].editableInstructionsList, function () {

@@ -49,12 +49,30 @@ namespace M2E.Controllers
         }
 
         [HttpPost]
+        public JsonResult GetTemplateImageDetailById()
+        {
+            var username = Request.QueryString["username"].ToString();
+            var id = Convert.ToInt32(Request.QueryString["id"]);
+            var response = new ResponseModel<ClientTemplateDetailById>();
+            ClientTemplateService ClientTemplate = new ClientTemplateService();
+            return Json(ClientTemplate.GetTemplateImageDetailById(username, id));
+        }
+
+        [HttpPost]
         public JsonResult CreateTemplate(CreateTemplateRequest req)
         {
             var username = Request.QueryString["username"].ToString();
             var TemplateList = req.Data;
             ClientTemplateService ClientTemplate = new ClientTemplateService();
-            return Json(ClientTemplate.CreateTemplate(TemplateList, username));
+            var CreateTemplateResponse = ClientTemplate.CreateTemplate(TemplateList, username);            
+            var ImgurImageList = req.ImgurList;         
+            if (CreateTemplateResponse.Status == 200)
+            {
+                if (ImgurImageList != null)
+                    ClientTemplate.ImgurImagesSaveToDatabaseWithTemplateId(ImgurImageList, username, CreateTemplateResponse.Payload);
+            }
+            
+            return Json(CreateTemplateResponse);
         }        
 
         [HttpPost]
@@ -65,6 +83,7 @@ namespace M2E.Controllers
             var TemplateList = req.Data;
             var ImgurImageList = req.ImgurList;
             ClientTemplateService ClientTemplate = new ClientTemplateService();
+            if(ImgurImageList !=null)
             ClientTemplate.ImgurImagesSaveToDatabaseWithTemplateId(ImgurImageList,username,id);
             return Json(ClientTemplate.CreateTemplateWithId(TemplateList, username, id));
         }

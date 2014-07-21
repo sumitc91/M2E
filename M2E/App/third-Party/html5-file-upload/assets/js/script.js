@@ -14,7 +14,7 @@ $(function () {
         uploadFinished: function (i, file, response) {
             $.data(file).addClass('done');
             userSession.listOfImgurImages.push(response);
-            console.log(userSession.listOfImgurImages);
+            //console.log(userSession.listOfImgurImages);
         },
 
         error: function (err, file) {
