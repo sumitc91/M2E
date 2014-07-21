@@ -408,9 +408,9 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     $scope.ClientCreateTemplateFunction = function () {
         $rootScope.jobTemplate[0].title = $('#createTemplateTitleText').val();
         var clientCreateTemplateData = { Data: $rootScope.jobTemplate, ImgurList: userSession.listOfImgurImages };
-        var currentTemplateId = new Date().getTime();
+        //var currentTemplateId = new Date().getTime();
 
-        var url = ServerContextPah + '/Client/CreateTemplateWithId?username=' + userSession.username + '&id=' + currentTemplateId;
+        var url = ServerContextPah + '/Client/CreateTemplate?username=' + userSession.username;
         if (($('#createTemplateTitleText').val() != "") && ($('#createTemplateTitleText').val() != null)) {
             startBlockUI('wait..', 3);
             $http({

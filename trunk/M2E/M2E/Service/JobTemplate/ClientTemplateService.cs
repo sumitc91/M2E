@@ -201,6 +201,45 @@ namespace M2E.Service.JobTemplate
             }
         }
 
+        public ResponseModel<List<imgurUploadImageResponse>> GetTemplateImageDetailById(string username, long id)
+        {
+            var response = new ResponseModel<List<imgurUploadImageResponse>>();
+            try
+            {
+                var refKey = username + id;
+                var createTemplateImagesListsCreateResponse = _db.CreateTemplateImgurImagesLists.OrderBy(x => x.Id).Where(x => x.referenceKey == refKey && x.username == username).ToList();
+
+                if (createTemplateImagesListsCreateResponse != null)
+                {
+                    var imgurImageList = new List<imgurUploadImageResponse>();
+                    foreach (var createTemplateImageCreateResponse in createTemplateImagesListsCreateResponse)
+                    {
+                        var imgurImage = new imgurUploadImageResponse();
+                        imgurImage.data.id = createTemplateImageCreateResponse.imgurId;
+                        imgurImage.data.deletehash = createTemplateImageCreateResponse.imgurDeleteHash;
+                        imgurImage.data.link = createTemplateImageCreateResponse.imgurLink;
+
+                        imgurImageList.Add(imgurImage);
+                    }
+                    response.Status = 200;
+                    response.Message = "success";
+                    response.Payload = imgurImageList;
+                }
+                else
+                {
+                    response.Status = 404;
+                    response.Message = "No Data found";
+                }
+                return response;
+            }
+            catch (Exception)
+            {
+                response.Status = 500;
+                response.Message = "Exception";
+                return response;
+            }
+        }
+
         public ResponseModel<string> CreateTemplate(List<CreateTemplateQuestionInfoModel> req,string username)
         {
             var response = new ResponseModel<string>();
@@ -239,7 +278,7 @@ namespace M2E.Service.JobTemplate
                 CreateSubTemplateByRefKey.CreateSubTemplateByRefKeyService(req, username, refKey);                
                 response.Status = 200;
                 response.Message = "Success";
-                response.Payload = "Successfully Created";
+                response.Payload = refKey;
             }
             catch (DbEntityValidationException e)
             {
