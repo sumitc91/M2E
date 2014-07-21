@@ -165,6 +165,7 @@
     </Compile>
     <Compile Include="Models\DataResponse\ClientTemplateDetailById.cs" />
     <Compile Include="Models\DataResponse\ClientTemplateResponse.cs" />
+    <Compile Include="Models\DataResponse\ImgurImageUploadResponse.cs" />
     <Compile Include="Models\DataResponse\LoginResponse.cs" />
     <Compile Include="Models\DataWrapper\CreateTemplateRequest.cs" />
     <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateeditableInstructionsListModel.cs" />
@@ -231,6 +232,7 @@
     <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\Login\WebLogin.cs" />
     <Compile Include="Service\Register\WebRegister.cs" />
+    <Compile Include="Service\UploadImages\imgurService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />

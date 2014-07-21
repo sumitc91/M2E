@@ -24,6 +24,7 @@
     <EntitySet Name="Users" EntityType="M2EModel.Store.Users" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserSkills" EntityType="M2EModel.Store.UserSkills" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ValidateUserKeys" EntityType="M2EModel.Store.ValidateUserKeys" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CreateTemplateImgurImagesLists" EntityType="M2EModel.Store.CreateTemplateImgurImagesLists" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="ClientDetails">
     <Key>
@@ -241,6 +242,22 @@
     <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
     <Property Name="guid" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <EntityType Name="CreateTemplateImgurImagesLists">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="status" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="verified" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="assignedTo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="assignTime" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="completedAt" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="referenceKey" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="imgurId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="imgurDeleteHash" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="imgurLink" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -264,6 +281,7 @@
           <EntitySet Name="Users" EntityType="M2EModel.User" />
           <EntitySet Name="UserSkills" EntityType="M2EModel.UserSkill" />
           <EntitySet Name="ValidateUserKeys" EntityType="M2EModel.ValidateUserKey" />
+          <EntitySet Name="CreateTemplateImgurImagesLists" EntityType="M2EModel.CreateTemplateImgurImagesList" />
         </EntityContainer>
         <EntityType Name="ClientDetail">
           <Key>
@@ -480,6 +498,22 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Username" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="guid" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="CreateTemplateImgurImagesList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="username" Nullable="false" />
+          <Property Type="String" Name="status" Nullable="false" />
+          <Property Type="String" Name="verified" Nullable="false" />
+          <Property Type="String" Name="assignedTo" Nullable="false" />
+          <Property Type="String" Name="assignTime" Nullable="false" />
+          <Property Type="String" Name="completedAt" Nullable="false" />
+          <Property Type="String" Name="referenceKey" Nullable="false" />
+          <Property Type="String" Name="imgurId" Nullable="false" />
+          <Property Type="String" Name="imgurDeleteHash" Nullable="false" />
+          <Property Type="String" Name="imgurLink" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -721,6 +755,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CreateTemplateImgurImagesLists">
+      <EntityTypeMapping TypeName="IsTypeOf(M2EModel.CreateTemplateImgurImagesList)">
+        <MappingFragment StoreEntitySet="CreateTemplateImgurImagesLists">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="verified" ColumnName="verified" />
+          <ScalarProperty Name="assignedTo" ColumnName="assignedTo" />
+          <ScalarProperty Name="assignTime" ColumnName="assignTime" />
+          <ScalarProperty Name="completedAt" ColumnName="completedAt" />
+          <ScalarProperty Name="referenceKey" ColumnName="referenceKey" />
+          <ScalarProperty Name="imgurId" ColumnName="imgurId" />
+          <ScalarProperty Name="imgurDeleteHash" ColumnName="imgurDeleteHash" />
+          <ScalarProperty Name="imgurLink" ColumnName="imgurLink" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -740,6 +791,28 @@
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams></Diagrams>
+    <Diagrams>
+      <Diagram Name="M2EContext">
+        <EntityTypeShape EntityType="M2EModel.ClientDetail" Width="1.5" PointX="0.75" PointY="0.75" Height="1.59568359375" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.CreateTemplateeditableInstructionsList" Width="1.5" PointX="2.75" PointY="0.75" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.CreateTemplateListBoxQuestionsList" Width="1.5" PointX="4.75" PointY="0.75" Height="3.1340950520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.CreateTemplateMultipleQuestionsList" Width="1.5" PointX="0.875" PointY="5.875" Height="3.1340950520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.CreateTemplateQuestionInfo" Width="1.5" PointX="2.75" PointY="4.75" Height="3.1340950520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.CreateTemplateSingleQuestionsList" Width="1.5" PointX="4.75" PointY="4.75" Height="3.1340950520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.CreateTemplateTextBoxQuestionsList" Width="1.5" PointX="6.75" PointY="0.75" Height="3.1340950520833317" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.ForgetPassword" Width="1.5" PointX="6.75" PointY="4.75" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.JobData" Width="1.5" PointX="6.75" PointY="7.75" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.LinkedInAuthApiData" Width="1.5" PointX="8.75" PointY="0.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.RecommendedBy" Width="1.5" PointX="0.75" PointY="8.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.ThirdPartyLogin" Width="1.5" PointX="2.75" PointY="8.75" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.UserDetail" Width="1.5" PointX="8.75" PointY="3.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.UserPageSetting" Width="1.5" PointX="8.75" PointY="6.75" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.UserRecommendation" Width="1.5" PointX="8.75" PointY="9.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.User" Width="1.5" PointX="10.75" PointY="0.75" Height="3.7109993489583388" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.UserSkill" Width="1.5" PointX="10.75" PointY="5.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.ValidateUserKey" Width="1.5" PointX="10.75" PointY="8.75" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="M2EModel.CreateTemplateImgurImagesList" Width="1.5" PointX="0.875" PointY="2.5" Height="3.1340950520833326" />
+      </Diagram>
+    </Diagrams>
   </Designer>
 </edmx:Edmx>

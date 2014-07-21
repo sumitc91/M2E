@@ -9,11 +9,12 @@ $(function () {
 
         maxfiles: 5,
         maxfilesize: 2,
-        url: '/Upload/UploadMultipleImages',
+        url: '/Upload/UploadDropZoneFilesImgUr', //UploadMultipleImages
 
         uploadFinished: function (i, file, response) {
             $.data(file).addClass('done');
-            // response is the JSON object that post_file.php returns
+            userSession.listOfImgurImages.push(response);
+            console.log(userSession.listOfImgurImages);
         },
 
         error: function (err, file) {

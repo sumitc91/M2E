@@ -49,11 +49,22 @@ namespace M2E.Controllers
         }
 
         [HttpPost]
-        public JsonResult CreateTemplate(List<CreateTemplateQuestionInfoModel> req)
+        public JsonResult CreateTemplate(CreateTemplateRequest req)
         {
             var username = Request.QueryString["username"].ToString();
+            var TemplateList = req.Data;
             ClientTemplateService ClientTemplate = new ClientTemplateService();
-            return Json(ClientTemplate.CreateTemplate(req,username));
+            return Json(ClientTemplate.CreateTemplate(TemplateList, username));
+        }        
+
+        [HttpPost]
+        public JsonResult CreateTemplateWithId(CreateTemplateRequest req)
+        {
+            var username = Request.QueryString["username"].ToString();
+            var id = Request.QueryString["id"].ToString();
+            var TemplateList = req.Data;
+            ClientTemplateService ClientTemplate = new ClientTemplateService();
+            return Json(ClientTemplate.CreateTemplateWithId(TemplateList, username, id));
         }
 
         [HttpPost]
