@@ -12,6 +12,7 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
     var totalTextBoxQuestionList = 0;
     var totalListBoxQuestionList = 0;
     $rootScope.jobTemplate = [];
+    $rootScope.imgurImageTemplate = [];
 
     var url = ServerContextPah + '/Client/GetTemplateDetailById?username=' + userSession.username + '&id=' + $routeParams.templateid;
     startBlockUI('wait..', 3);
@@ -50,8 +51,9 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
             //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
 
             if (data.Status == "200") {
-                var imgurHTML = "";
-                alert(data.Payload);
+                $rootScope.imgurImageTemplate = data.Payload;
+                console.log(data.Payload);
+                console.log($rootScope.imgurImageTemplate);
             }
             else if (data.Status == "404") {
                 stopBlockUI();
