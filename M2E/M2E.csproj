@@ -168,6 +168,7 @@
     </Compile>
     <Compile Include="Models\DataResponse\ClientTemplateDetailById.cs" />
     <Compile Include="Models\DataResponse\ClientTemplateResponse.cs" />
+    <Compile Include="Models\DataResponse\ImgurImageResponse.cs" />
     <Compile Include="Models\DataResponse\ImgurImageUploadResponse.cs" />
     <Compile Include="Models\DataResponse\LoginResponse.cs" />
     <Compile Include="Models\DataWrapper\CreateTemplateRequest.cs" />

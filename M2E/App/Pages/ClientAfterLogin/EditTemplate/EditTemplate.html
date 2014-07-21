@@ -106,21 +106,9 @@
                                                    <label class="control-label">
                                                        <b><small>Manage your uploaded images</small></b></label>
                                                    <div class="controls">
-                                                          <p id="imgurUploadedImagesId">
-		                                                    <a title="Lorem ipsum dolor sit amet" data-fancybox-group="gallery" href="../../App/third-Party/fancybox/demo/1_b.jpg" class="fancybox"><img alt="" src="../../App/third-Party/fancybox/demo/1_s.jpg"></a>
-
-		                                                    <a title="Etiam quis mi eu elit temp" data-fancybox-group="gallery" href="../../App/third-Party/fancybox/demo/2_b.jpg" class="fancybox"><img alt="" src="../../App/third-Party/fancybox/demo/2_s.jpg"></a>
-
-		                                                    <a title="Cras neque mi, semper leon" data-fancybox-group="gallery" href="../../App/third-Party/fancybox/demo/3_b.jpg" class="fancybox"><img alt="" src="../../App/third-Party/fancybox/demo/3_s.jpg"></a>
-
-		                                                    <a title="Sed vel sapien vel sem uno" data-fancybox-group="gallery" href="../../App/third-Party/fancybox/demo/4_b.jpg" class="fancybox"><img alt="" src="../../App/third-Party/fancybox/demo/4_s.jpg"></a>
-                                                            <a title="Lorem ipsum dolor sit amet" data-fancybox-group="gallery" href="../../App/third-Party/fancybox/demo/1_b.jpg" class="fancybox"><img alt="" src="../../App/third-Party/fancybox/demo/1_s.jpg"></a>
-
-		                                                    <a title="Etiam quis mi eu elit temp" data-fancybox-group="gallery" href="../../App/third-Party/fancybox/demo/2_b.jpg" class="fancybox"><img alt="" src="../../App/third-Party/fancybox/demo/2_s.jpg"></a>
-
-		                                                    <a title="Cras neque mi, semper leon" data-fancybox-group="gallery" href="../../App/third-Party/fancybox/demo/3_b.jpg" class="fancybox"><img alt="" src="../../App/third-Party/fancybox/demo/3_s.jpg"></a>
-
-		                                                    <a title="Sed vel sapien vel sem uno" data-fancybox-group="gallery" href="../../App/third-Party/fancybox/demo/4_b.jpg" class="fancybox"><img alt="" src="../../App/third-Party/fancybox/demo/4_s.jpg"></a>
+                                                          <p>
+		                                                    <a ng-repeat="imgurImage in imgurImageTemplate" title="Personalized Title" data-fancybox-group="gallery" href="{{imgurImage.data.link}}" class="fancybox"><img alt="" src="{{imgurImage.data.link_s}}"></a>
+		                                                    
 	                                                    </p>
                                                    </div>
                                                </div>

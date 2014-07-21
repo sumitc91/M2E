@@ -201,9 +201,9 @@ namespace M2E.Service.JobTemplate
             }
         }
 
-        public ResponseModel<List<imgurUploadImageResponse>> GetTemplateImageDetailById(string username, long id)
+        public ResponseModel<List<ImgurImageResponse>> GetTemplateImageDetailById(string username, long id)
         {
-            var response = new ResponseModel<List<imgurUploadImageResponse>>();
+            var response = new ResponseModel<List<ImgurImageResponse>>();
             try
             {
                 var refKey = username + id;
@@ -211,14 +211,17 @@ namespace M2E.Service.JobTemplate
 
                 if (createTemplateImagesListsCreateResponse != null)
                 {
-                    var imgurImageList = new List<imgurUploadImageResponse>();
+                    var imgurImageList = new List<ImgurImageResponse>();
                     foreach (var createTemplateImageCreateResponse in createTemplateImagesListsCreateResponse)
                     {
-                        var imgurImage = new imgurUploadImageResponse();
-                        imgurImage.data = new data();
+                        var imgurImage = new ImgurImageResponse();
+                        imgurImage.data = new imgurData();
                         imgurImage.data.id = createTemplateImageCreateResponse.imgurId;
                         imgurImage.data.deletehash = createTemplateImageCreateResponse.imgurDeleteHash;
                         imgurImage.data.link = createTemplateImageCreateResponse.imgurLink;
+                        imgurImage.data.link_s = createTemplateImageCreateResponse.imgurLink.Split('/')[0] + "//" + createTemplateImageCreateResponse.imgurLink.Split('/')[2] + "/" + createTemplateImageCreateResponse.imgurLink.Split('/')[3].Split('.')[0] + 's' + "." + createTemplateImageCreateResponse.imgurLink.Split('/')[3].Split('.')[1];
+                        imgurImage.data.link_m = createTemplateImageCreateResponse.imgurLink.Split('/')[0] + "//" + createTemplateImageCreateResponse.imgurLink.Split('/')[2] + "/" + createTemplateImageCreateResponse.imgurLink.Split('/')[3].Split('.')[0] + 'm' + "." + createTemplateImageCreateResponse.imgurLink.Split('/')[3].Split('.')[1];
+                        imgurImage.data.link_l = createTemplateImageCreateResponse.imgurLink.Split('/')[0] + "//" + createTemplateImageCreateResponse.imgurLink.Split('/')[2] + "/" + createTemplateImageCreateResponse.imgurLink.Split('/')[3].Split('.')[0] + 'l' + "." + createTemplateImageCreateResponse.imgurLink.Split('/')[3].Split('.')[1];
 
                         imgurImageList.Add(imgurImage);
                     }
