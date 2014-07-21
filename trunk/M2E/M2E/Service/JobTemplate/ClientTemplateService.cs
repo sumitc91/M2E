@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Globalization;
 using M2E.Models.DataWrapper.CreateTemplate;
 using System.Data.Entity.Validation;
+using M2E.Service.JobTemplate.CommonMethods;
 
 namespace M2E.Service.JobTemplate
 {
@@ -229,112 +230,13 @@ namespace M2E.Service.JobTemplate
                 verified = "NA"
             };
 
-            foreach (var templateQuestions in req)
-            {
-                if (templateQuestions.visible == false)
-                    continue;
-                switch (templateQuestions.type)
-                {
-                    case "AddInstructions":
-                        foreach (var instructionsList in templateQuestions.editableInstructionsList)
-                        {
-                            var createTemplateeditableInstructionsListInsert = new CreateTemplateeditableInstructionsList
-                            {
-                                username = username,
-                                Number = instructionsList.Number,
-                                Text = instructionsList.Text,
-                                assignTime = DateTime.Now.ToString(CultureInfo.InvariantCulture),
-                                assignedTo = "NA",
-                                completedAt = "NA",
-                                referenceKey = refKey,
-                                status = "Open",
-                                verified = "NA"
-                            };
-                            _db.CreateTemplateeditableInstructionsLists.Add(createTemplateeditableInstructionsListInsert);
-                        }
-                        break;
-                    case "AddSingleQuestionsList":
-                        foreach (var singleQuestionList in templateQuestions.singleQuestionsList)
-                        {
-                            var createTemplateSingleQuestionsListInsert = new CreateTemplateSingleQuestionsList
-                            {
-                                username = username,
-                                Number = singleQuestionList.Number,
-                                Question = singleQuestionList.Question,
-                                Options = singleQuestionList.Options,
-                                assignTime = DateTime.Now.ToString(CultureInfo.InvariantCulture),
-                                assignedTo = "NA",
-                                completedAt = "NA",
-                                referenceKey = refKey,
-                                status = "Open",
-                                verified = "NA"
-                            };
-                            _db.CreateTemplateSingleQuestionsLists.Add(createTemplateSingleQuestionsListInsert);
-                        }
-                        break;
-                    case "AddMultipleQuestionsList":
-                        foreach (var multipleQuestionsList in templateQuestions.multipleQuestionsList)
-                        {
-                            var createTemplateMultipleQuestionsListInsert = new CreateTemplateMultipleQuestionsList
-                            {
-                                username = username,
-                                Number = multipleQuestionsList.Number,
-                                Question = multipleQuestionsList.Question,
-                                Options = multipleQuestionsList.Options,
-                                assignTime = DateTime.Now.ToString(CultureInfo.InvariantCulture),
-                                assignedTo = "NA",
-                                completedAt = "NA",
-                                referenceKey = refKey,
-                                status = "Open",
-                                verified = "NA"
-                            };
-                            _db.CreateTemplateMultipleQuestionsLists.Add(createTemplateMultipleQuestionsListInsert);
-                        }
-                        break;
-                    case "AddTextBoxQuestionsList":
-                        foreach (var textBoxQuestionsList in templateQuestions.textBoxQuestionsList)
-                        {
-                            var createTemplateTextBoxQuestionsListInsert = new CreateTemplateTextBoxQuestionsList
-                            {
-                                username = username,
-                                Number = textBoxQuestionsList.Number,
-                                Question = textBoxQuestionsList.Question,
-                                Options = textBoxQuestionsList.Options,
-                                assignTime = DateTime.Now.ToString(CultureInfo.InvariantCulture),
-                                assignedTo = "NA",
-                                completedAt = "NA",
-                                referenceKey = refKey,
-                                status = "Open",
-                                verified = "NA"
-                            };
-                            _db.CreateTemplateTextBoxQuestionsLists.Add(createTemplateTextBoxQuestionsListInsert);
-                        }
-                        break;
-                    case "AddListBoxQuestionsList":
-                        foreach (var listBoxQuestionsList in templateQuestions.listBoxQuestionsList)
-                        {
-                            var createTemplateListBoxQuestionsListInsert = new CreateTemplateListBoxQuestionsList
-                            {
-                                username = username,
-                                Number = listBoxQuestionsList.Number,
-                                Question = listBoxQuestionsList.Question,
-                                Options = listBoxQuestionsList.Options,
-                                assignTime = DateTime.Now.ToString(CultureInfo.InvariantCulture),
-                                assignedTo = "NA",
-                                completedAt = "NA",
-                                referenceKey = refKey,
-                                status = "Open",
-                                verified = "NA"
-                            };
-                            _db.CreateTemplateListBoxQuestionsLists.Add(createTemplateListBoxQuestionsListInsert);
-                        }
-                        break;
-                }
-            }
             _db.CreateTemplateQuestionInfoes.Add(createTemplateQuestionsInfoInsert);
+            
             try
             {
                 _db.SaveChanges();
+                CreateSubTemplateByRefKey CreateSubTemplateByRefKey = new CreateSubTemplateByRefKey();
+                CreateSubTemplateByRefKey.CreateSubTemplateByRefKeyService(req, username, refKey);                
                 response.Status = 200;
                 response.Message = "Success";
                 response.Payload = "Successfully Created";
@@ -411,6 +313,88 @@ namespace M2E.Service.JobTemplate
                     response.Status = 200;
                     response.Message = "Success";
                     response.Payload = "Successfully Deleted";
+                }
+                catch (DbEntityValidationException e)
+                {
+                    DbContextException.LogDbContextException(e);
+                    response.Status = 500;
+                    response.Message = "Failed";
+                    response.Payload = "Exception Occured";
+                }
+
+                return response;
+            }
+            catch (Exception)
+            {
+                response.Status = 500;
+                response.Message = "Exception";
+                return response;
+            }
+        }
+
+        public ResponseModel<string> EditTemplateDetailById(List<CreateTemplateQuestionInfoModel> req,string username, long id)
+        {
+            var response = new ResponseModel<string>();
+            try
+            {
+                var templateData = _db.CreateTemplateQuestionInfoes.SingleOrDefault(x => x.Id == id && x.username == username);
+                var createTemplateeditableInstructionsListsCreateResponse = _db.CreateTemplateeditableInstructionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
+                var createTemplateSingleQuestionsListsCreateResponse = _db.CreateTemplateSingleQuestionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
+                var createTemplateMultipleQuestionsListsCreateResponse = _db.CreateTemplateMultipleQuestionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
+                var createTemplateTextBoxQuestionsListsCreateResponse = _db.CreateTemplateTextBoxQuestionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
+                var createTemplateListBoxQuestionsListsCreateResponse = _db.CreateTemplateListBoxQuestionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
+                
+                if (createTemplateeditableInstructionsListsCreateResponse != null)
+                {
+                    foreach (var createTemplateeditableInstructionCreateResponse in createTemplateeditableInstructionsListsCreateResponse)
+                    {
+                        _db.CreateTemplateeditableInstructionsLists.Remove(createTemplateeditableInstructionCreateResponse);
+                    }
+                }
+
+                if (createTemplateSingleQuestionsListsCreateResponse != null)
+                {
+                    foreach (var createTemplateSingleQuestionCreateResponse in createTemplateSingleQuestionsListsCreateResponse)
+                    {
+                        _db.CreateTemplateSingleQuestionsLists.Remove(createTemplateSingleQuestionCreateResponse);
+                    }
+                }
+
+                if (createTemplateMultipleQuestionsListsCreateResponse != null)
+                {
+                    foreach (var createTemplateMultipleQuestionCreateResponse in createTemplateMultipleQuestionsListsCreateResponse)
+                    {
+                        _db.CreateTemplateMultipleQuestionsLists.Remove(createTemplateMultipleQuestionCreateResponse);
+                    }
+                }
+
+                if (createTemplateTextBoxQuestionsListsCreateResponse != null)
+                {
+                    foreach (var createTemplateTextBoxQuestionCreateResponse in createTemplateTextBoxQuestionsListsCreateResponse)
+                    {
+                        _db.CreateTemplateTextBoxQuestionsLists.Remove(createTemplateTextBoxQuestionCreateResponse);
+                    }
+                }
+
+                if (createTemplateListBoxQuestionsListsCreateResponse != null)
+                {
+                    foreach (var createTemplateListBoxQuestionCreateResponse in createTemplateListBoxQuestionsListsCreateResponse)
+                    {
+                        _db.CreateTemplateListBoxQuestionsLists.Remove(createTemplateListBoxQuestionCreateResponse);
+                    }
+                }
+
+                
+                try
+                {
+                    templateData.title = req[0].title;
+                    _db.SaveChanges();
+                    CreateSubTemplateByRefKey CreateSubTemplateByRefKey = new CreateSubTemplateByRefKey();
+                    CreateSubTemplateByRefKey.CreateSubTemplateByRefKeyService(req, username, templateData.referenceId);
+
+                    response.Status = 200;
+                    response.Message = "Success";
+                    response.Payload = "Successfully Edited";
                 }
                 catch (DbEntityValidationException e)
                 {

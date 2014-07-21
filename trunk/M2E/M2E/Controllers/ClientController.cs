@@ -65,5 +65,15 @@ namespace M2E.Controllers
             ClientTemplateService ClientTemplate = new ClientTemplateService();
             return Json(ClientTemplate.DeleteTemplateDetailById(username, id));
         }
+
+        [HttpPost]
+        public JsonResult EditTemplateDetailById(List<CreateTemplateQuestionInfoModel> req)
+        {
+            var username = Request.QueryString["username"].ToString();
+            var id = Convert.ToInt32(Request.QueryString["id"]);
+            var response = new ResponseModel<ClientTemplateDetailById>();
+            ClientTemplateService ClientTemplate = new ClientTemplateService();
+            return Json(ClientTemplate.EditTemplateDetailById(req,username, id));
+        }
     }
 }

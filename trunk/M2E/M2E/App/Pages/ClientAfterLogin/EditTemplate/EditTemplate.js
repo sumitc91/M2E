@@ -423,21 +423,21 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
     }
 
 
-    $scope.ClientCreateTemplateFunction = function () {
+    $scope.ClientEditTemplateFunction = function () {
         $rootScope.jobTemplate[0].title = $('#createTemplateTitleText').val();
-        var clientCreateTemplateData = $rootScope.jobTemplate;
-        var url = ServerContextPah + '/Client/CreateTemplate';
+        var clientEditTemplateData = $rootScope.jobTemplate;
+        var url = ServerContextPah + '/Client/EditTemplateDetailById?username=' + userSession.username + '&id=' + $routeParams.templateid;
         if (($('#createTemplateTitleText').val() != "") && ($('#createTemplateTitleText').val() != null)) {
-            //startBlockUI('wait..', 3);
+            startBlockUI('wait..', 3);
             $http({
                 url: url,
                 method: "POST",
-                data: clientCreateTemplateData,
+                data: clientEditTemplateData,
                 headers: { 'Content-Type': 'application/json' }
             }).success(function (data, status, headers, config) {
                 //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
-                //stopBlockUI();
-
+                stopBlockUI();
+                showToastMessage("Success", "Successfully Edited");
             }).error(function (data, status, headers, config) {
 
             });
