@@ -12,26 +12,33 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
     var totalTextBoxQuestionList = 0;
     var totalListBoxQuestionList = 0;
     $rootScope.jobTemplate = [];
-    
-        var url = ServerContextPah + '/Client/GetTemplateDetailById';
-        startBlockUI('wait..', 3);
-        $http({
-            url: url,
-            method: "POST",            
-            headers: { 'Content-Type': 'application/json' }
-        }).success(function (data, status, headers, config) {
-            //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
+   
+    var url = ServerContextPah + '/Client/GetTemplateDetailById?username=' + userSession.username + '&id=' + $routeParams.templateid;
+    startBlockUI('wait..', 3);
+    $http({
+        url: url,
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' }
+    }).success(function (data, status, headers, config) {
+        //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
 
-            if (data.Status == "200") {
-                stopBlockUI();
-                $rootScope.jobTemplate = data.Payload.Data;
-                loadTemplate();
-            }
+        if (data.Status == "200") {
+            stopBlockUI();
+            $rootScope.jobTemplate = data.Payload.Data;
+            loadTemplate();
+        }
+        else if (data.Status == "404") {
+            stopBlockUI();
+            alert("This template is not present in database");
+        }
+        else if (data.Status == "500") {
+            stopBlockUI();
+            alert("Internal Server Error Occured");
+        }
+    }).error(function (data, status, headers, config) {
 
-        }).error(function (data, status, headers, config) {
+    });
 
-        });
-    
 
     function loadTemplate() {
         $('#createTemplateTitleText').val($rootScope.jobTemplate[0].title);
@@ -131,7 +138,7 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
 
     }
 
-    
+
     $scope.addEditableInstructions = function () {
         if (($('#AddInstructionsTextArea').val() != "") && ($('#AddInstructionsTextArea').val() != null)) {
             totalEditableInstruction = totalEditableInstruction + 1;
@@ -142,7 +149,7 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
         } else {
             showToastMessage("Warning", "Instruction Text Box cann't be empty");
         }
-        
+
     }
 
     // single questions..
@@ -211,7 +218,7 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
     $scope.addInstructionsRow = function () {
         if ($rootScope.jobTemplate[0].visible == true) {
             $rootScope.jobTemplate[0].buttonText = "Add Instructions";
-            $rootScope.jobTemplate[0].visible = false;            
+            $rootScope.jobTemplate[0].visible = false;
         } else {
             $rootScope.jobTemplate[0].visible = true;
             $rootScope.jobTemplate[0].buttonText = "Remove Instructions";
@@ -418,9 +425,9 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
 
     $scope.ClientCreateTemplateFunction = function () {
         $rootScope.jobTemplate[0].title = $('#createTemplateTitleText').val();
-        var clientCreateTemplateData = $rootScope.jobTemplate;        
-        var url = ServerContextPah + '/Client/CreateTemplate';        
-        if(($('#createTemplateTitleText').val() != "") && ($('#createTemplateTitleText').val() != null)) {
+        var clientCreateTemplateData = $rootScope.jobTemplate;
+        var url = ServerContextPah + '/Client/CreateTemplate';
+        if (($('#createTemplateTitleText').val() != "") && ($('#createTemplateTitleText').val() != null)) {
             //startBlockUI('wait..', 3);
             $http({
                 url: url,
@@ -430,12 +437,12 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
             }).success(function (data, status, headers, config) {
                 //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
                 //stopBlockUI();
-                
+
             }).error(function (data, status, headers, config) {
 
             });
         }
-        else {            
+        else {
             showToastMessage("Error", "Title of the Template cann't be empty");
         }
 

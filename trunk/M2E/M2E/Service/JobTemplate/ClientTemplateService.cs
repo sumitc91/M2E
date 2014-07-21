@@ -58,14 +58,14 @@ namespace M2E.Service.JobTemplate
             var response = new ResponseModel<ClientTemplateDetailById>();
             try
             {
-                var templateData = _db.CreateTemplateQuestionInfoes.SingleOrDefault(x => x.Id == id);
+                var templateData = _db.CreateTemplateQuestionInfoes.SingleOrDefault(x => x.Id == id && x.username == username);
                 var createTemplateeditableInstructionsListsCreateResponse = _db.CreateTemplateeditableInstructionsLists.OrderBy(x => x.Id).Where(x=>x.referenceKey==templateData.referenceId && x.username == username).ToList();
                 var createTemplateSingleQuestionsListsCreateResponse = _db.CreateTemplateSingleQuestionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
                 var createTemplateMultipleQuestionsListsCreateResponse = _db.CreateTemplateMultipleQuestionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
                 var createTemplateTextBoxQuestionsListsCreateResponse = _db.CreateTemplateTextBoxQuestionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
                 var createTemplateListBoxQuestionsListsCreateResponse = _db.CreateTemplateListBoxQuestionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
-            
-                if (templateData != null)
+
+                if (templateData != null && createTemplateListBoxQuestionsListsCreateResponse != null && createTemplateTextBoxQuestionsListsCreateResponse != null && createTemplateMultipleQuestionsListsCreateResponse != null && createTemplateSingleQuestionsListsCreateResponse != null && createTemplateeditableInstructionsListsCreateResponse != null)
                 {
                     var createTemplateQuestionInfoModelEditableInstructionsCreateResponse = new CreateTemplateQuestionInfoModel();
 
@@ -73,7 +73,7 @@ namespace M2E.Service.JobTemplate
                     createTemplateQuestionInfoModelEditableInstructionsCreateResponse.title = templateData.title;
                     createTemplateQuestionInfoModelEditableInstructionsCreateResponse.visible = false;
                     createTemplateQuestionInfoModelEditableInstructionsCreateResponse.buttonText = "Add Instructions";
-                
+
                     createTemplateQuestionInfoModelEditableInstructionsCreateResponse.editableInstructionsList = new List<CreateTemplateeditableInstructionsListModel>();
                     foreach (var editableInstructionsLists in createTemplateeditableInstructionsListsCreateResponse)
                     {
@@ -93,15 +93,15 @@ namespace M2E.Service.JobTemplate
                     createTemplateQuestionInfoModelSingleQuestionsCreateResponse.title = templateData.title;
                     createTemplateQuestionInfoModelSingleQuestionsCreateResponse.visible = false;
                     createTemplateQuestionInfoModelSingleQuestionsCreateResponse.buttonText = "Add Ques. (single Ans.)";
-                
+
                     createTemplateQuestionInfoModelSingleQuestionsCreateResponse.singleQuestionsList = new List<CreateTemplateSingleQuestionsListModel>();
                     foreach (var singleQuestionsLists in createTemplateSingleQuestionsListsCreateResponse)
-                    {                  
+                    {
                         var createTemplateSingleQuestionsListModelCreateResponse = new CreateTemplateSingleQuestionsListModel
                         {
                             Number = singleQuestionsLists.Number,
                             Question = singleQuestionsLists.Question,
-                            Options = singleQuestionsLists.Options                       
+                            Options = singleQuestionsLists.Options
                         };
                         createTemplateQuestionInfoModelSingleQuestionsCreateResponse.singleQuestionsList.Add(createTemplateSingleQuestionsListModelCreateResponse);
                         createTemplateQuestionInfoModelSingleQuestionsCreateResponse.visible = true;
@@ -134,7 +134,7 @@ namespace M2E.Service.JobTemplate
                     createTemplateQuestionInfoModelTextBoxQuestionsCreateResponse.title = templateData.title;
                     createTemplateQuestionInfoModelTextBoxQuestionsCreateResponse.visible = false;
                     createTemplateQuestionInfoModelTextBoxQuestionsCreateResponse.buttonText = "Add Ques. (TextBox Ans.)";
-                
+
                     createTemplateQuestionInfoModelTextBoxQuestionsCreateResponse.textBoxQuestionsList = new List<CreateTemplateTextBoxQuestionsListModel>();
                     foreach (var textBoxQuestionsLists in createTemplateTextBoxQuestionsListsCreateResponse)
                     {
@@ -155,7 +155,7 @@ namespace M2E.Service.JobTemplate
                     createTemplateQuestionInfoModelListBoxQuestionsCreateResponse.title = templateData.title;
                     createTemplateQuestionInfoModelListBoxQuestionsCreateResponse.visible = false;
                     createTemplateQuestionInfoModelListBoxQuestionsCreateResponse.buttonText = "Add Ques. (ListBox Ans.)";
-                
+
                     createTemplateQuestionInfoModelListBoxQuestionsCreateResponse.listBoxQuestionsList = new List<CreateTemplateListBoxQuestionsListModel>();
                     foreach (var listBoxQuestionsLists in createTemplateListBoxQuestionsListsCreateResponse)
                     {
@@ -184,6 +184,11 @@ namespace M2E.Service.JobTemplate
                             createTemplateQuestionInfoModelListBoxQuestionsCreateResponse
                         }
                     };
+                }
+                else
+                {
+                    response.Status = 404;
+                    response.Message = "No Data found";
                 }
                 return response;
             }
@@ -343,6 +348,86 @@ namespace M2E.Service.JobTemplate
             }
 
             return response;
+        }
+
+        public ResponseModel<string> DeleteTemplateDetailById(string username, long id)
+        {
+            var response = new ResponseModel<string>();
+            try
+            {
+                var templateData = _db.CreateTemplateQuestionInfoes.SingleOrDefault(x => x.Id == id && x.username == username);
+                var createTemplateeditableInstructionsListsCreateResponse = _db.CreateTemplateeditableInstructionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
+                var createTemplateSingleQuestionsListsCreateResponse = _db.CreateTemplateSingleQuestionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
+                var createTemplateMultipleQuestionsListsCreateResponse = _db.CreateTemplateMultipleQuestionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
+                var createTemplateTextBoxQuestionsListsCreateResponse = _db.CreateTemplateTextBoxQuestionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
+                var createTemplateListBoxQuestionsListsCreateResponse = _db.CreateTemplateListBoxQuestionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
+
+                if (templateData != null)
+                    _db.CreateTemplateQuestionInfoes.Remove(templateData);
+                if (createTemplateeditableInstructionsListsCreateResponse != null)
+                {
+                    foreach (var createTemplateeditableInstructionCreateResponse in createTemplateeditableInstructionsListsCreateResponse)
+                    {
+                        _db.CreateTemplateeditableInstructionsLists.Remove(createTemplateeditableInstructionCreateResponse);
+                    }                    
+                }
+
+                if (createTemplateSingleQuestionsListsCreateResponse != null)
+                {
+                    foreach (var createTemplateSingleQuestionCreateResponse in createTemplateSingleQuestionsListsCreateResponse)
+                    {
+                        _db.CreateTemplateSingleQuestionsLists.Remove(createTemplateSingleQuestionCreateResponse);
+                    }
+                }
+
+                if (createTemplateMultipleQuestionsListsCreateResponse != null)
+                {
+                    foreach (var createTemplateMultipleQuestionCreateResponse in createTemplateMultipleQuestionsListsCreateResponse)
+                    {
+                        _db.CreateTemplateMultipleQuestionsLists.Remove(createTemplateMultipleQuestionCreateResponse);
+                    }
+                }
+
+                if (createTemplateTextBoxQuestionsListsCreateResponse != null)
+                {
+                    foreach (var createTemplateTextBoxQuestionCreateResponse in createTemplateTextBoxQuestionsListsCreateResponse)
+                    {
+                        _db.CreateTemplateTextBoxQuestionsLists.Remove(createTemplateTextBoxQuestionCreateResponse);
+                    }
+                }
+
+                if (createTemplateListBoxQuestionsListsCreateResponse != null)
+                {
+                    foreach (var createTemplateListBoxQuestionCreateResponse in createTemplateListBoxQuestionsListsCreateResponse)
+                    {
+                        _db.CreateTemplateListBoxQuestionsLists.Remove(createTemplateListBoxQuestionCreateResponse);
+                    }
+                }
+                   
+
+                try
+                {
+                    _db.SaveChanges();
+                    response.Status = 200;
+                    response.Message = "Success";
+                    response.Payload = "Successfully Deleted";
+                }
+                catch (DbEntityValidationException e)
+                {
+                    DbContextException.LogDbContextException(e);
+                    response.Status = 500;
+                    response.Message = "Failed";
+                    response.Payload = "Exception Occured";
+                }
+
+                return response;
+            }
+            catch (Exception)
+            {
+                response.Status = 500;
+                response.Message = "Exception";
+                return response;
+            }
         }
     }
 }

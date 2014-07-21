@@ -41,8 +41,8 @@ namespace M2E.Controllers
         [HttpPost]
         public JsonResult GetTemplateDetailById()
         {
-            var username = "sumitchourasia91@gmail.com";
-            var id = 3;
+            var username = Request.QueryString["username"].ToString();
+            var id = Convert.ToInt32(Request.QueryString["id"]);
             var response = new ResponseModel<ClientTemplateDetailById>();
             ClientTemplateService ClientTemplate = new ClientTemplateService();
             return Json(ClientTemplate.GetTemplateDetailById(username, id));            
@@ -51,9 +51,19 @@ namespace M2E.Controllers
         [HttpPost]
         public JsonResult CreateTemplate(List<CreateTemplateQuestionInfoModel> req)
         {
-            var username = "sumitchourasia91@gmail.com";
+            var username = Request.QueryString["username"].ToString();
             ClientTemplateService ClientTemplate = new ClientTemplateService();
             return Json(ClientTemplate.CreateTemplate(req,username));
+        }
+
+        [HttpPost]
+        public JsonResult DeleteTemplateDetailById()
+        {
+            var username = Request.QueryString["username"].ToString();
+            var id = Convert.ToInt32(Request.QueryString["id"]);
+            var response = new ResponseModel<ClientTemplateDetailById>();
+            ClientTemplateService ClientTemplate = new ClientTemplateService();
+            return Json(ClientTemplate.DeleteTemplateDetailById(username, id));
         }
     }
 }

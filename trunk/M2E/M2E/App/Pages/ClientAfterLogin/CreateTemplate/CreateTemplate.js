@@ -407,8 +407,8 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
 
     $scope.ClientCreateTemplateFunction = function () {
         $rootScope.jobTemplate[0].title = $('#createTemplateTitleText').val();
-        var clientCreateTemplateData = $rootScope.jobTemplate;        
-        var url = ServerContextPah + '/Client/CreateTemplate';        
+        var clientCreateTemplateData = $rootScope.jobTemplate;
+        var url = ServerContextPah + '/Client/CreateTemplate?username=' + userSession.username;        
         if(($('#createTemplateTitleText').val() != "") && ($('#createTemplateTitleText').val() != null)) {
             //startBlockUI('wait..', 3);
             $http({
