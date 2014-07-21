@@ -410,7 +410,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
         var clientCreateTemplateData = $rootScope.jobTemplate;
         var url = ServerContextPah + '/Client/CreateTemplate?username=' + userSession.username;        
         if(($('#createTemplateTitleText').val() != "") && ($('#createTemplateTitleText').val() != null)) {
-            //startBlockUI('wait..', 3);
+            startBlockUI('wait..', 3);
             $http({
                 url: url,
                 method: "POST",
@@ -418,7 +418,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
                 headers: { 'Content-Type': 'application/json' }
             }).success(function (data, status, headers, config) {
                 //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
-                //stopBlockUI();
+                stopBlockUI();
                 
             }).error(function (data, status, headers, config) {
 
