@@ -419,7 +419,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
             }).success(function (data, status, headers, config) {
                 //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
                 stopBlockUI();
-                
+                showToastMessage("Success", "Successfully Created");
             }).error(function (data, status, headers, config) {
 
             });
