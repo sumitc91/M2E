@@ -1,5 +1,5 @@
-ClientAfterLoginApp.controller('ClientAfterLoginIndex', function ($scope, $http, $rootScope, CookieUtil) {
-    $scope.logoImage = { url: logoImage };  
+ClientAfterLoginApp.controller('ClientAfterLoginIndex', function ($scope, $http, $route, $rootScope, CookieUtil) {
+    $scope.logoImage = { url: logoImage };
     $('title').html("Client - MadeToEarn");
 
     //$scope.InProgressTaskList = [{ showEllipse: true, title: "my first template", timeShowType: "info", showTime: "5 hours", editId: "", creationDate: "an 2014" },
@@ -27,7 +27,42 @@ ClientAfterLoginApp.controller('ClientAfterLoginIndex', function ($scope, $http,
     });
 
     $scope.openTemplateEditPageWithId = function (id) {
-        $('#closeModalPopup'+id).click();
+        $('#closeModalPopup' + id).click();
         location.href = "#/editTemplate/edit/" + id;
+    }
+
+    $scope.deleteTemplateEditPageWithId = function (id) {
+        $('#closeModalPopup' + id).click();
+        var url = ServerContextPah + '/Client/DeleteTemplateDetailById?username=' + userSession.username + '&id=' + id;
+        if (confirm("Template will be permanently deleted. Are you sure?") == true) {
+            startBlockUI('wait..', 3);
+            $http({
+                url: url,
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' }
+            }).success(function (data, status, headers, config) {
+                //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
+
+                if (data.Status == "200") {
+                    stopBlockUI();
+                    showToastMessage("Success", "Deleted Successfully");
+                    $route.reload();
+                }
+                else if (data.Status == "404") {
+                    stopBlockUI();
+                    alert("This template is not present in database");
+                }
+                else if (data.Status == "500") {
+                    stopBlockUI();
+                    alert("Internal Server Error Occured");
+                }
+            }).error(function (data, status, headers, config) {
+
+            });
+        } else {
+            
+        }
+
+        
     }
 });

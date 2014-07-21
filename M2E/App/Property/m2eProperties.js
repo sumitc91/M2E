@@ -1,5 +1,8 @@
 var logoImage = "../../Template/AdminLTE-master/img/m2eV3.png";
 var googleAnalyticsAppID = "UA-51967607-1";
+var userSession = {
+    username:"sumitchourasia91@gmail.com"
+};
 var ServerContextPah = "";
 var mobileDevice = detectmob();
 var ipadDevice = detectipad();

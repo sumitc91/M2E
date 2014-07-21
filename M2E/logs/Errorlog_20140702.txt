@@ -1,4 +1,0 @@
-[2014-07-02 15:45:51] [INFO] [M2E.Controllers.HomeController:25] - index page
-[2014-07-02 17:53:48] [INFO] [M2E.Controllers.HomeController:25] - execution time (ms) : 381
-[2014-07-02 17:54:07] [INFO] [M2E.Controllers.HomeController:25] - execution time (ms) : 248
-[2014-07-02 17:54:32] [INFO] [M2E.Controllers.HomeController:25] - execution time (ms) : 232
