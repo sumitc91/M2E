@@ -252,6 +252,48 @@ namespace M2E.Service.JobTemplate
             return response;
         }
 
+        public ResponseModel<string> CreateTemplateWithId(List<CreateTemplateQuestionInfoModel> req, string username,string id)
+        {
+            var response = new ResponseModel<string>();
+            
+            var refKey = username+id;
+            
+            var createTemplateQuestionsInfoInsert = new CreateTemplateQuestionInfo
+            {
+                buttonText = "NA",
+                username = username,
+                title = req[0].title,
+                visible = "NA",
+                type = "NA",
+                creationTime = DateTime.Now.ToString(CultureInfo.InvariantCulture),
+                referenceId = refKey,
+                total = "NA",
+                completed = "NA",
+                verified = "NA"
+            };
+
+            _db.CreateTemplateQuestionInfoes.Add(createTemplateQuestionsInfoInsert);
+
+            try
+            {
+                _db.SaveChanges();
+                CreateSubTemplateByRefKey CreateSubTemplateByRefKey = new CreateSubTemplateByRefKey();
+                CreateSubTemplateByRefKey.CreateSubTemplateByRefKeyService(req, username, refKey);
+                response.Status = 200;
+                response.Message = "Success";
+                response.Payload = "Successfully Created";
+            }
+            catch (DbEntityValidationException e)
+            {
+                DbContextException.LogDbContextException(e);
+                response.Status = 500;
+                response.Message = "Failed";
+                response.Payload = "Exception Occured";
+            }
+
+            return response;
+        }
+
         public ResponseModel<string> DeleteTemplateDetailById(string username, long id)
         {
             var response = new ResponseModel<string>();

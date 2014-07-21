@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 07/19/2014 17:53:24
--- Generated from EDMX file: F:\PcOnGo_SVN\trunk\M2E\M2E\Models\M2EContext.edmx
+-- Date Created: 07/21/2014 18:24:49
+-- Generated from EDMX file: F:\pcongo\trunk\M2E\M2E\Models\M2EContext.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -297,6 +297,22 @@ CREATE TABLE [dbo].[ValidateUserKeys] (
 );
 GO
 
+-- Creating table 'CreateTemplateImgurImagesLists'
+CREATE TABLE [dbo].[CreateTemplateImgurImagesLists] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [username] nvarchar(max)  NOT NULL,
+    [status] nvarchar(max)  NOT NULL,
+    [verified] nvarchar(max)  NOT NULL,
+    [assignedTo] nvarchar(max)  NOT NULL,
+    [assignTime] nvarchar(max)  NOT NULL,
+    [completedAt] nvarchar(max)  NOT NULL,
+    [referenceKey] nvarchar(max)  NOT NULL,
+    [imgurId] nvarchar(max)  NOT NULL,
+    [imgurDeleteHash] nvarchar(max)  NOT NULL,
+    [imgurLink] nvarchar(max)  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -406,6 +422,12 @@ GO
 -- Creating primary key on [Id] in table 'ValidateUserKeys'
 ALTER TABLE [dbo].[ValidateUserKeys]
 ADD CONSTRAINT [PK_ValidateUserKeys]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'CreateTemplateImgurImagesLists'
+ALTER TABLE [dbo].[CreateTemplateImgurImagesLists]
+ADD CONSTRAINT [PK_CreateTemplateImgurImagesLists]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 

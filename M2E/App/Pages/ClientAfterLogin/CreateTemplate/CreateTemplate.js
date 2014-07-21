@@ -12,15 +12,15 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     var totalTextBoxQuestionList = 0;
     var totalListBoxQuestionList = 0;
 
-        $rootScope.jobTemplate = [
-            { type: "AddInstructions", title: "", visible: false, buttonText: "Add Instructions", editableInstructionsList: [{ Number: totalEditableInstruction, Text: "Instruction 1" }] },
-            { type: "AddSingleQuestionsList", title: "", visible: false, buttonText: "Add Ques. (single Ans.)", singleQuestionsList: [{ Number: totalSingleQuestionList, Question: "What is your gender ?", Options: "Male1;Female2" }] },
-            { type: "AddMultipleQuestionsList", title: "", visible: false, buttonText: "Add Ques. (Multiple Ans.)", multipleQuestionsList: [{ Number: totalMultipleQuestionList, Question: "What is your multiple gender ?", Options: "Malem1;Femalem2" }] },
-            { type: "AddTextBoxQuestionsList", title: "", visible: false, buttonText: "Add Ques. (TextBox Ans.)", textBoxQuestionsList: [{ Number: totalTextBoxQuestionList, Question: "Who won 2014 FIFA World cup ?", Options: "text" }] },
-            { type: "AddListBoxQuestionsList", title: "", visible: false, buttonText: "Add Ques. (ListBox Ans.)", listBoxQuestionsList: [{ Number: totalListBoxQuestionList, Question: "What is your multiple gender ?", Options: "Malem1;Femalem2" }] }
+    $rootScope.jobTemplate = [
+            { type: "AddInstructions", title: "", visible: false, buttonText: "Add Instructions", editableInstructionsList: [{ Number: totalEditableInstruction, Text: "Instruction 1"}] },
+            { type: "AddSingleQuestionsList", title: "", visible: false, buttonText: "Add Ques. (single Ans.)", singleQuestionsList: [{ Number: totalSingleQuestionList, Question: "What is your gender ?", Options: "Male1;Female2"}] },
+            { type: "AddMultipleQuestionsList", title: "", visible: false, buttonText: "Add Ques. (Multiple Ans.)", multipleQuestionsList: [{ Number: totalMultipleQuestionList, Question: "What is your multiple gender ?", Options: "Malem1;Femalem2"}] },
+            { type: "AddTextBoxQuestionsList", title: "", visible: false, buttonText: "Add Ques. (TextBox Ans.)", textBoxQuestionsList: [{ Number: totalTextBoxQuestionList, Question: "Who won 2014 FIFA World cup ?", Options: "text"}] },
+            { type: "AddListBoxQuestionsList", title: "", visible: false, buttonText: "Add Ques. (ListBox Ans.)", listBoxQuestionsList: [{ Number: totalListBoxQuestionList, Question: "What is your multiple gender ?", Options: "Malem1;Femalem2"}] }
         ];
-        loadTemplate();
-    
+    loadTemplate();
+
 
     function loadTemplate() {
         $('#createTemplateTitleText').val($rootScope.jobTemplate[0].title);
@@ -120,7 +120,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
 
     }
 
-    
+
     $scope.addEditableInstructions = function () {
         if (($('#AddInstructionsTextArea').val() != "") && ($('#AddInstructionsTextArea').val() != null)) {
             totalEditableInstruction = totalEditableInstruction + 1;
@@ -131,7 +131,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
         } else {
             showToastMessage("Warning", "Instruction Text Box cann't be empty");
         }
-        
+
     }
 
     // single questions..
@@ -200,7 +200,7 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
     $scope.addInstructionsRow = function () {
         if ($rootScope.jobTemplate[0].visible == true) {
             $rootScope.jobTemplate[0].buttonText = "Add Instructions";
-            $rootScope.jobTemplate[0].visible = false;            
+            $rootScope.jobTemplate[0].visible = false;
         } else {
             $rootScope.jobTemplate[0].visible = true;
             $rootScope.jobTemplate[0].buttonText = "Remove Instructions";
@@ -407,9 +407,11 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
 
     $scope.ClientCreateTemplateFunction = function () {
         $rootScope.jobTemplate[0].title = $('#createTemplateTitleText').val();
-        var clientCreateTemplateData = $rootScope.jobTemplate;
-        var url = ServerContextPah + '/Client/CreateTemplate?username=' + userSession.username;        
-        if(($('#createTemplateTitleText').val() != "") && ($('#createTemplateTitleText').val() != null)) {
+        var clientCreateTemplateData = { Data: $rootScope.jobTemplate, ImgurList: userSession.listOfImgurImages };
+        var currentTemplateId = new Date().getTime();
+
+        var url = ServerContextPah + '/Client/CreateTemplateWithId?username=' + userSession.username + '&id=' + currentTemplateId;
+        if (($('#createTemplateTitleText').val() != "") && ($('#createTemplateTitleText').val() != null)) {
             startBlockUI('wait..', 3);
             $http({
                 url: url,
@@ -419,12 +421,15 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
             }).success(function (data, status, headers, config) {
                 //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
                 stopBlockUI();
+                userSession.listOfImgurImages = [];
+                $('#createTemplateTitleText').val("");
+                $('#dropbox').html("");
                 showToastMessage("Success", "Successfully Created");
             }).error(function (data, status, headers, config) {
 
             });
         }
-        else {            
+        else {
             showToastMessage("Error", "Title of the Template cann't be empty");
         }
 
