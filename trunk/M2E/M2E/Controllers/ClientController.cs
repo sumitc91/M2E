@@ -63,7 +63,9 @@ namespace M2E.Controllers
             var username = Request.QueryString["username"].ToString();
             var id = Request.QueryString["id"].ToString();
             var TemplateList = req.Data;
+            var ImgurImageList = req.ImgurList;
             ClientTemplateService ClientTemplate = new ClientTemplateService();
+            ClientTemplate.ImgurImagesSaveToDatabaseWithTemplateId(ImgurImageList,username,id);
             return Json(ClientTemplate.CreateTemplateWithId(TemplateList, username, id));
         }
 

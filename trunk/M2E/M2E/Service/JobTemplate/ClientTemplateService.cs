@@ -455,5 +455,46 @@ namespace M2E.Service.JobTemplate
                 return response;
             }
         }
+
+        public ResponseModel<string> ImgurImagesSaveToDatabaseWithTemplateId(List<imgurUploadImageResponse> ImgurList, string username, string id)
+        {
+            var response = new ResponseModel<string>();
+
+            var refKey = username + id;
+            foreach (var imageInfo in ImgurList)
+            {
+                var CreateTemplateImgurImagesListInsert = new CreateTemplateImgurImagesList
+                {
+                    assignedTo = "NA",
+                    assignTime = "NA",
+                    completedAt = "NA",
+                    referenceKey = refKey,
+                    status = "open",
+                    username = username,
+                    verified = "No",
+                    imgurId = imageInfo.data.id,
+                    imgurDeleteHash = imageInfo.data.deletehash,
+                    imgurLink = imageInfo.data.link
+                };
+
+                _db.CreateTemplateImgurImagesLists.Add(CreateTemplateImgurImagesListInsert);
+            }            
+            try
+            {
+                _db.SaveChanges();                
+                response.Status = 200;
+                response.Message = "Success";
+                response.Payload = "Successfully Added";
+            }
+            catch (DbEntityValidationException e)
+            {
+                DbContextException.LogDbContextException(e);
+                response.Status = 500;
+                response.Message = "Failed";
+                response.Payload = "Exception Occured";
+            }
+
+            return response;
+        }
     }
 }
