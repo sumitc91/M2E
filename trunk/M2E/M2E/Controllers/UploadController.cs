@@ -35,8 +35,7 @@ namespace M2E.Controllers
             return Json("All files have been successfully stored.");
         }
 
-        [HttpPost]
-        [Authorize]
+        [HttpPost]        
         public ActionResult UploadDropZoneFilesImgUr(IEnumerable<HttpPostedFileBase> files)
         {
 
