@@ -99,6 +99,16 @@ namespace M2E.Controllers
         }
 
         [HttpPost]
+        public JsonResult DeleteTemplateImgurImageById()
+        {
+            var username = Request.QueryString["username"].ToString();
+            var id = Convert.ToInt32(Request.QueryString["id"]);
+            var response = new ResponseModel<ClientTemplateDetailById>();
+            ClientTemplateService ClientTemplate = new ClientTemplateService();
+            return Json(ClientTemplate.DeleteTemplateImgurImageById(username, id));
+        }
+
+        [HttpPost]
         public JsonResult EditTemplateDetailById(List<CreateTemplateQuestionInfoModel> req)
         {
             var username = Request.QueryString["username"].ToString();
