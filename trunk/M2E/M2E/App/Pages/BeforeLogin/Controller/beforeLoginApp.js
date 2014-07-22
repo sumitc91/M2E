@@ -23,7 +23,7 @@ BeforeLoginApp.config(function ($routeProvider) {
                    when("/contactus", { templateUrl: "../../App/Pages/BeforeLogin/ContactUs/contactus.html" }).
                    when("/showmessage/:code", { templateUrl: "../../App/Pages/BeforeLogin/ShowMessage/showmessage.html" }).
                    when("/forgetpassword", { templateUrl: "../../App/Pages/BeforeLogin/ForgetPassword/forgetPassword.html" }).
-                   when("/resetpassword", { templateUrl: "../../App/Pages/BeforeLogin/ResetPassword/resetpassword.html" }).
+                   when("/resetpassword/:userName/:guid", { templateUrl: "../../App/Pages/BeforeLogin/ResetPassword/resetpassword.html" }).
                    otherwise({ templateUrl: "../../Resource/templates/beforeLogin/contentView/404.html" });
 
 });

@@ -27,7 +27,7 @@ namespace M2E.CommonMethods
                     CreateAccountEmailBodyContent(request.Url.Authority, toMail, guid),
                     null,
                     null,
-                    "Zestork - Place to boost your Carrer"
+                    "Made2Earn - Place to boost your Carrer"
                     );
             }
         }
