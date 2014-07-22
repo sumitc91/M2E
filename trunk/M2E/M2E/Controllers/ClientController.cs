@@ -14,6 +14,7 @@ using M2E.Models.DataWrapper.CreateTemplate;
 using M2E.Models;
 using M2E.CommonMethods;
 using M2E.Service.JobTemplate;
+using M2E.Service.Client;
 
 namespace M2E.Controllers
 {
@@ -125,6 +126,15 @@ namespace M2E.Controllers
             }
             
             return Json(CreateTemplateResponse);
+        }
+
+        [HttpPost]
+        public JsonResult GetClientDetails()
+        {
+            var username = Request.QueryString["username"].ToString();
+            ClientDetailService ClientTemplate = new ClientDetailService();
+            var ClientDetailResponse = ClientTemplate.GetClientDetails(username);
+            return Json(ClientDetailResponse);
         }
     }
 }
