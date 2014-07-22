@@ -216,7 +216,7 @@ namespace M2E.Service.JobTemplate
                     {
                         var imgurImage = new ImgurImageResponse();
                         imgurImage.data = new imgurData();
-                        imgurImage.data.id = createTemplateImageCreateResponse.imgurId;
+                        imgurImage.data.id = createTemplateImageCreateResponse.Id.ToString();
                         imgurImage.data.deletehash = createTemplateImageCreateResponse.imgurDeleteHash;
                         imgurImage.data.link = createTemplateImageCreateResponse.imgurLink;
                         imgurImage.data.link_s = createTemplateImageCreateResponse.imgurLink.Split('/')[0] + "//" + createTemplateImageCreateResponse.imgurLink.Split('/')[2] + "/" + createTemplateImageCreateResponse.imgurLink.Split('/')[3].Split('.')[0] + 's' + "." + createTemplateImageCreateResponse.imgurLink.Split('/')[3].Split('.')[1];
@@ -401,6 +401,46 @@ namespace M2E.Service.JobTemplate
                 }
                    
 
+                try
+                {
+                    _db.SaveChanges();
+                    response.Status = 200;
+                    response.Message = "Success";
+                    response.Payload = "Successfully Deleted";
+                }
+                catch (DbEntityValidationException e)
+                {
+                    DbContextException.LogDbContextException(e);
+                    response.Status = 500;
+                    response.Message = "Failed";
+                    response.Payload = "Exception Occured";
+                }
+
+                return response;
+            }
+            catch (Exception)
+            {
+                response.Status = 500;
+                response.Message = "Exception";
+                return response;
+            }
+        }
+
+        public ResponseModel<string> DeleteTemplateImgurImageById(string username, long id)
+        {
+            var response = new ResponseModel<string>();
+            try
+            {                
+                var createTemplateImgurImagesListsCreateResponse = _db.CreateTemplateImgurImagesLists.OrderBy(x => x.Id).Where(x => x.Id == id && x.username == username).ToList();
+                
+                if (createTemplateImgurImagesListsCreateResponse != null)
+                {
+                    foreach (var createTemplateImgurImageCreateResponse in createTemplateImgurImagesListsCreateResponse)
+                    {
+                        _db.CreateTemplateImgurImagesLists.Remove(createTemplateImgurImageCreateResponse);
+                    }
+                }
+                
                 try
                 {
                     _db.SaveChanges();

@@ -26,8 +26,7 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
         if (data.Status == "200") {
             stopBlockUI();
             $rootScope.jobTemplate = data.Payload.Data;
-            loadTemplate();
-            loadImagesfromImgur();
+            loadTemplate();            
         }
         else if (data.Status == "404") {
             stopBlockUI();
@@ -40,6 +39,7 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
     }).error(function (data, status, headers, config) {
 
     });
+    loadImagesfromImgur();
 
     function loadImagesfromImgur() {
         var url = ServerContextPah + '/Client/GetTemplateImageDetailById?username=' + userSession.username + '&id=' + $routeParams.templateid;
@@ -52,8 +52,8 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
 
             if (data.Status == "200") {
                 $rootScope.imgurImageTemplate = data.Payload;
-                console.log(data.Payload);
-                console.log($rootScope.imgurImageTemplate);
+                //console.log(data.Payload);
+                //console.log($rootScope.imgurImageTemplate);
             }
             else if (data.Status == "404") {
                 stopBlockUI();
@@ -447,6 +447,28 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
             $rootScope.jobTemplate[1].visible = true;
             $rootScope.jobTemplate[1].buttonText = "Remove Ques. (single Ans.)";
         }
+    }
+
+    $scope.DeleteEditImgurImageByIdFunction = function (id) {
+               
+        var url = ServerContextPah + '/Client/DeleteTemplateImgurImageById?username=' + userSession.username + '&id=' + id;
+        {
+            startBlockUI('wait..', 3);
+            $http({
+                url: url,
+                method: "POST",                
+                headers: { 'Content-Type': 'application/json' }
+            }).success(function (data, status, headers, config) {
+                //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
+                stopBlockUI();
+                showToastMessage("Success", "Successfully deleted Image");
+                loadImagesfromImgur();
+            }).error(function (data, status, headers, config) {
+
+            });
+        }
+        
+
     }
 
 
