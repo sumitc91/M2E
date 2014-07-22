@@ -529,3 +529,12 @@ button, input, select, textarea {
 #dropbox .preview.done .progress{
 	width:100% !important;
 }
+
+.imgurImagesUploadManageClass
+{
+    
+    color: red;
+    cursor: pointer;
+    position: relative;
+    
+}

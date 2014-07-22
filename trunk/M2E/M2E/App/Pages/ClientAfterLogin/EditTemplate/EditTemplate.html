@@ -107,7 +107,7 @@
                                                        <b><small>Manage your uploaded images</small></b></label>
                                                    <div class="controls">
                                                           <p ng-cloak>
-		                                                    <span ng-repeat="imgurImage in imgurImageTemplate"><a  title="Personalized Title" data-fancybox-group="gallery" href="{{imgurImage.data.link}}" class="fancybox"><img alt="" src="{{imgurImage.data.link_s}}"></a><span style="position: relative; bottom: -52px; right: 65px; cursor: pointer; color: red;" ng-click="DeleteEditImgurImageByIdFunction(imgurImage.data.id)">delete</span></span>
+		                                                    <span ng-repeat="imgurImage in imgurImageTemplate"><a  title="<-a class='fancybox' href='{{imgurImage.data.link}}' data-fancybox-group='gallery' title='Personalized Title'><-img src='{{imgurImage.data.link_s}}' alt=''></a>" data-fancybox-group="gallery" href="{{imgurImage.data.link}}" class="fancybox"><img alt="" src="{{imgurImage.data.link_s}}"></a><span class="imgurImagesUploadManageClass" ng-click="DeleteEditImgurImageByIdFunction(imgurImage.data.id)">delete</span></span>
 	                                                    </p>
                                                    </div>
                                                </div>
