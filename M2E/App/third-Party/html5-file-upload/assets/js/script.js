@@ -7,8 +7,8 @@ $(function () {
         // The name of the $_FILES entry:
         paramname: 'files',
 
-        maxfiles: 5,
-        maxfilesize: 2,
+        maxfiles: 25,
+        maxfilesize: 4,
         url: '/Upload/UploadDropZoneFilesImgUr', //UploadMultipleImages
 
         uploadFinished: function (i, file, response) {
@@ -23,10 +23,10 @@ $(function () {
                     showMessage('Your browser does not support HTML5 file uploads!');
                     break;
                 case 'TooManyFiles':
-                    alert('Too many files! Please select 5 at most! (configurable)');
+                    alert('Too many files! Please select 25 at most!');
                     break;
                 case 'FileTooLarge':
-                    alert(file.name + ' is too large! Please upload files up to 2mb (configurable).');
+                    alert(file.name + ' is too large! Please upload files up to 4mb (configurable).');
                     break;
                 default:
                     break;
