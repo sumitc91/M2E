@@ -39,6 +39,18 @@ BeforeLoginApp.controller('showMessageTemplate', function ($scope, $http, $route
         $scope.Content.header2 = "Please check your email";
         $scope.Content.email = getParameterByName("email");
     }
+    else if ($scope.code == 3) {
+        $scope.ForgetPasswordContent = false;
+        $scope.RegisterContent = false;
+        $scope.Header.message = "Internal server error has occured.";
+        $scope.Header.className = "alert-danger";
+        $scope.Header.iconClassName = "fa-ban";
+        $scope.Content.header1 = "500";
+        $scope.Content.companyName = "Error";
+        $scope.Content.contentClasstheme = "callout-danger";
+        $scope.Content.header2IconClassName = "fa fa-warning text-yellow";
+        $scope.Content.header2 = "Something went wrong. we will soon fix it. Sorry for inconvenience.";
+    }
 });
 
 function getParameterByName(name) {

@@ -1,5 +1,6 @@
 BeforeLoginApp.controller('validateEmailTemplate', function ($scope, $http, $routeParams, $location) {
-    var ValidateAccountRequest = {
+    var
+        accountRequest = {
         userName: $routeParams.userName,
         guid: $routeParams.guid
     };
@@ -19,7 +20,7 @@ BeforeLoginApp.controller('validateEmailTemplate', function ($scope, $http, $rou
     $http({
         url: '/Auth/ValidateAccount',
         method: "POST",
-        data: ValidateAccountRequest,
+        data: accountRequest,
         headers: { 'Content-Type': 'application/json' }
     }).success(function (data, status, headers, config) {
         //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
@@ -39,11 +40,11 @@ BeforeLoginApp.controller('validateEmailTemplate', function ($scope, $http, $rou
             $scope.Header.className = "alert-danger";
             $scope.Header.iconClassName = "fa-ban";
             $scope.Content.header1 = "500";
-            $scope.Content.companyName = "MadeToEarn";
+            $scope.Content.companyName = "Error";
             $scope.Content.contentClasstheme = "callout-danger";
             $scope.Content.header2IconClassName = "fa fa-warning text-yellow";
             $scope.Content.header2 = "Oops! Something went wrong.";
-            $scope.Content.message = "We could not find the page you were looking for.";
+            $scope.Content.message = "We could not find the page you were looking for. we will soon fix fix it. Sorry for inconvenience.";
         } else {
             $scope.Header.message = "Link Expired";
             $scope.Header.className = "alert-warning";
