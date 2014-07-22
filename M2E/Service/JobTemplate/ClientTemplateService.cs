@@ -250,15 +250,16 @@ namespace M2E.Service.JobTemplate
 
             var keyInfo = _db.CreateTemplateQuestionInfoes.FirstOrDefault();
             var refKey = username;
+            var digitKey = 0;
             if (keyInfo != null)
             {
-                refKey += _db.CreateTemplateQuestionInfoes.Max(x => x.Id) + 1;
+                digitKey = _db.CreateTemplateQuestionInfoes.Max(x => x.Id) + 1;                
             }
             else
             {
-                refKey += 1;
+                digitKey = 1;                
             }
-
+            refKey += digitKey;
             var createTemplateQuestionsInfoInsert = new CreateTemplateQuestionInfo
             {
                 buttonText = "NA",
@@ -281,7 +282,7 @@ namespace M2E.Service.JobTemplate
                 CreateSubTemplateByRefKey CreateSubTemplateByRefKey = new CreateSubTemplateByRefKey();
                 CreateSubTemplateByRefKey.CreateSubTemplateByRefKeyService(req, username, refKey);                
                 response.Status = 200;
-                response.Message = "Success";
+                response.Message = "success-"+digitKey;
                 response.Payload = refKey;
             }
             catch (DbEntityValidationException e)

@@ -422,8 +422,8 @@ ClientAfterLoginApp.controller('createTemplateController', function ($scope, $ht
                 //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
                 stopBlockUI();
                 userSession.listOfImgurImages = [];
-                $('#createTemplateTitleText').val("");
-                $('#dropbox').html("");
+                var id = data.Message.split('-')[1];
+                location.href = "#/editTemplate/edit/" + id;
                 showToastMessage("Success", "Successfully Created");
             }).error(function (data, status, headers, config) {
 
