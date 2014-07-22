@@ -216,13 +216,13 @@ namespace M2E.Service.JobTemplate
                     {
                         var imgurImage = new ImgurImageResponse();
                         imgurImage.data = new imgurData();
-                        imgurImage.data.id = createTemplateImageCreateResponse.Id.ToString();
+                        imgurImage.data.id = createTemplateImageCreateResponse.Id.ToString();                        
                         imgurImage.data.deletehash = createTemplateImageCreateResponse.imgurDeleteHash;
                         imgurImage.data.link = createTemplateImageCreateResponse.imgurLink;
                         imgurImage.data.link_s = createTemplateImageCreateResponse.imgurLink.Split('/')[0] + "//" + createTemplateImageCreateResponse.imgurLink.Split('/')[2] + "/" + createTemplateImageCreateResponse.imgurLink.Split('/')[3].Split('.')[0] + 's' + "." + createTemplateImageCreateResponse.imgurLink.Split('/')[3].Split('.')[1];
                         imgurImage.data.link_m = createTemplateImageCreateResponse.imgurLink.Split('/')[0] + "//" + createTemplateImageCreateResponse.imgurLink.Split('/')[2] + "/" + createTemplateImageCreateResponse.imgurLink.Split('/')[3].Split('.')[0] + 'm' + "." + createTemplateImageCreateResponse.imgurLink.Split('/')[3].Split('.')[1];
                         imgurImage.data.link_l = createTemplateImageCreateResponse.imgurLink.Split('/')[0] + "//" + createTemplateImageCreateResponse.imgurLink.Split('/')[2] + "/" + createTemplateImageCreateResponse.imgurLink.Split('/')[3].Split('.')[0] + 'l' + "." + createTemplateImageCreateResponse.imgurLink.Split('/')[3].Split('.')[1];
-
+                        imgurImage.data.copyText ="";
                         imgurImageList.Add(imgurImage);
                     }
                     response.Status = 200;

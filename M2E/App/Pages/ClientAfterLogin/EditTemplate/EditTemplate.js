@@ -26,7 +26,7 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
         if (data.Status == "200") {
             stopBlockUI();
             $rootScope.jobTemplate = data.Payload.Data;
-            loadTemplate();            
+            loadTemplate();
         }
         else if (data.Status == "404") {
             stopBlockUI();
@@ -52,6 +52,7 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
 
             if (data.Status == "200") {
                 $rootScope.imgurImageTemplate = data.Payload;
+                
                 //console.log(data.Payload);
                 //console.log($rootScope.imgurImageTemplate);
             }
@@ -450,13 +451,13 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
     }
 
     $scope.DeleteEditImgurImageByIdFunction = function (id) {
-               
+
         var url = ServerContextPah + '/Client/DeleteTemplateImgurImageById?username=' + userSession.username + '&id=' + id;
         {
             startBlockUI('wait..', 3);
             $http({
                 url: url,
-                method: "POST",                
+                method: "POST",
                 headers: { 'Content-Type': 'application/json' }
             }).success(function (data, status, headers, config) {
                 //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
@@ -467,7 +468,7 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
 
             });
         }
-        
+
 
     }
 
@@ -501,6 +502,9 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
 
 });
 
+function copyToClipboard(text) {
+    window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+}
 
 function startBlockUI(mssg, size) {
     $.blockUI({
