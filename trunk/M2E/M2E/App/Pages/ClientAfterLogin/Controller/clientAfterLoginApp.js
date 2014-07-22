@@ -20,6 +20,57 @@ ClientAfterLoginApp.run(function ($rootScope, $location) { //Insert in the funct
     });
 });
 
+ClientAfterLoginApp.controller('ClientAfterMasterPage', function ($scope, $http, $rootScope, CookieUtil) {    
+    $scope.ClientCategoryList = [
+   { MainCategory: "Category",
+       subCategoryList: [
+       {
+           value: "Data entry", dropDownMenuShow: true, dropDownSubMenuClass: "dropdown-submenu", dropDownMenuClass: "dropdown-menu", dropDownSubMenuArrow: "dropdown", dropDownMenuList: [
+           { value: "Verification & Duplication", link: "#/VerificationAndDuplicationSample" },
+           { value: "Data Entry", link: "#" },
+           { value: "Search the web", link: "#" },
+           { value: "Do Excel work", link: "#" },
+           { value: "Find information", link: "#" },
+           { value: "Post advertisements", link: "#" },
+           { value: "Transcription", link: "#" }
+           ]
+       },
+       { value: "Content Writing", dropDownMenuShow: true, dropDownSubMenuClass: "dropdown-submenu", dropDownMenuClass: "dropdown-menu", dropDownSubMenuArrow: "dropdown", dropDownMenuList: [
+           { value: "Article writing", link: "#" },
+           { value: "Blog writing", link: "#" },
+           { value: "Copy typing", link: "#" },
+           { value: "Powerpoint", link: "#" },
+           { value: "Short stories", link: "#" },
+           { value: "Travel writing", link: "#" },
+           { value: "Reviews", link: "#" },
+           { value: "Product descriptions", link: "#" }
+           ]
+       },
+       { value: "Survey", dropDownMenuShow: true, dropDownSubMenuClass: "dropdown-submenu", dropDownMenuClass: "dropdown-menu", dropDownSubMenuArrow: "dropdown", dropDownMenuList: [
+           { value: "Product survey", link: "#/productSurvey" },
+           { value: "User feedback survey", link: "#" },
+           { value: "Pools", link: "#" }
+           ]
+       },
+       { value: "Moderation", dropDownMenuShow: true, dropDownSubMenuClass: "dropdown-submenu", dropDownMenuClass: "dropdown-menu", dropDownSubMenuArrow: "dropdown", dropDownMenuList: [
+           { value: "Moderating Ads", link: "#" },
+           { value: "Moderating Photos", link: "#" },
+           { value: "Moderating Music", link: "#" },
+           { value: "Moderating Video", link: "#" }
+           ]
+       },
+       { value: "Ads", dropDownMenuShow: true, dropDownSubMenuClass: "dropdown-submenu", dropDownMenuClass: "dropdown-menu", dropDownSubMenuArrow: "dropdown", dropDownMenuList: [
+           { value: "Facebook Views", link: "#" },
+           { value: "Facebook likes", link: "#" },
+           { value: "Video reviewing", link: "#" },
+           { value: "Comments on social media", link: "#" }
+           ]
+       }
+       ]
+   }
+    ];
+});
+
 
 function loadjscssfile(filename, filetype) {
     var fileref = "";
