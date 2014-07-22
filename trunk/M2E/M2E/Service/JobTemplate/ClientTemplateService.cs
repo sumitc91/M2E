@@ -348,9 +348,18 @@ namespace M2E.Service.JobTemplate
                 var createTemplateMultipleQuestionsListsCreateResponse = _db.CreateTemplateMultipleQuestionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
                 var createTemplateTextBoxQuestionsListsCreateResponse = _db.CreateTemplateTextBoxQuestionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
                 var createTemplateListBoxQuestionsListsCreateResponse = _db.CreateTemplateListBoxQuestionsLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
+                var createTemplateImgurImagesListsCreateResponse = _db.CreateTemplateImgurImagesLists.OrderBy(x => x.Id).Where(x => x.referenceKey == templateData.referenceId && x.username == username).ToList();
 
                 if (templateData != null)
                     _db.CreateTemplateQuestionInfoes.Remove(templateData);
+                if (createTemplateImgurImagesListsCreateResponse != null)
+                {
+                    foreach (var createTemplateImgurImageCreateResponse in createTemplateImgurImagesListsCreateResponse)
+                    {
+                        _db.CreateTemplateImgurImagesLists.Remove(createTemplateImgurImageCreateResponse);
+                    }
+                }
+
                 if (createTemplateeditableInstructionsListsCreateResponse != null)
                 {
                     foreach (var createTemplateeditableInstructionCreateResponse in createTemplateeditableInstructionsListsCreateResponse)
