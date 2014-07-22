@@ -474,7 +474,7 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
 
     $scope.ClientEditTemplateFunction = function () {
         $rootScope.jobTemplate[0].title = $('#createTemplateTitleText').val();
-        var clientEditTemplateData = $rootScope.jobTemplate;
+        var clientEditTemplateData = { Data: $rootScope.jobTemplate, ImgurList: userSession.listOfImgurImages };
         var url = ServerContextPah + '/Client/EditTemplateDetailById?username=' + userSession.username + '&id=' + $routeParams.templateid;
         if (($('#createTemplateTitleText').val() != "") && ($('#createTemplateTitleText').val() != null)) {
             startBlockUI('wait..', 3);
@@ -487,6 +487,7 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
                 //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
                 stopBlockUI();
                 showToastMessage("Success", "Successfully Edited");
+                loadImagesfromImgur();
             }).error(function (data, status, headers, config) {
 
             });

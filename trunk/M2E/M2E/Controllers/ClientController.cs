@@ -109,13 +109,22 @@ namespace M2E.Controllers
         }
 
         [HttpPost]
-        public JsonResult EditTemplateDetailById(List<CreateTemplateQuestionInfoModel> req)
+        public JsonResult EditTemplateDetailById(CreateTemplateRequest req)
         {
             var username = Request.QueryString["username"].ToString();
             var id = Convert.ToInt32(Request.QueryString["id"]);
-            var response = new ResponseModel<ClientTemplateDetailById>();
+            var TemplateList = req.Data;
             ClientTemplateService ClientTemplate = new ClientTemplateService();
-            return Json(ClientTemplate.EditTemplateDetailById(req,username, id));
+            var CreateTemplateResponse = ClientTemplate.EditTemplateDetailById(TemplateList,username, id);
+            var ImgurImageList = req.ImgurList;
+            var refKey = username+id;
+            if (CreateTemplateResponse.Status == 200)
+            {
+                if (ImgurImageList != null)
+                    ClientTemplate.ImgurImagesSaveToDatabaseWithTemplateId(ImgurImageList, username, refKey);
+            }
+            
+            return Json(CreateTemplateResponse);
         }
     }
 }
