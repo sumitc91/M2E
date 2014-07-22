@@ -499,12 +499,12 @@ ClientAfterLoginApp.controller('editTemplateController', function ($scope, $http
 
     }
 
+    $scope.copyToClipboard = function (event) {
+        //alert("text");
+        window.prompt("Copy to clipboard: Ctrl+C, Enter", event.target.id);
+    }
 
 });
-
-function copyToClipboard(text) {
-    window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
-}
 
 function startBlockUI(mssg, size) {
     $.blockUI({
