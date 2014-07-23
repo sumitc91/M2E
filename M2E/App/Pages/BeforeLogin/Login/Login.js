@@ -80,8 +80,9 @@ BeforeLoginApp.controller('beforeLoginSignInController', function ($scope, $http
                     $scope.HeaderAlert.message = "Your Account is not verified yet. Please check your mail and verfiy your account.";
                 }
                 else if (data.Status == "200") {
-                    showToastMessage("Success", "Successfully Logged in !");
-                    console.log("data : " + data);
+                    //showToastMessage("Success", "Successfully Logged in !");                    
+                    //console.log("data : " + data);
+                    //alert("auth token : "+data.Payload.AuthToken);
                     location.href = "/client";
                 }
                     

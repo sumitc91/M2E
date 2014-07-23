@@ -11,6 +11,7 @@ using System.Data.Entity.Validation;
 using M2E.Service;
 using M2E.Service.Register;
 using System.Reflection;
+using M2E.Session;
 
 namespace M2E.Controllers
 {
@@ -36,6 +37,12 @@ namespace M2E.Controllers
                 responseData = loginService.WebLogin(req.UserName, EncryptionClass.Md5Hash(req.Password), returnUrl, req.KeepMeSignedInCheckBox != null ? "true" : "false");                
             }
 
+            if (responseData.Code == "200")
+            {
+                M2ESession session = new M2ESession(req.UserName);
+                TokenManager.CreateSession(session);
+                responseData.AuthToken = session.SessionId;
+            }
             var response = new ResponseModel<LoginResponse> { Status = Convert.ToInt32(responseData.Code), Message = "success", Payload = responseData };
             return Json(response);
         }
