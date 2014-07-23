@@ -47,7 +47,7 @@ ClientAfterLoginApp.controller('ClientAfterMasterPage', function ($scope, $http,
            ]
        },
        { value: "Survey", dropDownMenuShow: true, dropDownSubMenuClass: "dropdown-submenu", dropDownMenuClass: "dropdown-menu", dropDownSubMenuArrow: "dropdown", dropDownMenuList: [
-           { value: "Product survey", link: "#/productSurvey" },
+           { value: "Product survey", link: "#/createTemplate" },
            { value: "User feedback survey", link: "#" },
            { value: "Pools", link: "#" }
            ]
