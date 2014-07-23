@@ -10,33 +10,33 @@ namespace M2E.Session
     {
         public static void CreateSession(M2ESession session)
         {
-            string sessionId = session.SessionId;
-            int hours = 1; // TODO: currently hard coded hour value;
+            var sessionId = session.SessionId;
+            const int hours = 1; // TODO: currently hard coded hour value;
             MemoryCache.Default.Set(sessionId, session, new CacheItemPolicy() { SlidingExpiration = new TimeSpan(hours, 0, 0) });
         }
 
-        public static void removeSession(string sessionId)
+        public static void RemoveSession(string sessionId)
         {
             MemoryCache.Default.Remove(sessionId);
         }
 
-        public static bool isValidSession(string sessionId)
+        public static bool IsValidSession(string sessionId)
         {
             M2ESession session = null;
-            return isValidSession(sessionId, out session);
+            return IsValidSession(sessionId, out session);
         }
 
-        private static bool isValidSession(string sessionId, out  M2ESession session)
+        private static bool IsValidSession(string sessionId, out  M2ESession session)
         {
             session = null;
             if (MemoryCache.Default.Contains(sessionId))
             {
                 session = (M2ESession)MemoryCache.Default.Get(sessionId);
             }
-            return verifySessionObject(session);
+            return VerifySessionObject(session);
         }
 
-        private static bool verifySessionObject(M2ESession session)
+        private static bool VerifySessionObject(M2ESession session)
         {
             return session != null;
         }

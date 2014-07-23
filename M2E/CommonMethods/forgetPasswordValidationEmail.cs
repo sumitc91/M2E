@@ -1,24 +1,26 @@
 ﻿using System;
 using System.Web;
 using System.Text;
+using M2E.CommonMethods;
 
 namespace M2E.CommonMethods
 {
     public class ForgetPasswordValidationEmail
     {
-        public String SendForgetPasswordValidationEmailMessage(String toMail, String guid, HttpRequestBase request)
+        public void SendForgetPasswordValidationEmailMessage(String toMail, String guid, HttpRequestBase request)
         {
             var sendEmail = new SendEmail();
-            if (request.Url == null) return null;
-            var retVal = sendEmail.SendEmailMessage(toMail,
-                "donotreply",
-                "Reset your password",
-                ForgetPasswordEmailBodyContent(request.Url.Authority, toMail, guid),
-                null,
-                null,
-                "MadeToEarn - Earn Anytime Anywhere"
-                );
-            return retVal;
+            if (request.Url != null)
+            {
+                sendEmail.SendEmailMessage(toMail,
+                    "donotreply",
+                    "Validate your Account",
+                    ForgetPasswordEmailBodyContent(request.Url.Authority, toMail, guid),
+                    null,
+                    null,
+                    "Zestork - Place to boost your Carrer"
+                    );
+            }
         }
 
         private string ForgetPasswordEmailBodyContent(String requestUrlAuthority, String toMail, String guid)
@@ -26,14 +28,14 @@ namespace M2E.CommonMethods
             return toMail.Contains("facebook.com") ? ForgetPasswordEmailBodyContentFacebook(requestUrlAuthority, toMail, guid) : ForgetPasswordEmailBodyContentEmail(requestUrlAuthority, toMail, guid);
         }
 
-        public string ForgetPasswordEmailBodyContentFacebook(String requestUrlAuthority, String toMail, String guid)
+        private string ForgetPasswordEmailBodyContentFacebook(String requestUrlAuthority, String toMail, String guid)
         {
             var htmlBody = new StringBuilder();
             htmlBody.Append("Change password for your account <a href=\"http://" + requestUrlAuthority + "/Account/" + "validateForgetPassword?username=" + toMail + "&guid=" + guid + "\"> Click here </a>");
             return htmlBody.ToString();
         }
 
-        private static string ForgetPasswordEmailBodyContentEmail(String requestUrlAuthority, String toMail, String guid)
+        private string ForgetPasswordEmailBodyContentEmail(String requestUrlAuthority, String toMail, String guid)
         {
             var htmlBody = new StringBuilder();
 
@@ -65,7 +67,7 @@ namespace M2E.CommonMethods
             htmlBody.Append("Email: " + toMail + "");
             htmlBody.Append("</p>");
             htmlBody.Append("<p style=\"font-size:12px; line-height:18px;\">");
-            htmlBody.Append("<a href=\"http://" + requestUrlAuthority + "/#/" + "/resetpassword/" + toMail + "/" + guid + "\"> Click here to change your Password </a>");
+            htmlBody.Append("<a href=\"http://" + requestUrlAuthority + "/Account/" + "validateForgetPassword?username=" + toMail + "&guid=" + guid + "\"> Click here to change your Password </a>");
             htmlBody.Append("</p>");
             htmlBody.Append("</td>");
             htmlBody.Append("</tr>");

@@ -39,7 +39,7 @@ namespace M2E.Controllers
 
             if (responseData.Code == "200")
             {
-                M2ESession session = new M2ESession(req.UserName);
+                var session = new M2ESession(req.UserName);
                 TokenManager.CreateSession(session);
                 responseData.AuthToken = session.SessionId;
             }
@@ -152,7 +152,7 @@ namespace M2E.Controllers
             if (_db.Users.Any(x => x.Username == id))
             {
                 var user = _db.Users.SingleOrDefault(x => x.Username == id);
-                if (user != null && (user.isActive == "false"))
+                if (user != null && (user.isActive.Equals("false",StringComparison.InvariantCulture)))
                 {
                     return Json(402, JsonRequestBehavior.AllowGet);
                 }

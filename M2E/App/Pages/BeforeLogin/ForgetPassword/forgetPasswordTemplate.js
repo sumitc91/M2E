@@ -33,7 +33,7 @@ BeforeLoginApp.controller('forgetPasswordTemplate', function ($scope, $http, $ro
                     $scope.ResendValidationOrSignup.visible = true;
                     $scope.ResendValidationOrSignup.title = "Don't have emaill address validation Link?";
                     $scope.ResendValidationOrSignup.buttonName = "Resend validation link";
-                    $scope.ResendValidationOrSignup.functionName = "ResendValidationCodeRequest()";
+                    $scope.ResendValidationOrSignup.functionName = "ResendValidationCodeRequest";
                 }
                 else if (data == "500") {
                     location.href = "/?email=" + $('#forgetPasswordInputBoxId').val() + "#/showmessage/3/";
@@ -52,19 +52,20 @@ BeforeLoginApp.controller('forgetPasswordTemplate', function ($scope, $http, $ro
     }
 
     $scope.ResendValidationCodeRequest = function () {
+        alert("inside Resent validation");
         var resendValidationRequest = {
-            userName: $('#forgetPasswordInputBoxId').val(),
-            guid: ''
+            userName: $('#forgetPasswordInputBoxId').val()
              };
             $http({
                 url: '/Auth/ResendValidationCode/',
                 data: resendValidationRequest,
                 method: "POST"
             }).success(function (data, status, headers, config) {
-                if (data == "200") {
+                alert("success");
+                if (data.Status == "200") {
                     location.href = "/?email=" + $('#forgetPasswordInputBoxId').val() + "#/showmessage/2/";
                 }
-                else if (data == "404") {
+                else if (data.Status == "404") {
                     $scope.ForgetPasswordContent = false;
                     $scope.ForgetPasswordAlertContent.visible = true;
                     $scope.ForgetPasswordAlertContent.message = "Entered email id is not registerd with us. Please enter your email address which is registered with us to set new password.";
@@ -73,18 +74,18 @@ BeforeLoginApp.controller('forgetPasswordTemplate', function ($scope, $http, $ro
                     $scope.ResendValidationOrSignup.buttonName = "Home";
                     $scope.ResendValidationOrSignup.functionName = "HomeLink()";
                 }
-                else if (data == "402") {
+                else if (data.Status == "402") {
                     $scope.ForgetPasswordContent = false;
                     $scope.ForgetPasswordForm = false;
                     $scope.ForgetPasswordAlertContent.visible = true;
                     $scope.ForgetPasswordAlertContent.message = "Email Address-" + $('#forgetPasswordInputBoxId').val() + " has been already valideted. To continue, Please login into account.";
                     $scope.ResendValidationOrSignup.visible = false;
                 }
-                else if (data == "500") {
+                else if (data.Status == "500") {
                     location.href = "/?email=" + $('#forgetPasswordInputBoxId').val() + "#/showmessage/3/";
                 }
             }).error(function (data, status, headers, config) {
-
+                alert("false");
             });
     }
 
