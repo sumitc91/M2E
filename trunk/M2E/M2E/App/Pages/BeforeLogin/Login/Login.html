@@ -7,10 +7,10 @@
                <li ng-show="ForgetPasswordAlert.visible"><p>{{ForgetPasswordAlert.message}} <a href="#">Request a new one.</a></p></li>
             </ul>
             <div class="form-group">
-                <input type="text" ng-model="EmailId" data-i18n="beforeLoginLoginPageEmailIdText" placeholder="" class="form-control" name="emailid">
+                <input type="text" ng-model="EmailId" id="LoginEmailId" data-i18n="beforeLoginLoginPageEmailIdText" placeholder="" class="form-control" name="emailid">
             </div>
             <div class="form-group">
-                <input type="password" ng-model="Password" data-i18n="beforeLoginLoginPagePasswordText" placeholder="" class="form-control" name="password">
+                <input type="password" ng-model="Password" id="LoginPasswordId" data-i18n="beforeLoginLoginPagePasswordText" placeholder="" class="form-control" name="password">
             </div>          
             <div class="form-group">
                 <input type="checkbox" ng-model="KeepMeSignedInCheckBox" name="remember_me"> Remember me

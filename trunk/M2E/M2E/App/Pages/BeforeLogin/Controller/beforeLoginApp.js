@@ -9,6 +9,7 @@ BeforeLoginApp.config(function ($routeProvider) {
                    when("/signup/user", { templateUrl: "../../App/Pages/BeforeLogin/SignUpUser/SignUpUser.html" }).
                    when("/signup/client", { templateUrl: "../../App/Pages/BeforeLogin/SignUpClient/SignUpClient.html" }).
                    when("/login", { templateUrl: "../../App/Pages/BeforeLogin/Login/Login.html" }).
+                   when("/login/:code", { templateUrl: "../../App/Pages/BeforeLogin/Login/Login.html" }).
                    when("/faq", { templateUrl: "../../App/Pages/BeforeLogin/FAQ/FAQ.html" }).
                    when("/facebookLogin/:userType", { templateUrl: "../../Resource/templates/beforeLogin/contentView/facebookLogin.html" }).
                    when("/facebookLogin", { templateUrl: "../../Resource/templates/beforeLogin/contentView/facebookLogin.html" }).
