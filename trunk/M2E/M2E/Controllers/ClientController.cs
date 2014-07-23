@@ -23,12 +23,12 @@ namespace M2E.Controllers
     {
         //
         // GET: /Client/        
-        private static readonly ILogger logger = new Logger(Convert.ToString(MethodBase.GetCurrentMethod().DeclaringType));
+        private static readonly ILogger Logger = new Logger(Convert.ToString(MethodBase.GetCurrentMethod().DeclaringType));
         private DbContextException _dbContextException = new DbContextException();
         private readonly M2EContext _db = new M2EContext();
         public ActionResult Index()
         {
-            logger.Info("Client Controller index page");  
+            Logger.Info("Client Controller index page");  
             return View();
         }
 
@@ -36,108 +36,100 @@ namespace M2E.Controllers
         public JsonResult GetAllTemplateInformation()
         {
             var username = "sumitchourasia91@gmail.com";            
-            HeaderManager headers = new HeaderManager(Request);           
-            ClientTemplateService ClientTemplate = new ClientTemplateService();
-            bool isValidToken= TokenManager.isValidSession(headers.AuthToken);
-            return Json(ClientTemplate.GetAllTemplateInformation(username));
+            var headers = new HeaderManager(Request);           
+            var clientTemplate = new ClientTemplateService();
+            var isValidToken= TokenManager.IsValidSession(headers.AuthToken);
+            return Json(clientTemplate.GetAllTemplateInformation(username));
         }
 
         [HttpPost]
         public JsonResult GetTemplateDetailById()
         {
-            var username = Request.QueryString["username"].ToString();
+            var username = Request.QueryString["username"].ToString(CultureInfo.InvariantCulture);
             var id = Convert.ToInt32(Request.QueryString["id"]);
-            var response = new ResponseModel<ClientTemplateDetailById>();
-            ClientTemplateService ClientTemplate = new ClientTemplateService();
-            return Json(ClientTemplate.GetTemplateDetailById(username, id));            
+            var clientTemplate = new ClientTemplateService();
+            return Json(clientTemplate.GetTemplateDetailById(username, id));            
         }
 
         [HttpPost]
         public JsonResult GetTemplateImageDetailById()
         {
-            var username = Request.QueryString["username"].ToString();
+            var username = Request.QueryString["username"].ToString(CultureInfo.InvariantCulture);
             var id = Convert.ToInt32(Request.QueryString["id"]);
-            var response = new ResponseModel<ClientTemplateDetailById>();
-            ClientTemplateService ClientTemplate = new ClientTemplateService();
-            return Json(ClientTemplate.GetTemplateImageDetailById(username, id));
+            var clientTemplate = new ClientTemplateService();
+            return Json(clientTemplate.GetTemplateImageDetailById(username, id));
         }
 
         [HttpPost]
         public JsonResult CreateTemplate(CreateTemplateRequest req)
         {
-            var username = Request.QueryString["username"].ToString();
-            var TemplateList = req.Data;
-            ClientTemplateService ClientTemplate = new ClientTemplateService();
-            var CreateTemplateResponse = ClientTemplate.CreateTemplate(TemplateList, username);            
-            var ImgurImageList = req.ImgurList;         
-            if (CreateTemplateResponse.Status == 200)
-            {
-                if (ImgurImageList != null)
-                    ClientTemplate.ImgurImagesSaveToDatabaseWithTemplateId(ImgurImageList, username, CreateTemplateResponse.Payload);
-            }
-            
-            return Json(CreateTemplateResponse);
+            var username = Request.QueryString["username"].ToString(CultureInfo.InvariantCulture);
+            var templateList = req.Data;
+            var clientTemplate = new ClientTemplateService();
+            var createTemplateResponse = clientTemplate.CreateTemplate(templateList, username);            
+            var imgurImageList = req.ImgurList;
+            if (createTemplateResponse.Status != 200) return Json(createTemplateResponse);
+            if (imgurImageList != null)
+                clientTemplate.ImgurImagesSaveToDatabaseWithTemplateId(imgurImageList, username, createTemplateResponse.Payload);
+
+            return Json(createTemplateResponse);
         }        
 
         [HttpPost]
         public JsonResult CreateTemplateWithId(CreateTemplateRequest req)
         {
-            var username = Request.QueryString["username"].ToString();
-            var id = Request.QueryString["id"].ToString();
-            var TemplateList = req.Data;
-            var ImgurImageList = req.ImgurList;
-            ClientTemplateService ClientTemplate = new ClientTemplateService();
-            if(ImgurImageList !=null)
-            ClientTemplate.ImgurImagesSaveToDatabaseWithTemplateId(ImgurImageList,username,id);
-            return Json(ClientTemplate.CreateTemplateWithId(TemplateList, username, id));
+            var username = Request.QueryString["username"].ToString(CultureInfo.InvariantCulture);
+            var id = Request.QueryString["id"].ToString(CultureInfo.InvariantCulture);
+            var templateList = req.Data;
+            var imgurImageList = req.ImgurList;
+            var clientTemplate = new ClientTemplateService();
+            if(imgurImageList !=null)
+            clientTemplate.ImgurImagesSaveToDatabaseWithTemplateId(imgurImageList,username,id);
+            return Json(clientTemplate.CreateTemplateWithId(templateList, username, id));
         }
 
         [HttpPost]
         public JsonResult DeleteTemplateDetailById()
         {
-            var username = Request.QueryString["username"].ToString();
+            var username = Request.QueryString["username"].ToString(CultureInfo.InvariantCulture);
             var id = Convert.ToInt32(Request.QueryString["id"]);
-            var response = new ResponseModel<ClientTemplateDetailById>();
-            ClientTemplateService ClientTemplate = new ClientTemplateService();
-            return Json(ClientTemplate.DeleteTemplateDetailById(username, id));
+            var clientTemplate = new ClientTemplateService();
+            return Json(clientTemplate.DeleteTemplateDetailById(username, id));
         }
 
         [HttpPost]
         public JsonResult DeleteTemplateImgurImageById()
         {
-            var username = Request.QueryString["username"].ToString();
+            var username = Request.QueryString["username"].ToString(CultureInfo.InvariantCulture);
             var id = Convert.ToInt32(Request.QueryString["id"]);
-            var response = new ResponseModel<ClientTemplateDetailById>();
-            ClientTemplateService ClientTemplate = new ClientTemplateService();
-            return Json(ClientTemplate.DeleteTemplateImgurImageById(username, id));
+            var clientTemplate = new ClientTemplateService();
+            return Json(clientTemplate.DeleteTemplateImgurImageById(username, id));
         }
 
         [HttpPost]
         public JsonResult EditTemplateDetailById(CreateTemplateRequest req)
         {
-            var username = Request.QueryString["username"].ToString();
+            var username = Request.QueryString["username"].ToString(CultureInfo.InvariantCulture);
             var id = Convert.ToInt32(Request.QueryString["id"]);
-            var TemplateList = req.Data;
-            ClientTemplateService ClientTemplate = new ClientTemplateService();
-            var CreateTemplateResponse = ClientTemplate.EditTemplateDetailById(TemplateList,username, id);
-            var ImgurImageList = req.ImgurList;
+            var templateList = req.Data;
+            var clientTemplate = new ClientTemplateService();
+            var createTemplateResponse = clientTemplate.EditTemplateDetailById(templateList,username, id);
+            var imgurImageList = req.ImgurList;
             var refKey = username+id;
-            if (CreateTemplateResponse.Status == 200)
-            {
-                if (ImgurImageList != null)
-                    ClientTemplate.ImgurImagesSaveToDatabaseWithTemplateId(ImgurImageList, username, refKey);
-            }
-            
-            return Json(CreateTemplateResponse);
+            if (createTemplateResponse.Status != 200) return Json(createTemplateResponse);
+            if (imgurImageList != null)
+                clientTemplate.ImgurImagesSaveToDatabaseWithTemplateId(imgurImageList, username, refKey);
+
+            return Json(createTemplateResponse);
         }
 
         [HttpPost]
         public JsonResult GetClientDetails()
         {
-            var username = Request.QueryString["username"].ToString();
-            ClientDetailService ClientTemplate = new ClientDetailService();
-            var ClientDetailResponse = ClientTemplate.GetClientDetails(username);
-            return Json(ClientDetailResponse);
+            var username = Request.QueryString["username"].ToString(CultureInfo.InvariantCulture);
+            var clientTemplate = new ClientDetailService();
+            var clientDetailResponse = clientTemplate.GetClientDetails(username);
+            return Json(clientDetailResponse);
         }
     }
 }

@@ -7,11 +7,11 @@ namespace M2E.Session
 {
     public class M2ESession
     {
-        public M2ESession(string UserName)
+        public M2ESession(string userName)
         {
-            DateTime now = DateTime.Now;
+            var now = DateTime.Now;
             this.SessionId = Guid.NewGuid().ToString();
-            this.UserName = UserName;
+            this.UserName = userName;
         }
         public string SessionId { get; set; }
         public string UserName { get; set; }

@@ -2,7 +2,8 @@ BeforeLoginApp.controller('resetPasswordTemplate', function ($scope, $http, $rou
 
     var resetPasswordRequest = {
             userName: $routeParams.userName,
-            guid: $routeParams.guid
+            guid: $routeParams.guid,
+            password: ''
     };
     $scope.FormData = {
         pass: '',
@@ -21,36 +22,6 @@ BeforeLoginApp.controller('resetPasswordTemplate', function ($scope, $http, $rou
         message: '',
         companyName: ''
     };
-    $http({
-        url: '/Auth/ValidateForgetPassword',
-        method: "POST",
-        data: resetPasswordRequest,
-        headers: { 'Content-Type': 'application/json' }
-    }).success(function (data, status, headers, config) {
-        if (data == "200") {
-            showToastMessage("Success", "Password has been successfully changed.");
-            location.href = "#/login";
-        }
-        else if (data == "404") {
-            $scope.ForgetPasswordContent = false;
-            $scope.ForgetPasswordAlertContent.visible = true;
-            $scope.ForgetPasswordAlertContent.message = "Entered email id is not registerd with us. Please enter your email address which is registered with us to set new password.";
-        }
-        else if (data == "402") {
-            $scope.ForgetPasswordContent = false;
-            $scope.ForgetPasswordForm = false;
-            $scope.ForgetPasswordAlertContent.visible = true; $scope.ForgetPasswordAlertContent.message = "Email Address-" + $('#forgetPasswordInputBoxId').val() + " is not valideted yet. please Please check your email for validation.";
-            $scope.ResendValidationOrSignup.visible = true;
-            $scope.ResendValidationOrSignup.title = "Don't have emaill address validation Link?";
-            $scope.ResendValidationOrSignup.buttonName = "Resend validation link";
-            $scope.ResendValidationOrSignup.functionName = "ResendValidationCodeRequest()";
-        }
-        else if (data == "500") {
-            location.href = "/?email=" + $('#forgetPasswordInputBoxId').val() + "#/showmessage/3/";
-        }
-    }).error(function (data, status, headers, config) {
-
-    });
     var validatePassword = true;
     $scope.PasswordAlertContent = {
         visible: false,
@@ -60,6 +31,7 @@ BeforeLoginApp.controller('resetPasswordTemplate', function ($scope, $http, $rou
         if ($scope.ClientFormData.Password == $scope.ClientFormData.ConfirmPassword) {
             if ($scope.FormData.pass != "") {
                 validatePassword = true;
+                resetPasswordRequest.password = $scope.ClientFormData.Password;
 
             }
             else {
@@ -77,23 +49,33 @@ BeforeLoginApp.controller('resetPasswordTemplate', function ($scope, $http, $rou
         if (validatePassword) {
             startBlockUI('wait..', 3);
             $http({
-                url: url,
+                url: '/Auth/ValidateForgetPassword',
                 method: "POST",
-                data: clientSignUpData,
+                data: resetPasswordRequest,
                 headers: { 'Content-Type': 'application/json' }
-            }).success(function(data, status, headers, config) {
-                //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
-                stopBlockUI();
-                if (data.Status == "409")
-                    showToastMessage("Warning", "Username already registered !");
-                else if (data.Status == "500")
-                    showToastMessage("Error", "Internal Server Error Occured !");
-                else if (data.Status == "200") {
-                    showToastMessage("Success", "Account successfully created ! check your email for validation.");
-                    location.href = "/?email=" + $scope.ClientFormData.EmailId + "#/showmessage/1/";
+            }).success(function (data, status, headers, config) {
+                if (data == "200") {
+                    showToastMessage("Success", "Password has been successfully changed.");
+                    location.href = "#/login";
                 }
-
-            }).error(function(data, status, headers, config) {
+                else if (data == "404") {
+                    $scope.ForgetPasswordContent = false;
+                    $scope.ForgetPasswordAlertContent.visible = true;
+                    $scope.ForgetPasswordAlertContent.message = "Entered email id is not registerd with us. Please enter your email address which is registered with us to set new password.";
+                }
+                else if (data == "402") {
+                    $scope.ForgetPasswordContent = false;
+                    $scope.ForgetPasswordForm = false;
+                    $scope.ForgetPasswordAlertContent.visible = true; $scope.ForgetPasswordAlertContent.message = "Email Address-" + $('#forgetPasswordInputBoxId').val() + " is not valideted yet. please Please check your email for validation.";
+                    $scope.ResendValidationOrSignup.visible = true;
+                    $scope.ResendValidationOrSignup.title = "Don't have emaill address validation Link?";
+                    $scope.ResendValidationOrSignup.buttonName = "Resend validation link";
+                    $scope.ResendValidationOrSignup.functionName = "ResendValidationCodeRequest()";
+                }
+                else if (data == "500") {
+                    location.href = "/?email=" + $('#forgetPasswordInputBoxId').val() + "#/showmessage/3/";
+                }
+            }).error(function (data, status, headers, config) {
 
             });
         } else {
