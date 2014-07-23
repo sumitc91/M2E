@@ -82,7 +82,7 @@ BeforeLoginApp.controller('beforeLoginSignInController', function ($scope, $http
                 else if (data.Status == "200") {
                     //showToastMessage("Success", "Successfully Logged in !");                    
                     //console.log("data : " + data);
-                    //alert("auth token : "+data.Payload.AuthToken);
+                    alert("auth token : "+data.Payload.AuthToken);
                     location.href = "/client";
                 }
                     

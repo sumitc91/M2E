@@ -7,6 +7,8 @@ using System;
 using System.Linq;
 using M2E.Models;
 using M2E.Models.DataResponse;
+using M2E.Encryption;
+using System.Configuration;
 
 namespace M2E.Service.Login
 {
@@ -25,6 +27,9 @@ namespace M2E.Service.Login
                 if (user != null)
                 {
                     userData.AuthToken = "auth-token";
+                    string Authkey = ConfigurationManager.AppSettings["AuthKey"];
+                    userData.AuthKey = EncryptionClass.GetEncryptionKey(user.Username, Authkey);
+                    userData.AuthValue = EncryptionClass.GetEncryptionKey(user.Password, Authkey);
                     userData.TimeStamp = DateTime.Now.ToString(CultureInfo.InvariantCulture);
                     userData.Code = "200";
                     try
