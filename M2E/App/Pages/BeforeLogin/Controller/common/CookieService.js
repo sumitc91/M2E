@@ -1,35 +1,29 @@
-BeforeLoginApp.factory('CookieUtil', function ($rootScope, $location, $cookieStore,$routeParams) {
+BeforeLoginApp.factory('CookieUtil', function ($rootScope, $location, $cookieStore, $routeParams) {
 
-    return {        
-        setAuthToken:function (AuthToken,keepMeSignedIn) {
-            if(keepMeSignedIn == "true")
-                {
-                    $.cookie('AuthToken', AuthToken, { expires: 365, path: '/' });                    
-                }
-                else
-                {
-                    $.cookie('AuthToken', AuthToken, { path: '/' });                    
-                }
+    return {
+        setAuthToken: function (AuthToken, keepMeSignedIn) {
+            if (keepMeSignedIn) {               
+                $.cookie('AuthToken', AuthToken, { expires: 365, path: '/' });
+            }
+            else {                
+                $.cookie('AuthToken', AuthToken, { path: '/' });
+            }
         },
-        setAuthKey:function (AuthKey,keepMeSignedIn) {
-            if(keepMeSignedIn == "true")
-                {
-                    $.cookie('AuthKey', AuthKey, { expires: 365, path: '/' });                    
-                }
-                else
-                {
-                    $.cookie('AuthKey', AuthKey, { path: '/' });                    
-                }
+        setAuthKey: function (AuthKey, keepMeSignedIn) {
+            if (keepMeSignedIn) {
+                $.cookie('AuthKey', AuthKey, { expires: 365, path: '/' });
+            }
+            else {
+                $.cookie('AuthKey', AuthKey, { path: '/' });
+            }
         },
-        setAuthValue:function (AuthValue,keepMeSignedIn) {
-            if(keepMeSignedIn == "true")
-                {
-                    $.cookie('AuthValue', AuthValue, { expires: 365, path: '/' });                    
-                }
-                else
-                {
-                    $.cookie('AuthValue', AuthValue, { path: '/' });                    
-                }
+        setAuthValue: function (AuthValue, keepMeSignedIn) {
+            if (keepMeSignedIn) {
+                $.cookie('AuthValue', AuthValue, { expires: 365, path: '/' });
+            }
+            else {
+                $.cookie('AuthValue', AuthValue, { path: '/' });
+            }
         },
         getAuthToken: function () {
             return $.cookie('AuthToken');
@@ -39,16 +33,16 @@ BeforeLoginApp.factory('CookieUtil', function ($rootScope, $location, $cookieSto
         },
         getAuthValue: function () {
             return $.cookie('AuthValue');
-        },        
+        },
         removeAuthToken: function () {
-            $.removeCookie('AuthToken', { path: '/' });            
+            $.removeCookie('AuthToken', { path: '/' });
         },
         removeAuthKey: function () {
-            $.removeCookie('AuthKey', { path: '/' });            
+            $.removeCookie('AuthKey', { path: '/' });
         },
         removeAuthValue: function () {
-            $.removeCookie('AuthValue', { path: '/' });            
-        }        
+            $.removeCookie('AuthValue', { path: '/' });
+        }
     };
 
 });

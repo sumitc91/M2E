@@ -23,18 +23,30 @@ BeforeLoginApp.controller('beforeLoginSignInController', function ($scope, $http
 
     $scope.Login = function () {
         $scope.showFooterErrors = false;
+        
+        if ($scope.EmailId == null || $scope.EmailId == "") {
+            if ($('#LoginEmailId').val() != "" || $('#LoginEmailId').val() != null)
+                $scope.EmailId = $('#LoginEmailId').val();
+        }
+
+        if ($scope.Password == null || $scope.Password == "") {
+            if ($('#LoginPasswordId').val() != "" || $('#LoginPasswordId').val() != null)
+                $scope.Password = $('#LoginPasswordId').val();
+        }
+
         var userLoginData = {
             Username: $scope.EmailId,
             Password: $scope.Password,
             Type: 'web',
             KeepMeSignedInCheckBox: $scope.KeepMeSignedInCheckBox
         }
+
         userSession.keepMeSignedIn = $scope.KeepMeSignedInCheckBox; 
 
         var url = ServerContextPah + '/Auth/Login';
         var validatePassword = false;
-
-        if (isValidEmailAddress($scope.EmailId)) {
+        
+        if(isValidEmailAddress($scope.EmailId)) {
             $scope.EmailIdAlert.visible = false;
             $scope.EmailIdAlert.message = "";
         }
