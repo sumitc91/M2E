@@ -28,6 +28,16 @@ BeforeLoginApp.factory('CookieUtil', function ($rootScope, $location, $cookieSto
             //return $cookieStore.get('Authentication');
             return $.cookie('Authentication');
         },
+        setAuthToken:function (AuthToken,keepMeSignedIn) {
+            if(keepMeSignedIn == "true")
+                {
+                    $.cookie('AuthToken', AuthToken, { expires: 365, path: '/' });                    
+                }
+                else
+                {
+                    $.cookie('AuthToken', AuthToken, { path: '/' });                    
+                }
+        },
         getUsername: function () {
             return $.cookie('Username');
         },
