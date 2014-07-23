@@ -284,7 +284,6 @@
     <Content Include="App\Pages\BeforeLogin\AboutUs\AboutUs.html" />
     <Content Include="App\Pages\BeforeLogin\Controller\beforeLoginApp.js" />
     <Content Include="App\Pages\BeforeLogin\Controller\common\CookieService.js" />
-    <Content Include="App\Pages\BeforeLogin\Controller\common\CookieServiceAfterLogin.js" />
     <Content Include="App\Pages\BeforeLogin\FAQ\FAQ.css" />
     <Content Include="App\Pages\BeforeLogin\FAQ\FAQ.html" />
     <Content Include="App\Pages\BeforeLogin\FAQ\FAQ.js" />
