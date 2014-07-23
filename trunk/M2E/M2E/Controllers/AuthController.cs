@@ -34,7 +34,7 @@ namespace M2E.Controllers
             if (req.Type == "web")
             {
                 var loginService = new LoginService();
-                responseData = loginService.WebLogin(req.UserName, EncryptionClass.Md5Hash(req.Password), returnUrl, req.KeepMeSignedInCheckBox != null ? "true" : "false");                
+                responseData = loginService.WebLogin(req.UserName, EncryptionClass.Md5Hash(req.Password), returnUrl, req.KeepMeSignedInCheckBox);                
             }
 
             if (responseData.Code == "200")

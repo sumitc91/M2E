@@ -34,7 +34,7 @@ namespace M2E.Service.Login
                     userData.Code = "200";
                     try
                     {
-                        user.KeepMeSignedIn = keepMeSignedIn == "true" ? "true" : "false";
+                        user.KeepMeSignedIn = keepMeSignedIn.Equals("true",StringComparison.OrdinalIgnoreCase)? "true" : "false";
                         _db.SaveChanges();
                     }
                     catch (DbEntityValidationException e)
