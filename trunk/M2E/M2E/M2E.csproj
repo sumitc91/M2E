@@ -60,6 +60,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -239,6 +240,8 @@
     <Compile Include="Service\Login\WebLogin.cs" />
     <Compile Include="Service\Register\WebRegister.cs" />
     <Compile Include="Service\UploadImages\imgurService.cs" />
+    <Compile Include="Session\M2ESession.cs" />
+    <Compile Include="Session\TokenManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
