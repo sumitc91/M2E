@@ -11,6 +11,7 @@ using System.Globalization;
 using M2E.Models.DataWrapper.CreateTemplate;
 using System.Data.Entity.Validation;
 using M2E.Service.JobTemplate.CommonMethods;
+using M2E.Session;
 
 namespace M2E.Service.JobTemplate
 {

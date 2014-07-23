@@ -1,33 +1,6 @@
 BeforeLoginApp.factory('CookieUtil', function ($rootScope, $location, $cookieStore,$routeParams) {
 
-    return {
-        CookieValue: function () {
-
-            $rootScope.Authentication = null;
-            var guidParam = getParameterByName('guid');
-            var username = getParameterByName('username');
-            var keepMeSignedIn = getParameterByName('keepMeSignedIn');
-
-            if (guidParam != null && guidParam != '')
-                $rootScope.Authentication = guidParam; //global variable
-
-            if ($rootScope.Authentication != null) {
-                if(keepMeSignedIn == "true")
-                {
-                    $.cookie('Authentication', $rootScope.Authentication, { expires: 365, path: '/' });
-                    $.cookie('Username', username, { expires: 365, path: '/' });
-                }
-                else
-                {
-                    $.cookie('Authentication', $rootScope.Authentication, { path: '/' });
-                    $.cookie('Username', username, { path: '/' });
-                }
-            }
-            //$cookieStore.put("Authentication",$rootScope.Authentication)  
-
-            //return $cookieStore.get('Authentication');
-            return $.cookie('Authentication');
-        },
+    return {        
         setAuthToken:function (AuthToken,keepMeSignedIn) {
             if(keepMeSignedIn == "true")
                 {
@@ -38,43 +11,44 @@ BeforeLoginApp.factory('CookieUtil', function ($rootScope, $location, $cookieSto
                     $.cookie('AuthToken', AuthToken, { path: '/' });                    
                 }
         },
-        getUsername: function () {
-            return $.cookie('Username');
+        setAuthKey:function (AuthKey,keepMeSignedIn) {
+            if(keepMeSignedIn == "true")
+                {
+                    $.cookie('AuthKey', AuthKey, { expires: 365, path: '/' });                    
+                }
+                else
+                {
+                    $.cookie('AuthKey', AuthKey, { path: '/' });                    
+                }
         },
-        getGuid: function () {
-            return $.cookie('Authentication');
+        setAuthValue:function (AuthValue,keepMeSignedIn) {
+            if(keepMeSignedIn == "true")
+                {
+                    $.cookie('AuthValue', AuthValue, { expires: 365, path: '/' });                    
+                }
+                else
+                {
+                    $.cookie('AuthValue', AuthValue, { path: '/' });                    
+                }
         },
-        removeUsername: function () {
-            $.removeCookie('Username', { path: '/' });
-            return "removed";
+        getAuthToken: function () {
+            return $.cookie('AuthToken');
         },
-        removeGuid: function () {
-            $.removeCookie('Authentication', { path: '/' });
-            return "removed";
+        getAuthKey: function () {
+            return $.cookie('AuthKey');
         },
-        getKey: function () {
-            return $.cookie('key');            
+        getAuthValue: function () {
+            return $.cookie('AuthValue');
+        },        
+        removeAuthToken: function () {
+            $.removeCookie('AuthToken', { path: '/' });            
         },
-        removeKey: function () {
-           $.removeCookie('key', { path: '/' });
-            return "removed";
+        removeAuthKey: function () {
+            $.removeCookie('AuthKey', { path: '/' });            
         },
-        setReferralKey: function () {
-            var ReferralKey = $routeParams.ref;
-            if(ReferralKey != null || ReferralKey != "")
-                $.cookie('ReferralKey', ReferralKey, { expires: 365, path: '/' });
-            return "added";
-        },
-        getReferralKey: function () {
-            return $.cookie('ReferralKey');            
-        },
-        setKeepMeSignedInKey: function () {                       
-            $.cookie('KeepMeSignedInKey', ReferralKey, { expires: 365, path: '/' });
-            return "added";
-        },
-        getKeepMeSignedInKey: function () {
-            return $.cookie('KeepMeSignedInKey');
-        },
+        removeAuthValue: function () {
+            $.removeCookie('AuthValue', { path: '/' });            
+        }        
     };
 
 });

@@ -9,12 +9,18 @@ ClientAfterLoginApp.controller('ClientAfterLoginIndex', function ($scope, $http,
     //    { showEllipse: true, title: "my fifth template", timeShowType: "default", showTime: "5 hours", editId: "", creationDate: "nov 2015" }
     //];
     var url = ServerContextPah + '/Client/GetAllTemplateInformation';
+    var headers = {
+        'Content-Type': 'application/json',        
+        'AuthToken': CookieUtil.getAuthToken(),
+        'AuthKey':  CookieUtil.getAuthKey(),
+        'AuthValue': CookieUtil.getAuthValue()
+    };
     startBlockUI('wait..', 3);
     $http({
         url: url,
         method: "POST",
         data: "",
-        headers: { 'Content-Type': 'application/json' }
+        headers: headers
     }).success(function (data, status, headers, config) {
         //$scope.persons = data; // assign  $scope.persons here as promise is resolved here
         stopBlockUI();
