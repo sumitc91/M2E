@@ -84,6 +84,8 @@ BeforeLoginApp.controller('beforeLoginSignInController', function ($scope, $http
                     //console.log("data : " + data);
                     //alert("auth token : "+data.Payload.AuthToken);
                     CookieUtil.setAuthToken(data.Payload.AuthToken,userSession.keepMeSignedIn);
+                    CookieUtil.setAuthKey(data.Payload.AuthKey,userSession.keepMeSignedIn);
+                    CookieUtil.setAuthValue(data.Payload.AuthValue,userSession.keepMeSignedIn);
                     location.href = "/client";
                 }
                     

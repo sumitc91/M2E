@@ -15,6 +15,7 @@ using M2E.Models;
 using M2E.CommonMethods;
 using M2E.Service.JobTemplate;
 using M2E.Service.Client;
+using M2E.Session;
 
 namespace M2E.Controllers
 {
@@ -34,8 +35,10 @@ namespace M2E.Controllers
         [HttpPost]
         public JsonResult GetAllTemplateInformation()
         {
-            var username = "sumitchourasia91@gmail.com";
+            var username = "sumitchourasia91@gmail.com";            
+            HeaderManager headers = new HeaderManager(Request);           
             ClientTemplateService ClientTemplate = new ClientTemplateService();
+            bool isValidToken= TokenManager.isValidSession(headers.AuthToken);
             return Json(ClientTemplate.GetAllTemplateInformation(username));
         }
 
