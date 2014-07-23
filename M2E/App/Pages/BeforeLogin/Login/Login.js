@@ -1,6 +1,7 @@
 BeforeLoginApp.controller('beforeLoginSignInController', function ($scope, $http, $rootScope, CookieUtil) {
     $scope.EmailId = "";
     $scope.Password = "";
+    $scope.KeepMeSignedInCheckBox = false;
     $scope.showHeaderErrors = false;
     $scope.showFooterErrors = false;
     $scope.EmailIdAlert = {
@@ -18,7 +19,7 @@ BeforeLoginApp.controller('beforeLoginSignInController', function ($scope, $http
     $scope.ForgetPasswordAlert = {
         visible: false,
         message: ''
-}
+    }
 
     $scope.Login = function () {
         $scope.showFooterErrors = false;
@@ -26,8 +27,10 @@ BeforeLoginApp.controller('beforeLoginSignInController', function ($scope, $http
             Username: $scope.EmailId,
             Password: $scope.Password,
             Type: 'web',
-            KeepMeSignedInCheckBox: 'checked',            
+            KeepMeSignedInCheckBox: $scope.KeepMeSignedInCheckBox
         }
+        userSession.keepMeSignedIn = $scope.KeepMeSignedInCheckBox; 
+
         var url = ServerContextPah + '/Auth/Login';
         var validatePassword = false;
 
@@ -48,7 +51,7 @@ BeforeLoginApp.controller('beforeLoginSignInController', function ($scope, $http
             $scope.PasswordAlert.visible = true;
             $scope.PasswordAlert.message = "Password cannot be empty !!!";
         }
-        
+
         if (isValidEmailAddress($scope.EmailId) && validatePassword) {
             startBlockUI('wait..', 3);
             $http({
@@ -83,12 +86,12 @@ BeforeLoginApp.controller('beforeLoginSignInController', function ($scope, $http
                     //showToastMessage("Success", "Successfully Logged in !");                    
                     //console.log("data : " + data);
                     //alert("auth token : "+data.Payload.AuthToken);
-                    CookieUtil.setAuthToken(data.Payload.AuthToken,userSession.keepMeSignedIn);
-                    CookieUtil.setAuthKey(data.Payload.AuthKey,userSession.keepMeSignedIn);
-                    CookieUtil.setAuthValue(data.Payload.AuthValue,userSession.keepMeSignedIn);
+                    CookieUtil.setAuthToken(data.Payload.AuthToken, userSession.keepMeSignedIn);
+                    CookieUtil.setAuthKey(data.Payload.AuthKey, userSession.keepMeSignedIn);
+                    CookieUtil.setAuthValue(data.Payload.AuthValue, userSession.keepMeSignedIn);
                     location.href = "/client";
                 }
-                    
+
             }).error(function (data, status, headers, config) {
 
             });
