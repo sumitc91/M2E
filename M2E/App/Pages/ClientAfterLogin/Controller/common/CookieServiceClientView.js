@@ -1,47 +1,75 @@
 ClientAfterLoginApp.factory('CookieUtil', function ($rootScope, $location, $cookieStore, $routeParams) {
 
     return {
-        setAuthToken: function (AuthToken, keepMeSignedIn) {
-            if (keepMeSignedIn == "true") {
-                $.cookie('AuthToken', AuthToken, { expires: 365, path: '/' });
+        setUTMZT: function (UTMZT, keepMeSignedIn) {
+            if (keepMeSignedIn) {
+                $.cookie('utmzt', UTMZT, { expires: 365, path: '/' });
             }
             else {
-                $.cookie('AuthToken', AuthToken, { path: '/' });
+                $.cookie('utmzt', UTMZT, { path: '/' });
             }
         },
-        setAuthKey: function (AuthKey, keepMeSignedIn) {
-            if (keepMeSignedIn == "true") {
-                $.cookie('AuthKey', AuthKey, { expires: 365, path: '/' });
-            }
-            else {
-                $.cookie('AuthKey', AuthKey, { path: '/' });
-            }
-        },
-        setAuthValue: function (AuthValue, keepMeSignedIn) {
-            if (keepMeSignedIn == "true") {
-                $.cookie('AuthValue', AuthValue, { expires: 365, path: '/' });
+        setUTMZK: function (UTMZK, keepMeSignedIn) {
+            if (keepMeSignedIn) {
+                $.cookie('utmzk', UTMZK, { expires: 365, path: '/' });
             }
             else {
-                $.cookie('AuthValue', AuthValue, { path: '/' });
+                $.cookie('utmzk', UTMZK, { path: '/' });
             }
         },
-        getAuthToken: function () {
-            return $.cookie('AuthToken');
+        setUTMZV: function (UTMZV, keepMeSignedIn) {
+            if (keepMeSignedIn) {
+                $.cookie('utmzv', UTMZV, { expires: 365, path: '/' });
+            }
+            else {
+                $.cookie('utmzv', UTMZV, { path: '/' });
+            }
         },
-        getAuthKey: function () {
-            return $.cookie('AuthKey');
+        setUTIME: function (UTIME, keepMeSignedIn) {
+            if (keepMeSignedIn) {
+                $.cookie('utime', UTIME, { expires: 365, path: '/' });
+            }
+            else {
+                $.cookie('utime', UTIME, { path: '/' });
+            }
         },
-        getAuthValue: function () {
-            return $.cookie('AuthValue');
+        setKMSI: function (KMSI, keepMeSignedIn) {
+            if (keepMeSignedIn) {
+                $.cookie('kmsi', KMSI, { expires: 365, path: '/' });
+            }
+            else {
+                $.cookie('kmsi', KMSI, { path: '/' });
+            }
         },
-        removeAuthToken: function () {
-            $.removeCookie('AuthToken', { path: '/' });
+        getUTMZT: function () {
+            return $.cookie('utmzt');
         },
-        removeAuthKey: function () {
-            $.removeCookie('AuthKey', { path: '/' });
+        getUTMZK: function () {
+            return $.cookie('utmzk');
         },
-        removeAuthValue: function () {
-            $.removeCookie('AuthValue', { path: '/' });
+        getUTMZV: function () {
+            return $.cookie('utmzv');
+        },
+        getUTIME: function () {
+            return $.cookie('utime');
+        },
+        getKMSI: function () {
+            return $.cookie('kmsi');
+        },
+        removeUTMZT: function () {
+            $.removeCookie('utmzt', { path: '/' });
+        },
+        removeUTMZK: function () {
+            $.removeCookie('utmzk', { path: '/' });
+        },
+        removeUTMZV: function () {
+            $.removeCookie('utmzv', { path: '/' });
+        },
+        removeUTIME: function () {
+            $.removeCookie('utime', { path: '/' });
+        },
+        removeKMSI: function () {
+            $.removeCookie('kmsi', { path: '/' });
         }
     };
 

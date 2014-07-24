@@ -180,6 +180,7 @@
     <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateQuestionInfoModel.cs" />
     <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateSingleQuestionsListModel.cs" />
     <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateTextBoxQuestionsListModel.cs" />
+    <Compile Include="Models\DataWrapper\isValidSessionRequest.cs" />
     <Compile Include="Models\DataWrapper\LoginRequest.cs" />
     <Compile Include="Models\DataWrapper\RegisterationRequest.cs" />
     <Compile Include="Models\DataWrapper\ResetPasswordRequest.cs" />
@@ -294,6 +295,7 @@
     <Content Include="App\Pages\BeforeLogin\Login\Login.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpClient\SignUpClient.html" />
     <Content Include="App\Pages\BeforeLogin\SignUpUser\SignUpUser.html" />
+    <Content Include="App\Pages\ClientAfterLogin\Controller\common\SessionManagement.js" />
     <Content Include="App\Pages\ClientAfterLogin\EditTemplate\EditTemplate.html" />
     <Content Include="App\Pages\ClientAfterLogin\EditTemplate\EditTemplate.js" />
     <Content Include="App\Pages\ClientAfterLogin\CreateTemplate\CreateTemplate.js" />

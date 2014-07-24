@@ -48,7 +48,7 @@ BeforeLoginApp.run(function ($rootScope, $location) { //Insert in the function d
 });
 BeforeLoginApp.controller('beforeLoginMasterPageController', function ($scope, $http, $rootScope, CookieUtil) {    
     $rootScope.logoImage = { url: logoImage };
-    $('title').html("MadeToEarn");
+    $('title').html("index"); //TODO: change the title so cann't be tracked in log
     $rootScope.beforeLoginFooterCopyRightInfo = {
         companyName: "MadeToEarn",
         contactUs: "Contact Us",

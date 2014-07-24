@@ -17,7 +17,7 @@ namespace M2E.Service.JobTemplate
 {
     public class ClientTemplateService
     {
-        private static readonly ILogger logger = new Logger(Convert.ToString(MethodBase.GetCurrentMethod().DeclaringType));
+        private static readonly ILogger Logger = new Logger(Convert.ToString(MethodBase.GetCurrentMethod().DeclaringType));
         private DbContextException _dbContextException = new DbContextException();
         private readonly M2EContext _db = new M2EContext();
 

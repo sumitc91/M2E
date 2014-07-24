@@ -22,13 +22,16 @@ namespace M2E.Session
 
         public static bool IsValidSession(string sessionId)
         {
+            if (sessionId == null)
+                return false;
+
             M2ESession session = null;
             return IsValidSession(sessionId, out session);
         }
 
         private static bool IsValidSession(string sessionId, out  M2ESession session)
         {
-            session = null;
+            session = null;            
             if (MemoryCache.Default.Contains(sessionId))
             {
                 session = (M2ESession)MemoryCache.Default.Get(sessionId);
