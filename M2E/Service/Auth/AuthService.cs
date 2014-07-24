@@ -125,7 +125,7 @@ namespace M2E.Service.Auth
                 var guid = Guid.NewGuid().ToString();
                 var forgetPasswordData = new ForgetPassword
                 {
-                    Username = DateTime.Now.Ticks.ToString(CultureInfo.InvariantCulture),
+                    Username = id,
                     guid = guid
                 };
                 _db.ForgetPasswords.Add(forgetPasswordData);
@@ -133,7 +133,7 @@ namespace M2E.Service.Auth
                 {
                     _db.SaveChanges();
                     var forgetPasswordValidationEmail = new ForgetPasswordValidationEmail();
-                    forgetPasswordValidationEmail.SendForgetPasswordValidationEmailMessage(id, guid, request, forgetPasswordData.Username);
+                    forgetPasswordValidationEmail.SendForgetPasswordValidationEmailMessage(id, guid, request, DateTime.Now.Ticks.ToString(CultureInfo.InvariantCulture));
                 }
                 catch (DbEntityValidationException e)
                 {
@@ -160,12 +160,12 @@ namespace M2E.Service.Auth
         {
             var response = new ResponseModel<string>();
             //EncryptionClass.GetDecryptionValue(req.Username, ConfigurationManager.AppSettings["AuthKey"]);
-            if (_db.ForgetPasswords.Any(x => x.Username == req.Username && x.guid == req.Guid))
+            if (_db.ForgetPasswords.Any(x => x.guid == req.Guid))
             {
-                var removeForgetPasswordData = _db.ForgetPasswords.SingleOrDefault(x => x.Username == req.Username);
+                var removeForgetPasswordData = _db.ForgetPasswords.SingleOrDefault(x => x.guid == req.Guid);
                 _db.ForgetPasswords.Remove(removeForgetPasswordData);
 
-                var userData = _db.Users.SingleOrDefault(x => x.Username == req.Username);
+                var userData = _db.Users.SingleOrDefault(x => x.Username == removeForgetPasswordData.Username);
                 if (userData != null)
                 {
                     var password = EncryptionClass.Md5Hash(req.Password);

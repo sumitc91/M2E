@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Validation;
 using System.Globalization;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using M2E.Common.Logger;
 using System.Reflection;
-using System.Configuration;
-using M2E.Models.DataResponse;
 using M2E.Models.DataWrapper;
-using M2E.Models.DataWrapper.CreateTemplate;
 using M2E.Models;
 using M2E.CommonMethods;
 using M2E.Service.JobTemplate;
