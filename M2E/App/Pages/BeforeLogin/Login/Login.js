@@ -1,4 +1,5 @@
-BeforeLoginApp.controller('beforeLoginSignInController', function ($scope, $http, $rootScope, CookieUtil) {
+BeforeLoginApp.controller('beforeLoginSignInController', function ($scope, $http,$route, $rootScope,$routeParams, CookieUtil) {
+    
     $scope.EmailId = "";
     $scope.Password = "";
     $scope.KeepMeSignedInCheckBox = false;
@@ -19,6 +20,14 @@ BeforeLoginApp.controller('beforeLoginSignInController', function ($scope, $http
     $scope.ForgetPasswordAlert = {
         visible: false,
         message: ''
+    }
+
+    if ($routeParams.code == "Password200") {
+        showToastMessage("Success", "Password has been successfully changed.");
+        $scope.showHeaderErrors = true;
+        $scope.HeaderAlert.visible = true;
+        $scope.HeaderAlert.message = "Your Password has been successfully changed.";
+        //$route.reload();
     }
 
     $scope.Login = function () {
