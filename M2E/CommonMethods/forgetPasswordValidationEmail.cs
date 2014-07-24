@@ -7,7 +7,7 @@ namespace M2E.CommonMethods
 {
     public class ForgetPasswordValidationEmail
     {
-        public void SendForgetPasswordValidationEmailMessage(String toMail, String guid, HttpRequestBase request)
+        public void SendForgetPasswordValidationEmailMessage(String toMail, String guid, HttpRequestBase request, string id)
         {
             var sendEmail = new SendEmail();
             if (request.Url != null)
@@ -15,7 +15,7 @@ namespace M2E.CommonMethods
                 sendEmail.SendEmailMessage(toMail,
                     "donotreply",
                     "Validate your Account",
-                    ForgetPasswordEmailBodyContent(request.Url.Authority, toMail, guid),
+                    ForgetPasswordEmailBodyContent(request.Url.Authority, id, guid),
                     null,
                     null,
                     "Zestork - Place to boost your Carrer"
@@ -31,7 +31,7 @@ namespace M2E.CommonMethods
         private string ForgetPasswordEmailBodyContentFacebook(String requestUrlAuthority, String toMail, String guid)
         {
             var htmlBody = new StringBuilder();
-            htmlBody.Append("Change password for your account <a href=\"http://" + requestUrlAuthority + "/Account/" + "validateForgetPassword?username=" + toMail + "&guid=" + guid + "\"> Click here </a>");
+            htmlBody.Append("Change password for your account <a href=\"http://" + requestUrlAuthority + "/#" + "resetpassword/" + toMail + "/" + guid + "\"> Click here </a>");
             return htmlBody.ToString();
         }
 
@@ -67,7 +67,7 @@ namespace M2E.CommonMethods
             htmlBody.Append("Email: " + toMail + "");
             htmlBody.Append("</p>");
             htmlBody.Append("<p style=\"font-size:12px; line-height:18px;\">");
-            htmlBody.Append("<a href=\"http://" + requestUrlAuthority + "/Account/" + "validateForgetPassword?username=" + toMail + "&guid=" + guid + "\"> Click here to change your Password </a>");
+            htmlBody.Append("<a href=\"http://" + requestUrlAuthority + "/#" + "resetpassword/" + toMail + "/" + guid + "\"> Click here to change your Password </a>");
             htmlBody.Append("</p>");
             htmlBody.Append("</td>");
             htmlBody.Append("</tr>");

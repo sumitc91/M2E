@@ -1,85 +1,67 @@
 BeforeLoginApp.controller('resetPasswordTemplate', function ($scope, $http, $routeParams, $location) {
-
-    var resetPasswordRequest = {
-            userName: $routeParams.userName,
-            guid: $routeParams.guid,
-            password: ''
+    
+    var resetPasswordRequestData = {
+            Username: $routeParams.userName,
+            Guid: $routeParams.guid,
+            Password: ''
     };
     $scope.FormData = {
         pass: '',
         repass: ''
     };
-    $scope.Header = {
-        message: '',
-        className: '',
-        iconClassName: ''
-    };
-    $scope.Content = {
-        header1: '',
-        header2: '',
-        contentClasstheme: '',
-        header2IconClassName: '',
-        message: '',
-        companyName: ''
-    };
-    var validatePassword = true;
+    var validatePassword = false;
     $scope.PasswordAlertContent = {
         visible: false,
         message: ''
     }
     $scope.resetPasswordRequest = function () {
-        if ($scope.ClientFormData.Password == $scope.ClientFormData.ConfirmPassword) {
+        if ($scope.FormData.pass == $scope.FormData.repass) {
             if ($scope.FormData.pass != "") {
                 validatePassword = true;
-                resetPasswordRequest.password = $scope.ClientFormData.Password;
-
+                resetPasswordRequestData.Password = $scope.FormData.pass;
             }
             else {
                 validatePassword = false;
                 $scope.PasswordAlertContent.visible = true;
                 $scope.PasswordAlertContent.message = "Your Password Cannot be Empty!!! Please re-enter password";
             }
-
         }
         else {
             validatePassword = false;
             $scope.PasswordAlertContent.visible = true;
-            $scope.PasswordAlertContent.message = "Password didn't match!!! Please re-enter password";
+            $scope.PasswordAlertContent.message = "Password didn't match!!! Please re-enter password. Make sure your caps lock is off.";
         }
+
         if (validatePassword) {
             startBlockUI('wait..', 3);
             $http({
-                url: '/Auth/ValidateForgetPassword',
+                url: '/Auth/ResetPassword',
                 method: "POST",
-                data: resetPasswordRequest,
+                data: resetPasswordRequestData,
                 headers: { 'Content-Type': 'application/json' }
             }).success(function (data, status, headers, config) {
-                if (data == "200") {
+                if (data.Status == "200") {
                     showToastMessage("Success", "Password has been successfully changed.");
                     location.href = "#/login";
+                    stopBlockUI();
                 }
-                else if (data == "404") {
-                    $scope.ForgetPasswordContent = false;
+                else if (data.Status == "404") {
                     $scope.ForgetPasswordAlertContent.visible = true;
                     $scope.ForgetPasswordAlertContent.message = "Entered email id is not registerd with us. Please enter your email address which is registered with us to set new password.";
+                    stopBlockUI();
                 }
-                else if (data == "402") {
-                    $scope.ForgetPasswordContent = false;
-                    $scope.ForgetPasswordForm = false;
-                    $scope.ForgetPasswordAlertContent.visible = true; $scope.ForgetPasswordAlertContent.message = "Email Address-" + $('#forgetPasswordInputBoxId').val() + " is not valideted yet. please Please check your email for validation.";
-                    $scope.ResendValidationOrSignup.visible = true;
-                    $scope.ResendValidationOrSignup.title = "Don't have emaill address validation Link?";
-                    $scope.ResendValidationOrSignup.buttonName = "Resend validation link";
-                    $scope.ResendValidationOrSignup.functionName = "ResendValidationCodeRequest()";
+                else if (data.Status == "402") {
+                    location.href = "/?email=" + $('#forgetPasswordInputBoxId').val() + "#/showmessage/4/";
+                    stopBlockUI();
                 }
-                else if (data == "500") {
+                else if (data.Status == "500") {
                     location.href = "/?email=" + $('#forgetPasswordInputBoxId').val() + "#/showmessage/3/";
+                    stopBlockUI();
                 }
             }).error(function (data, status, headers, config) {
 
             });
         } else {
-            $scope.showErrors = true;
             showToastMessage("Error", "Some Fields are Invalid !!!");
         }
     }

@@ -182,6 +182,7 @@
     <Compile Include="Models\DataWrapper\CreateTemplate\CreateTemplateTextBoxQuestionsListModel.cs" />
     <Compile Include="Models\DataWrapper\LoginRequest.cs" />
     <Compile Include="Models\DataWrapper\RegisterationRequest.cs" />
+    <Compile Include="Models\DataWrapper\ResetPasswordRequest.cs" />
     <Compile Include="Models\DataWrapper\ValidateAccountRequest.cs" />
     <Compile Include="Models\ForgetPassword.cs">
       <DependentUpon>M2EContext.tt</DependentUpon>
@@ -233,6 +234,7 @@
       <DependentUpon>M2EContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Auth\AuthService.cs" />
     <Compile Include="Service\Client\ClientDetailService.cs" />
     <Compile Include="Service\JobTemplate\ClientTemplateService.cs" />
     <Compile Include="Service\JobTemplate\CommonMethods\CreateSubTemplateByRefKey.cs" />
