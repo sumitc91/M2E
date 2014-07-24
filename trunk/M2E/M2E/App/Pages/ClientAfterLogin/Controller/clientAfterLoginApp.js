@@ -11,16 +11,26 @@ ClientAfterLoginApp.config(function ($routeProvider) {
 
 });
 
-ClientAfterLoginApp.run(function ($rootScope, $location) { //Insert in the function definition the dependencies you need.
-    
-    $rootScope.$on("$locationChangeStart",function(event, next, current){        ;
+ClientAfterLoginApp.run(function ($rootScope, $location,CookieUtil, SessionManagementUtil) { //Insert in the function definition the dependencies you need.
+
+    $rootScope.$on("$locationChangeStart", function (event, next, current) {
+        
+        var headerSessionData = {
+            UTMZT: CookieUtil.getUTMZT(),
+            UTMZK: CookieUtil.getUTMZK(),
+            UTMZV: CookieUtil.getUTMZV()
+        }
+
+        SessionManagementUtil.isValidSession(headerSessionData);
+
         gaWeb("BeforeLogin-Page Visited", "Page Visited", next);
         var path = next.split('#');        
         gaPageView(path,'title');            
     });
 });
 
-ClientAfterLoginApp.controller('ClientAfterMasterPage', function ($scope, $http, $rootScope, CookieUtil) {    
+ClientAfterLoginApp.controller('ClientAfterMasterPage', function ($scope, $http, $rootScope, CookieUtil) {
+    
     $scope.ClientCategoryList = [
    { MainCategory: "Category",
        subCategoryList: [

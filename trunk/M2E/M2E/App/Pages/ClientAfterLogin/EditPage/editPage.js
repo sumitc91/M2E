@@ -1,5 +1,5 @@
 ClientAfterLoginApp.controller('ClientAfterLoginEditPage', function ($scope, $http, $rootScope, CookieUtil) {
-    $('title').html("Client - MadeToEarn");
+    $('title').html("edit page"); //TODO: change the title so cann't be tracked in log
     loadClientDetails();
 
     function loadClientDetails() {

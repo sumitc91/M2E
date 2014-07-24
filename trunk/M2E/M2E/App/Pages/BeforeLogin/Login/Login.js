@@ -98,9 +98,11 @@ BeforeLoginApp.controller('beforeLoginSignInController', function ($scope, $http
                     //showToastMessage("Success", "Successfully Logged in !");                    
                     //console.log("data : " + data);
                     //alert("auth token : "+data.Payload.AuthToken);
-                    CookieUtil.setAuthToken(data.Payload.AuthToken, userSession.keepMeSignedIn);
-                    CookieUtil.setAuthKey(data.Payload.AuthKey, userSession.keepMeSignedIn);
-                    CookieUtil.setAuthValue(data.Payload.AuthValue, userSession.keepMeSignedIn);
+                    CookieUtil.setUTMZT(data.Payload.UTMZT, userSession.keepMeSignedIn);
+                    CookieUtil.setUTMZK(data.Payload.UTMZK, userSession.keepMeSignedIn);
+                    CookieUtil.setUTMZV(data.Payload.UTMZV, userSession.keepMeSignedIn);
+                    CookieUtil.setUTIME(data.Payload.TimeStamp, userSession.keepMeSignedIn);
+                    CookieUtil.setKMSI(userSession.keepMeSignedIn, true); // to store KMSI value for maximum possible time.
                     location.href = "/client";
                 }
 

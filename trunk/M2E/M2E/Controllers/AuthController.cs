@@ -44,9 +44,16 @@ namespace M2E.Controllers
             {
                 var session = new M2ESession(req.UserName);
                 TokenManager.CreateSession(session);
-                responseData.AuthToken = session.SessionId;
+                responseData.UTMZT = session.SessionId;
             }
             var response = new ResponseModel<LoginResponse> { Status = Convert.ToInt32(responseData.Code), Message = "success", Payload = responseData };
+            return Json(response);
+        }
+
+        [HttpPost]
+        public JsonResult IsValidSession(isValidSessionRequest req)
+        {
+            var response = new ResponseModel<bool> { Status = 200, Message = "success", Payload = TokenManager.IsValidSession(req.UTMZT) };
             return Json(response);
         }
 

@@ -25,11 +25,10 @@ namespace M2E.Service.Login
             {
                 var user = _db.Users.SingleOrDefault(x => x.Username == userName && x.isActive == "true");
                 if (user != null)
-                {
-                    userData.AuthToken = "auth-token";
+                {                    
                     string Authkey = ConfigurationManager.AppSettings["AuthKey"];
-                    userData.AuthKey = EncryptionClass.GetEncryptionKey(user.Username, Authkey);
-                    userData.AuthValue = EncryptionClass.GetEncryptionKey(user.Password, Authkey);
+                    userData.UTMZK = EncryptionClass.GetEncryptionKey(user.Username, Authkey);
+                    userData.UTMZV = EncryptionClass.GetEncryptionKey(user.Password, Authkey);
                     userData.TimeStamp = DateTime.Now.ToString(CultureInfo.InvariantCulture);
                     userData.Code = "200";
                     try

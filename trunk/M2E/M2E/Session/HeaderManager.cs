@@ -9,14 +9,17 @@ namespace M2E.Session
     {
         public HeaderManager(HttpRequestBase requestHeader)
         {
-            IEnumerable<string> headerValues = requestHeader.Headers.GetValues("AuthToken");
-            this.AuthToken = headerValues.FirstOrDefault();
-            //guid = guid.Replace("/", "");
-            headerValues = requestHeader.Headers.GetValues("AuthKey");
-            this.AuthKey = headerValues.FirstOrDefault();
+            IEnumerable<string> headerValues = requestHeader.Headers.GetValues("UTMZT");
+            if(headerValues != null)
+                this.AuthToken = headerValues.FirstOrDefault();            
+            
+            headerValues = requestHeader.Headers.GetValues("UTMZK");            
+            if (headerValues != null)
+                this.AuthKey = headerValues.FirstOrDefault();
 
-            headerValues = requestHeader.Headers.GetValues("AuthValue");
-            this.AuthValue = headerValues.FirstOrDefault();
+            headerValues = requestHeader.Headers.GetValues("UTMZV");
+            if (headerValues != null)
+                this.AuthValue = headerValues.FirstOrDefault();
         }
 
         public string AuthToken { get; set; }

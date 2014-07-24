@@ -1,6 +1,6 @@
 ClientAfterLoginApp.controller('ClientAfterLoginIndex', function ($scope, $http, $route, $rootScope, CookieUtil) {
     $scope.logoImage = { url: logoImage };
-    $('title').html("Client - MadeToEarn");
+    $('title').html("index"); //TODO: change the title so cann't be tracked in log
 
     //$scope.InProgressTaskList = [{ showEllipse: true, title: "my first template", timeShowType: "info", showTime: "5 hours", editId: "", creationDate: "an 2014" },
     //    { showEllipse: true, title: "my second template", timeShowType: "danger", showTime: "2 hours", editId: "", creationDate: "feb 2013" },
@@ -11,9 +11,9 @@ ClientAfterLoginApp.controller('ClientAfterLoginIndex', function ($scope, $http,
     var url = ServerContextPah + '/Client/GetAllTemplateInformation';
     var headers = {
         'Content-Type': 'application/json',        
-        'AuthToken': CookieUtil.getAuthToken(),
-        'AuthKey':  CookieUtil.getAuthKey(),
-        'AuthValue': CookieUtil.getAuthValue()
+        'UTMZT': CookieUtil.getUTMZT(),
+        'UTMZK':  CookieUtil.getUTMZK(),
+        'UTMZV': CookieUtil.getUTMZV()
     };
     startBlockUI('wait..', 3);
     $http({
