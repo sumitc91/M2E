@@ -45,11 +45,21 @@ BeforeLoginApp.controller('showMessageTemplate', function ($scope, $http, $route
         $scope.Header.message = "Internal server error has occured.";
         $scope.Header.className = "alert-danger";
         $scope.Header.iconClassName = "fa-ban";
-        $scope.Content.header1 = "500";
-        $scope.Content.companyName = "Error";
+        $scope.Content.header1 = "MadeToEarn";
+        $scope.Content.companyName = "";
         $scope.Content.contentClasstheme = "callout-danger";
         $scope.Content.header2IconClassName = "fa fa-warning text-yellow";
         $scope.Content.header2 = "Something went wrong. we will soon fix it. Sorry for inconvenience.";
+    } else if ($scope.code == 4) {
+        $scope.Header.message = "Link Expired";
+        $scope.Header.className = "alert-warning";
+        $scope.Header.iconClassName = "fa-warning";
+        $scope.Content.header1 = "MadeToEarn";
+        $scope.Content.companyName = "";
+        $scope.Content.contentClasstheme = "callout-warning";
+        $scope.Content.header2IconClassName = "fa fa-warning text-yellow";
+        $scope.Content.header2 = "Oops! You are trying to access expired link.";
+        $scope.Content.message = "You have already used the link to validate your account.";
     }
 });
 
