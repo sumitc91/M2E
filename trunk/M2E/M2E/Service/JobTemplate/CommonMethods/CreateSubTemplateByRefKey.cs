@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using M2E.Models;
 using M2E.Models.DataWrapper.CreateTemplate;
 using M2E.Common.Logger;
@@ -14,7 +12,7 @@ namespace M2E.Service.JobTemplate.CommonMethods
 {
     public class CreateSubTemplateByRefKey
     {
-        private static readonly ILogger logger = new Logger(Convert.ToString(MethodBase.GetCurrentMethod().DeclaringType));
+        private static readonly ILogger Logger = new Logger(Convert.ToString(MethodBase.GetCurrentMethod().DeclaringType));
         private DbContextException _dbContextException = new DbContextException();
         private readonly M2EContext _db = new M2EContext();
 

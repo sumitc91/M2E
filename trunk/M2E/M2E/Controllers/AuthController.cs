@@ -82,7 +82,7 @@ namespace M2E.Controllers
 
         public JsonResult ForgetPassword(string id)
         {
-            return Json(new AuthService().ForgetPasswordService(id, Request));
+            return Json(new AuthService().ForgetPasswordService(id, Request),JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

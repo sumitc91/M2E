@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using M2E.Models;
 using M2E.Models.DataResponse;
 using M2E.Common.Logger;
@@ -12,7 +10,7 @@ namespace M2E.Service.Client
 {
     public class ClientDetailService
     {
-        private static readonly ILogger logger = new Logger(Convert.ToString(MethodBase.GetCurrentMethod().DeclaringType));
+        private static readonly ILogger Logger = new Logger(Convert.ToString(MethodBase.GetCurrentMethod().DeclaringType));
         private DbContextException _dbContextException = new DbContextException();
         private readonly M2EContext _db = new M2EContext();
 
@@ -22,14 +20,14 @@ namespace M2E.Service.Client
                         
             try
             {
-                var clientDetailDBResult = _db.Users.SingleOrDefault(x => x.Username == username);
-                if (clientDetailDBResult != null)
+                var clientDetailDbResult = _db.Users.SingleOrDefault(x => x.Username == username);
+                if (clientDetailDbResult != null)
                 {
                     var createClientDetailResponse = new ClientDetailsModel
                     {
-                        FirstName = clientDetailDBResult.FirstName,
-                        LastName = clientDetailDBResult.LastName,
-                        Username = clientDetailDBResult.Username
+                        FirstName = clientDetailDbResult.FirstName,
+                        LastName = clientDetailDbResult.LastName,
+                        Username = clientDetailDbResult.Username
                     };
                     response.Status = 200;
                     response.Message = "success";
