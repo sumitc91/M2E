@@ -26,8 +26,7 @@ BeforeLoginApp.controller('beforeLoginSignInController', function ($scope, $http
         showToastMessage("Success", "Password has been successfully changed.");
         $scope.showHeaderErrors = true;
         $scope.HeaderAlert.visible = true;
-        $scope.HeaderAlert.message = "Your Password has been successfully changed.";
-        //$route.reload();
+        $scope.HeaderAlert.message = "Your Password has been successfully changed.";       
     }
 
     $scope.Login = function () {
