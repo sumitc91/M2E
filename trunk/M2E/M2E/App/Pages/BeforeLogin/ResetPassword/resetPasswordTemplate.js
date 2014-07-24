@@ -33,30 +33,27 @@ BeforeLoginApp.controller('resetPasswordTemplate', function ($scope, $http, $rou
         }
 
         if (validatePassword) {
-            startBlockUI('wait..', 3);
+            //startBlockUI('wait..', 3);
             $http({
                 url: '/Auth/ResetPassword',
                 method: "POST",
                 data: resetPasswordRequestData,
                 headers: { 'Content-Type': 'application/json' }
             }).success(function (data, status, headers, config) {
+                //stopBlockUI();
                 if (data.Status == "200") {
-                    showToastMessage("Success", "Password has been successfully changed.");
-                    location.href = "#/login";
-                    stopBlockUI();
+                    //showToastMessage("Success", "Password has been successfully changed.");
+                    location.href = "#/login/Password200";                    
                 }
                 else if (data.Status == "404") {
                     $scope.ForgetPasswordAlertContent.visible = true;
-                    $scope.ForgetPasswordAlertContent.message = "Entered email id is not registerd with us. Please enter your email address which is registered with us to set new password.";
-                    stopBlockUI();
+                    $scope.ForgetPasswordAlertContent.message = "Entered email id is not registerd with us. Please enter your email address which is registered with us to set new password.";                   
                 }
                 else if (data.Status == "402") {
-                    location.href = "/?email=" + $('#forgetPasswordInputBoxId').val() + "#/showmessage/4/";
-                    stopBlockUI();
+                    location.href = "/?email=" + $('#forgetPasswordInputBoxId').val() + "#/showmessage/4/";                    
                 }
                 else if (data.Status == "500") {
-                    location.href = "/?email=" + $('#forgetPasswordInputBoxId').val() + "#/showmessage/3/";
-                    stopBlockUI();
+                    location.href = "/?email=" + $('#forgetPasswordInputBoxId').val() + "#/showmessage/3/";                    
                 }
             }).error(function (data, status, headers, config) {
 
@@ -66,6 +63,21 @@ BeforeLoginApp.controller('resetPasswordTemplate', function ($scope, $http, $rou
         }
     }
 });
+
+function startBlockUI(mssg, size) {
+    $.blockUI({
+        message: '<h' + size + '><img src="../../App/img/loading/loading123.gif" />' + mssg + '</h' + size + '>',
+        css: {
+            border: 'none',
+            padding: '15px',
+            backgroundColor: '#000',
+            '-webkit-border-radius': '10px',
+            '-moz-border-radius': '10px',
+            opacity: .5,
+            color: '#fff'
+        }
+    });
+}
 
 function stopBlockUI() {
     $.unblockUI();
