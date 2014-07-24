@@ -15,18 +15,18 @@ BeforeLoginApp.controller('forgetPasswordTemplate', function ($scope, $http, $ro
     $scope.ForgetPasswordSendRequest = function () {
         if (isValidEmailAddress($('#forgetPasswordInputBoxId').val())) { 
             $http({
-                url: '/Auth/forgetPassword/' + $('#forgetPasswordInputBoxId').val(),
+                url: '/Auth/ForgetPassword/' + $('#forgetPasswordInputBoxId').val(),
                 method: "GET"          
-            }).success(function (data, status, headers, config) {                             
-                if (data == "200") {
+            }).success(function (data, status, headers, config) {
+                if (data.Status == "200") {
                     location.href = "/?email=" + $('#forgetPasswordInputBoxId').val() + "#/showmessage/2/";
                 }
-                else if (data == "404") {
+                else if (data.Status == "404") {
                     $scope.ForgetPasswordContent = false;
                     $scope.ForgetPasswordAlertContent.visible = true;
                     $scope.ForgetPasswordAlertContent.message = "Entered email id is not registerd with us. Please enter your email address which is registered with us to set new password.";
                 }
-                else if (data == "402") {
+                else if (data.Status == "402") {
                     $scope.ForgetPasswordContent = false;
                     $scope.ForgetPasswordForm = false;
                     $scope.ForgetPasswordAlertContent.visible = true; $scope.ForgetPasswordAlertContent.message = "Email Address-" + $('#forgetPasswordInputBoxId').val() + " is not valideted yet. please Please check your email for validation.";
@@ -35,11 +35,11 @@ BeforeLoginApp.controller('forgetPasswordTemplate', function ($scope, $http, $ro
                     $scope.ResendValidationOrSignup.buttonName = "Resend validation link";
                     $scope.ResendValidationOrSignup.functionName = "ResendValidationCodeRequest";
                 }
-                else if (data == "500") {
+                else if (data.Status == "500") {
                     location.href = "/?email=" + $('#forgetPasswordInputBoxId').val() + "#/showmessage/3/";
                 }
             }).error(function (data, status, headers, config) {
-                
+                alert("Not Working");
             });
         }
             // Check Status, Email Id is valid or registered or not 

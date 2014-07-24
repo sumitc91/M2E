@@ -62,7 +62,6 @@ namespace M2E.Controllers
         {
             var returnUrl = "/";
             var referral = Request.QueryString["ref"];
-            var response = new ResponseModel<string>();
             if (req.Source != "web") return Json("Not Web");
             var webRegisterService = new WebRegister();
             return Json(webRegisterService.WebRegisterService(req, Request));
