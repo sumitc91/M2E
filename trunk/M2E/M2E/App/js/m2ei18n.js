@@ -17,27 +17,27 @@
         // Add any variations of a language value and map to a supported language.
         var langMap = {
             /*German/Deutsch */
-            "de": "de",
-            "de-at": "de",
-            "de-de": "de",
-            "de-li": "de",
-            "de-lu": "de",
-            "de-ch": "de",
+            //"de": "de",
+            //"de-at": "de",
+            //"de-de": "de",
+            //"de-li": "de",
+            //"de-lu": "de",
+            //"de-ch": "de",
             /*English*/
             "en": "en-us",
-            "en-gb": "en-gb",
+            //"en-gb": "en-gb",
             "en-us": "en-us",
             /*French*/
-            "fr": "fr-fr",
-            "fr-fr": "fr-fr",
-            "fr-be": "fr-fr",
-            "fr-ca": "fr-fr",
-            "fr-lu": "fr-fr",
-            "fr-ch": "fr-fr",
+            //"fr": "fr-fr",
+            //"fr-fr": "fr-fr",
+            //"fr-be": "fr-fr",
+            //"fr-ca": "fr-fr",
+            //"fr-lu": "fr-fr",
+            //"fr-ch": "fr-fr",
             /*Italian*/
-            "it": "it",
-            "it-it": "it",
-            "it-ch": "it",
+            //"it": "it",
+            //"it-it": "it",
+            //"it-ch": "it",
             /*Hindi*/
             "hi_in": "hi_in",            
         };
@@ -85,7 +85,7 @@
             });
         }
     };
-    
+
     $.ajax({
         url: "../../App/js/i18n/i18n_" + getLanguage() + ".js",
         dataType: "script",
